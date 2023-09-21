@@ -6,7 +6,7 @@ locations:
     mappingDefinitions:
       "51":
         database: COVID_19
-        schema: DEPLOY_SOURCE
+        schema: SOURCE
   STAGE:
     mappingDefinitions:
       "51":
