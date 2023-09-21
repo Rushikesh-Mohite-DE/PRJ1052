@@ -3,11 +3,20 @@ installedPackages: {}
 jobs: {}
 locations:
   SOURCE:
-    mappingDefinitions: {}
+    mappingDefinitions:
+      "51":
+        database: COVID_19
+        schema: DEPLOY_SOURCE
   STAGE:
-    mappingDefinitions: {}
+    mappingDefinitions:
+      "51":
+        database: COVID_19
+        schema: DEPLOY_STAGE
   TARGET:
-    mappingDefinitions: {}
+    mappingDefinitions:
+      "51":
+        database: COVID_19
+        schema: DEPLOY_TARGET
 macros: {}
 packages: {}
 projects: {}
