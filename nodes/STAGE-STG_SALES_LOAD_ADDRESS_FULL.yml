@@ -31,6 +31,20 @@ steps:
                     stepCounter: 35005a40-6a9e-4690-b36e-136d1bb556ba
                 transform: ""
           - columnReference:
+              columnCounter: 3758b6ae-617b-4a7b-a122-e14a2144bf0f
+              stepCounter: 6bff6e1c-d4b0-4a55-851e-22aea6e7e4bd
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ADDRESS_ID_STATUS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: ea50def9-ec9b-404b-adff-74c8949bc382
+                    stepCounter: 35005a40-6a9e-4690-b36e-136d1bb556ba
+                transform: "{{even_odd('\"SALES_LOAD_ADDRESS_FULL\".\"ADDRESS_ID\"')}}"
+          - columnReference:
               columnCounter: 9cb56ccc-ae8f-41c4-919e-ebb5907d0a6f
               stepCounter: 6bff6e1c-d4b0-4a55-851e-22aea6e7e4bd
             dataType: VARCHAR(20)
@@ -57,7 +71,7 @@ steps:
               - columnReferences:
                   - columnCounter: cae7efc4-202c-4e73-a049-ce897832b9df
                     stepCounter: 35005a40-6a9e-4690-b36e-136d1bb556ba
-                transform: ""
+                transform: "{{CONCAT('\"SALES_LOAD_ADDRESS_FULL\".\"ADDRESS_ID\"','\"SALES_LOAD_ADDRESS_FULL\".\"ADDRESS_LINE_1\"')}}"
           - columnReference:
               columnCounter: c61021f6-a50d-46bb-8abc-d0b189032b92
               stepCounter: 6bff6e1c-d4b0-4a55-851e-22aea6e7e4bd
@@ -170,6 +184,20 @@ steps:
                   - columnCounter: b877e4ce-ad20-4c44-81ca-ee0926080cbd
                     stepCounter: 35005a40-6a9e-4690-b36e-136d1bb556ba
                 transform: ""
+          - columnReference:
+              columnCounter: 98b55af0-0755-4157-a092-f654516933d8
+              stepCounter: 6bff6e1c-d4b0-4a55-851e-22aea6e7e4bd
+            dataType: INTEGER
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ZIP_CODE_MACRO
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: b877e4ce-ad20-4c44-81ca-ee0926080cbd
+                    stepCounter: 35005a40-6a9e-4690-b36e-136d1bb556ba
+                transform: "{{add_number('\"SALES_LOAD_ADDRESS_FULL\".\"ZIP_CODE\"')}}"
           - columnReference:
               columnCounter: cb7f359b-6471-4692-821f-363072c1cfcf
               stepCounter: 6bff6e1c-d4b0-4a55-851e-22aea6e7e4bd
