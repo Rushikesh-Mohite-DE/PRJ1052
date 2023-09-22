@@ -1,0 +1,231 @@
+steps:
+  PSTG_AW_LOAD_PRODUCTCOSTHISTORY-185807c4-a581-4300-9b31-cfdca56e4760:
+    operation:
+      config:
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: TARGET
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 29741517-c5e1-419f-b940-cd6964da8cdb
+              stepCounter: 185807c4-a581-4300-9b31-cfdca56e4760
+            config: {}
+            dataType: NUMBER
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSurrogateKey: true
+            name: PSTG_AW_LOAD_PRODUCTCOSTHISTORY_KEY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: ""
+          - columnReference:
+              columnCounter: f1d4107b-1edd-482e-ae2b-eba980158718
+              stepCounter: 185807c4-a581-4300-9b31-cfdca56e4760
+            dataType: NUMBER(38,0)
+            description: Product identification number. Foreign key to Product.ProductID
+            hashColumns: []
+            hashDetails: null
+            isBusinessKey: true
+            name: PRODUCTID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 89c4b7fa-54da-4a76-8081-e51be90ed787
+                    stepCounter: af04d540-a2d5-4a94-adc2-1a1392fa3617
+                transform: ""
+          - columnReference:
+              columnCounter: ad14d52e-d61d-48ba-a28c-434209e26d9b
+              stepCounter: 185807c4-a581-4300-9b31-cfdca56e4760
+            dataType: TIMESTAMP_NTZ(9)
+            description: Product cost start date.
+            hashColumns: []
+            hashDetails: null
+            name: STARTDATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: d235538d-2242-465b-a302-4eacd30229de
+                    stepCounter: af04d540-a2d5-4a94-adc2-1a1392fa3617
+                transform: ""
+          - columnReference:
+              columnCounter: ed9464b2-1384-49eb-a1cb-c3770984d6bf
+              stepCounter: 185807c4-a581-4300-9b31-cfdca56e4760
+            dataType: VARCHAR(16777216)
+            description: Product cost end date.
+            hashColumns: []
+            hashDetails: null
+            name: ENDDATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 36d37ddd-fccb-4866-a851-b8138436ca45
+                    stepCounter: af04d540-a2d5-4a94-adc2-1a1392fa3617
+                transform: ""
+          - columnReference:
+              columnCounter: 30847a18-736a-4e38-9c88-09a61e884ba1
+              stepCounter: 185807c4-a581-4300-9b31-cfdca56e4760
+            dataType: NUMBER(19,4)
+            description: Standard cost of the product.
+            hashColumns: []
+            hashDetails: null
+            name: STANDARDCOST
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 17bc0572-56fa-4e40-a78f-057b0b4542a3
+                    stepCounter: af04d540-a2d5-4a94-adc2-1a1392fa3617
+                transform: ""
+          - columnReference:
+              columnCounter: 3ceb0baf-432f-4d6b-bb2e-4d35d5a92b61
+              stepCounter: 185807c4-a581-4300-9b31-cfdca56e4760
+            dataType: TIMESTAMP_NTZ(9)
+            description: Date and time the record was last updated.
+            hashColumns: []
+            hashDetails: null
+            name: MODIFIEDDATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 39e12821-0685-4eed-9912-7d77dc79a07e
+                    stepCounter: af04d540-a2d5-4a94-adc2-1a1392fa3617
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 66051eeb-6655-4399-bfc7-9464abd8160d
+              stepCounter: 185807c4-a581-4300-9b31-cfdca56e4760
+            config: {}
+            dataType: NUMBER
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSystemVersion: true
+            name: SYSTEM_VERSION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: e666c5e2-a1db-4b21-907d-4a14f9dc2ad4
+              stepCounter: 185807c4-a581-4300-9b31-cfdca56e4760
+            config: {}
+            dataType: VARCHAR
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSystemCurrentFlag: true
+            name: SYSTEM_CURRENT_FLAG
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 346de6bc-fa01-4724-8f66-a61dbc78cc71
+              stepCounter: 185807c4-a581-4300-9b31-cfdca56e4760
+            config: {}
+            dataType: TIMESTAMP
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSystemStartDate: true
+            name: SYSTEM_START_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 540e07ed-919f-47fa-8c96-5ed6779d85e6
+              stepCounter: 185807c4-a581-4300-9b31-cfdca56e4760
+            config: {}
+            dataType: TIMESTAMP
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSystemEndDate: true
+            name: SYSTEM_END_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 390ccc1a-7d54-47e8-961d-14025ba71266
+              stepCounter: 185807c4-a581-4300-9b31-cfdca56e4760
+            config: {}
+            dataType: TIMESTAMP
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSystemCreateDate: true
+            name: SYSTEM_CREATE_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 0ce62bb2-13d1-47dd-9087-fe77654069d0
+              stepCounter: 185807c4-a581-4300-9b31-cfdca56e4760
+            config: {}
+            dataType: TIMESTAMP
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSystemUpdateDate: true
+            name: SYSTEM_UPDATE_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: STAGE
+                nodeName: STG_AW_LOAD_PRODUCTCOSTHISTORY
+            join:
+              joinCondition: FROM {{ ref('STAGE', 'STG_AW_LOAD_PRODUCTCOSTHISTORY') }} "STG_AW_LOAD_PRODUCTCOSTHISTORY"
+            name: PSTG_AW_LOAD_PRODUCTCOSTHISTORY
+            noLinkRefs: []
+      name: PSTG_AW_LOAD_PRODUCTCOSTHISTORY
+      overrideSQL: false
+      schema: ""
+      sqlType: persistentStage
+      type: sql
+    stepCounter: 185807c4-a581-4300-9b31-cfdca56e4760
