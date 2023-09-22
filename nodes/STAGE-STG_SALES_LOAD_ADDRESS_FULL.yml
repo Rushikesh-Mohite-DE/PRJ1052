@@ -131,7 +131,7 @@ steps:
           - columnReference:
               columnCounter: 2a2badce-2a9d-416e-a548-3739a33ba19e
               stepCounter: 6bff6e1c-d4b0-4a55-851e-22aea6e7e4bd
-            dataType: VARCHAR(3)
+            dataType: VARCHAR(30)
             description: ""
             hashColumns: []
             hashDetails: null
@@ -169,7 +169,7 @@ steps:
               - columnReferences:
                   - columnCounter: ea5e9540-4b60-49b5-87e5-1a6381c10f23
                     stepCounter: 35005a40-6a9e-4690-b36e-136d1bb556ba
-                transform: ""
+                transform: COALESCE("SALES_LOAD_ADDRESS_FULL"."STATE_CODE",'{{parameters.my_values[2]}}')
           - columnReference:
               columnCounter: 0f7dec61-7ed8-44e1-9cda-b217e3230435
               stepCounter: 6bff6e1c-d4b0-4a55-851e-22aea6e7e4bd
