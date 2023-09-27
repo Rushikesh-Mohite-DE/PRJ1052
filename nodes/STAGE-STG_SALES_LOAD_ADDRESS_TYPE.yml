@@ -10,7 +10,7 @@ steps:
       database: ""
       deployEnabled: true
       description: ""
-      isMultisource: false
+      isMultisource: true
       locationName: STAGE
       materializationType: table
       metadata:
@@ -30,6 +30,8 @@ steps:
                   - columnCounter: ead8468d-daa6-49f9-bca8-c21ca23d4718
                     stepCounter: 8fe29ace-c869-460d-b2b9-3846f48a255b
                 transform: ""
+              - columnReferences: []
+                transform: ""
           - columnReference:
               columnCounter: 1d3720a1-e2a2-4d76-a26a-048dea3be8ff
               stepCounter: 7c03b17f-278d-4e9b-af0f-937f9c41001e
@@ -43,6 +45,8 @@ steps:
               - columnReferences:
                   - columnCounter: edf4691e-5657-41c4-8558-eb69c74dce84
                     stepCounter: 8fe29ace-c869-460d-b2b9-3846f48a255b
+                transform: ""
+              - columnReferences: []
                 transform: ""
           - columnReference:
               columnCounter: 728a5d44-9396-45ce-bc53-77b54b7977d3
@@ -58,6 +62,8 @@ steps:
                   - columnCounter: a151e76b-ac12-4aca-8cbd-0de28751d22b
                     stepCounter: 8fe29ace-c869-460d-b2b9-3846f48a255b
                 transform: ""
+              - columnReferences: []
+                transform: ""
           - columnReference:
               columnCounter: 4a8b55a6-cd97-4542-bfbe-e2d7fdccef60
               stepCounter: 7c03b17f-278d-4e9b-af0f-937f9c41001e
@@ -71,6 +77,8 @@ steps:
               - columnReferences:
                   - columnCounter: 25f618dc-8e26-4feb-a0a5-106784dab132
                     stepCounter: 8fe29ace-c869-460d-b2b9-3846f48a255b
+                transform: ""
+              - columnReferences: []
                 transform: ""
           - columnReference:
               columnCounter: 61bbef45-0651-449d-9ece-f41f7541949e
@@ -86,6 +94,8 @@ steps:
                   - columnCounter: e071ee16-84e0-4d85-ad78-43e2cdab8bef
                     stepCounter: 8fe29ace-c869-460d-b2b9-3846f48a255b
                 transform: ""
+              - columnReferences: []
+                transform: ""
           - columnReference:
               columnCounter: 72666da6-a2c1-43fa-9082-73eef524e531
               stepCounter: 7c03b17f-278d-4e9b-af0f-937f9c41001e
@@ -100,7 +110,8 @@ steps:
                   - columnCounter: 68c26ef3-d729-4c3c-8ae4-0de38c1c02bf
                     stepCounter: 8fe29ace-c869-460d-b2b9-3846f48a255b
                 transform: ""
-        cteString: ""
+              - columnReferences: []
+                transform: ""
         enabledColumnTestIDs: []
         sourceMapping:
           - customSQL:
@@ -111,6 +122,13 @@ steps:
             join:
               joinCondition: FROM {{ ref('SOURCE', 'SALES_LOAD_ADDRESS_TYPE') }} "SALES_LOAD_ADDRESS_TYPE"
             name: STG_SALES_LOAD_ADDRESS_TYPE
+            noLinkRefs: []
+          - customSQL:
+              customSQL: ""
+            dependencies: []
+            join:
+              joinCondition: ""
+            name: NEW_SOURCE
             noLinkRefs: []
       name: STG_SALES_LOAD_ADDRESS_TYPE
       overrideSQL: false
