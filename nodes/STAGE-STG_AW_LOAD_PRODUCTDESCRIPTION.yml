@@ -1,0 +1,92 @@
+steps:
+  STG_AW_LOAD_PRODUCTDESCRIPTION-37f9283c-e2c9-40cc-b0f2-727f0673edf1:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: STAGE
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 6ba5e37b-3624-41a8-b2f1-d11901309b51
+              stepCounter: 37f9283c-e2c9-40cc-b0f2-727f0673edf1
+            dataType: NUMBER(38,0)
+            description: Primary key for ProductDescription records.
+            hashColumns: []
+            hashDetails: null
+            name: PRODUCTDESCRIPTIONID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 25ef358b-3580-4e8d-9774-a0a33ec4732a
+                    stepCounter: ca1df2f2-3343-48cd-9103-a6fbe5f50554
+                transform: ""
+          - columnReference:
+              columnCounter: b8ba64b3-ecff-4968-8fd8-5a692bc2454c
+              stepCounter: 37f9283c-e2c9-40cc-b0f2-727f0673edf1
+            dataType: VARCHAR(400)
+            description: Description of the product.
+            hashColumns: []
+            hashDetails: null
+            name: DESCRIPTION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 544a3a08-cba6-48aa-a9d1-a9b8cf1da9ff
+                    stepCounter: ca1df2f2-3343-48cd-9103-a6fbe5f50554
+                transform: ""
+          - columnReference:
+              columnCounter: 3b2b47ce-6323-4225-a361-c2b90c15af95
+              stepCounter: 37f9283c-e2c9-40cc-b0f2-727f0673edf1
+            dataType: VARCHAR(16777216)
+            description: ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.
+            hashColumns: []
+            hashDetails: null
+            name: ROWGUID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 9bcae0ee-caa8-45f7-a013-d1005f40f383
+                    stepCounter: ca1df2f2-3343-48cd-9103-a6fbe5f50554
+                transform: ""
+          - columnReference:
+              columnCounter: 4977cf28-3df0-4d3b-956e-8613ee7562fe
+              stepCounter: 37f9283c-e2c9-40cc-b0f2-727f0673edf1
+            dataType: TIMESTAMP_NTZ(9)
+            description: Date and time the record was last updated.
+            hashColumns: []
+            hashDetails: null
+            name: MODIFIEDDATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 97cc3fe3-2fe9-45f3-af88-50abe386e619
+                    stepCounter: ca1df2f2-3343-48cd-9103-a6fbe5f50554
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: SOURCE
+                nodeName: AW_LOAD_PRODUCTDESCRIPTION
+            join:
+              joinCondition: FROM {{ ref('SOURCE', 'AW_LOAD_PRODUCTDESCRIPTION') }} "AW_LOAD_PRODUCTDESCRIPTION"
+            name: STG_AW_LOAD_PRODUCTDESCRIPTION
+            noLinkRefs: []
+      name: STG_AW_LOAD_PRODUCTDESCRIPTION
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: 37f9283c-e2c9-40cc-b0f2-727f0673edf1
