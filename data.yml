@@ -1480,7 +1480,4 @@ stepTypes:
     name: Persistent Stage
     version: 1
 subgraphs: {}
-version: 3
-
-
-
+version: 2
