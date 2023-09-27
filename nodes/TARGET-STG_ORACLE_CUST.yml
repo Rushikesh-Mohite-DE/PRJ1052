@@ -1,0 +1,87 @@
+steps:
+  STG_ORACLE_CUST-ad78db1c-1952-4d26-900a-0ebe896e42a2:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: |-
+          TRUNCATE TABLE {{ ref('TARGET', 'STG_ORACLE_CUST') }};
+          TRUNCATE TABLE {{ ref('TARGET', 'STG_SAP_CUST') }};
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: TARGET
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - appliedColumnTests:
+              hasNull: false
+            columnReference:
+              columnCounter: 910ad8c6-0565-4635-b604-defff10ca7c5
+              stepCounter: ad78db1c-1952-4d26-900a-0ebe896e42a2
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: d708d2cf-a1ab-420d-bc4f-59fe11c0e33f
+                    stepCounter: 23766e45-8e77-43f3-8570-3325acf261dd
+                transform: ""
+          - appliedColumnTests:
+              hasNull: false
+            columnReference:
+              columnCounter: 7ae23eff-5f04-4e24-be8e-d7f2b8a5287a
+              stepCounter: ad78db1c-1952-4d26-900a-0ebe896e42a2
+            dataType: VARCHAR(20)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 68982cf9-15ab-4a1a-99ae-9dd072937983
+                    stepCounter: 23766e45-8e77-43f3-8570-3325acf261dd
+                transform: ""
+          - appliedColumnTests:
+              hasNull: false
+            columnReference:
+              columnCounter: 1579dfe7-e900-4ca5-bfce-a68726cb5ace
+              stepCounter: ad78db1c-1952-4d26-900a-0ebe896e42a2
+            dataType: VARCHAR(20)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: LOC
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: fcf2e6ca-08e9-4a64-9ad8-af3ee3983a95
+                    stepCounter: 23766e45-8e77-43f3-8570-3325acf261dd
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs:
+          - hasNull
+        sourceMapping:
+          - customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: SOURCE
+                nodeName: ORACLE_CUST
+            join:
+              joinCondition: FROM {{ ref('SOURCE', 'ORACLE_CUST') }} "ORACLE_CUST"
+            name: STG_ORACLE_CUST
+            noLinkRefs: []
+      name: STG_ORACLE_CUST
+      overrideSQL: false
+      schema: ""
+      sqlType: "137"
+      type: sql
+    stepCounter: ad78db1c-1952-4d26-900a-0ebe896e42a2
