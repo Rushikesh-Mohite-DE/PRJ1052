@@ -1,10 +1,15 @@
-defaultStorageMapping: STAGE
+
+defaultStorageMapping: SOURCE
+
+
+
 installedPackages: {}
 jobs: {}
 locations:
   SOURCE:
     mappingDefinitions:
       "51":
+
         database: COVID_19
         schema: SOURCE
   STAGE:
@@ -32,6 +37,7 @@ macros:
       {%- macro CONCAT(column1,column2) -%}
           'THIS IS MY ID  -' || {{ column1 }} || 'THIS IS MY ADDRESS - ' || {{column2}}
       {%- endmacro %}
+
 packages: {}
 projects: {}
 stepTypes:
@@ -946,7 +952,10 @@ stepTypes:
     version: 1
   StepType-View:
     id: View
-    isDisabled: false
+
+    isDisabled: true
+
+
     metadata:
       defaultStorageLocation: null
       error: null
