@@ -1,0 +1,109 @@
+steps:
+  STG_SALES_LOAD_ADDRESS_TYPE-a65f5801-b9e6-4345-b661-8a7b146cb6fe:
+    operation:
+      database: ""
+      dataset: ""
+      deployEnabled: true
+      description: ""
+      locationID: ""
+      locationName: STAGE
+      metadata:
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: abfd3f7e-adc8-487a-8a21-8551d5ab1a68
+              stepCounter: a65f5801-b9e6-4345-b661-8a7b146cb6fe
+            config: {}
+            dataType: VARCHAR(20)
+            defaultValue: ""
+            description: ""
+            name: ADDRESS_TYPE_CODE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: f8bcd890-6e3f-485a-8a9e-e57a73a525eb
+              stepCounter: a65f5801-b9e6-4345-b661-8a7b146cb6fe
+            config: {}
+            dataType: VARCHAR(50)
+            defaultValue: ""
+            description: ""
+            name: ADDRESS_TYPE_DESCRIPTION
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: fc23e3ba-c276-4d86-a7bd-adf4e597f059
+              stepCounter: a65f5801-b9e6-4345-b661-8a7b146cb6fe
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: CREATING_EMPLOYEE_ID
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 0567aac8-3e2d-4d9e-bbdf-2f08cc27015d
+              stepCounter: a65f5801-b9e6-4345-b661-8a7b146cb6fe
+            config: {}
+            dataType: TIMESTAMP_NTZ(9)
+            defaultValue: ""
+            description: ""
+            name: CREATED_DATETIME
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 0e306fbc-307a-431b-8a22-70871ad77f5d
+              stepCounter: a65f5801-b9e6-4345-b661-8a7b146cb6fe
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: LAST_CHANGE_EMPLOYEE_ID
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: f4c5ce11-5ef9-47e7-bea6-cc7537243a7f
+              stepCounter: a65f5801-b9e6-4345-b661-8a7b146cb6fe
+            config: {}
+            dataType: TIMESTAMP_NTZ(9)
+            defaultValue: ""
+            description: ""
+            name: LAST_CHANGE_DATETIME
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+        join:
+          joinCondition: FROM {{ ref('STAGE', 'STG_SALES_LOAD_ADDRESS_TYPE') }}
+      name: STG_SALES_LOAD_ADDRESS_TYPE
+      schema: ""
+      sqlType: Source
+      table: STG_SALES_LOAD_ADDRESS_TYPE
+      type: sourceInput
+    stepCounter: a65f5801-b9e6-4345-b661-8a7b146cb6fe
