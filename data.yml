@@ -7,7 +7,7 @@ locations:
       "51":
 
         database: COVID_19
-        schema: DEPLOY_SOURCE
+        schema: SOURCE
   STAGE:
     mappingDefinitions:
       "51":
@@ -19,26 +19,24 @@ locations:
         database: COVID_19
         schema: DEPLOY_TARGET
 
-macros: {}
+macros:
+  Macro-1:
+    id: "1"
+    macroString: |-
+      {%- macro even_odd(column) -%}
+          CASE WHEN MOD({{ column }}, 2) = 0 THEN 'EVEN' ELSE 'ODD' END
+      {%- endmacro %}
+
+      {%- macro add_number(column) -%}
+          {{ column }}+50
+      {%- endmacro %}
+
+      {%- macro CONCAT(column1,column2) -%}
+          'THIS IS MY ID  -' || {{ column1 }} || 'THIS IS MY ADDRESS - ' || {{column2}}
+      {%- endmacro %}
 packages: {}
 projects: {}
 stepTypes:
-            			{{ test_stage(test.name, test.continueOnFailure) }}
-            			{{ test.templateString }}
-                    {% endif %}
-            	{% endfor %}
-
-            	{% for column in columns %}
-            		{% for test in column.tests %}
-            			{{ test_stage(column.name + ": " + test.name) }}
-            			{{ test.templateString }}
-            		{% endfor %}
-            	{% endfor %}
-            {% endif %}
-    name: Copy of Stage
-    version: 1
-
-
   StepType-Dimension:
     id: Dimension
     isDisabled: false
@@ -950,7 +948,7 @@ stepTypes:
     version: 1
   StepType-View:
     id: View
-    isDisabled: true
+    isDisabled: false
     metadata:
       defaultStorageLocation: null
       error: null
@@ -1497,18 +1495,5 @@ stepTypes:
             {% endif %}
     name: Persistent Stage
     version: 1
-subgraphs:
-  Subgraph-36:
-    id: "36"
-    name: RUSHI01
-    steps:
-      - c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
-      - fc4fb9ae-a86b-42c6-b5db-692ce5d81ed3
-      - ca1df2f2-3343-48cd-9103-a6fbe5f50554
-      - 28ec20c3-1bbc-483c-bb58-155811bdce5b
-      - 53656acb-a4a6-409e-9cb9-145310cabb3b
-      - be976a30-0215-4f20-9d8f-1fec4e47873f
-      - 325fda67-2b9d-43ec-a3fb-bc7b82efeafb
-      - 37f9283c-e2c9-40cc-b0f2-727f0673edf1
-      - c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+subgraphs: {}
 version: 2
