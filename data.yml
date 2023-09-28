@@ -5,22 +5,40 @@ locations:
   SOURCE:
     mappingDefinitions:
       "51":
-        database: ""
-        schema: ""
+
+        database: COVID_19
+        schema: DEPLOY_SOURCE
   STAGE:
     mappingDefinitions:
       "51":
-        database: ""
-        schema: ""
+        database: COVID_19
+        schema: DEPLOY_STAGE
   TARGET:
     mappingDefinitions:
       "51":
-        database: ""
-        schema: ""
+        database: COVID_19
+        schema: DEPLOY_TARGET
+
 macros: {}
 packages: {}
 projects: {}
 stepTypes:
+            			{{ test_stage(test.name, test.continueOnFailure) }}
+            			{{ test.templateString }}
+                    {% endif %}
+            	{% endfor %}
+
+            	{% for column in columns %}
+            		{% for test in column.tests %}
+            			{{ test_stage(column.name + ": " + test.name) }}
+            			{{ test.templateString }}
+            		{% endfor %}
+            	{% endfor %}
+            {% endif %}
+    name: Copy of Stage
+    version: 1
+
+
   StepType-Dimension:
     id: Dimension
     isDisabled: false
