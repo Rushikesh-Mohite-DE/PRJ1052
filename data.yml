@@ -5,6 +5,7 @@ locations:
   SOURCE:
     mappingDefinitions:
       "51":
+
         database: COVID_19
         schema: SOURCE
   STAGE:
@@ -17,6 +18,7 @@ locations:
       "51":
         database: COVID_19
         schema: DEPLOY_TARGET
+
 macros:
   Macro-1:
     id: "1"

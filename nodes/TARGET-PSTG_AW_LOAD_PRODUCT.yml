@@ -1,0 +1,511 @@
+steps:
+  PSTG_AW_LOAD_PRODUCT-c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e:
+    operation:
+      config:
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: TARGET
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 28201781-a242-441e-b61d-81ea2a8fc70b
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            config: {}
+            dataType: NUMBER
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSurrogateKey: true
+            name: PSTG_AW_LOAD_PRODUCT_KEY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: ""
+          - columnReference:
+              columnCounter: 5018dc8f-b2f9-45bb-ba5f-0d649ccc796d
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: NUMBER(38,0)
+            description: Primary key for Product records.
+            hashColumns: []
+            hashDetails: null
+            isBusinessKey: true
+            name: PRODUCTID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 349a6900-014a-458b-a2bd-eb4646c3f0c4
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: 8c7a6252-6704-482b-b559-f1adaa5c041f
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: VARCHAR(16777216)
+            description: Name of the product.
+            hashColumns: []
+            hashDetails: null
+            name: NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2d52d0db-e3ce-4e8d-b403-644f8e90a457
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: 518a05f1-9ec2-40a6-9b54-6edcef3aa002
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: VARCHAR(25)
+            description: Unique product identification number.
+            hashColumns: []
+            hashDetails: null
+            name: PRODUCTNUMBER
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 33e4d3aa-4ab3-4bd6-a53a-02b384d26832
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: ecc44d2d-b5dc-41fd-ba67-b0d978f7cc90
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: VARCHAR(16777216)
+            description: 0 = Product is purchased, 1 = Product is manufactured in-house.
+            hashColumns: []
+            hashDetails: null
+            name: MAKEFLAG
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 83fe811a-fbf8-4abd-bfba-6377f64690dc
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: e2e94f89-b648-4377-a9f4-e031f53d87b5
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: VARCHAR(16777216)
+            description: 0 = Product is not a salable item. 1 = Product is salable.
+            hashColumns: []
+            hashDetails: null
+            name: FINISHEDGOODSFLAG
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: cb9d94a7-81eb-4356-a02c-06d46c3f9275
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: b22ef0fe-5738-4b0d-88ff-f2183305a9fb
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: VARCHAR(15)
+            description: Product color.
+            hashColumns: []
+            hashDetails: null
+            name: COLOR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12e22b84-75a3-4ac9-bb8f-d27e42a75ee5
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: d1eea7df-2e43-4d27-bdaa-877194976985
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: NUMBER(38,0)
+            description: Minimum inventory quantity.
+            hashColumns: []
+            hashDetails: null
+            name: SAFETYSTOCKLEVEL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 05742c36-8584-453c-9272-db9005c178ef
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: 2403c209-2f66-4e84-a1d9-7e3795674971
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: NUMBER(38,0)
+            description: Inventory level that triggers a purchase order or work order.
+            hashColumns: []
+            hashDetails: null
+            name: REORDERPOINT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: e0f51996-863c-4e95-b090-5cbe38c5376f
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: 6db62cda-c010-433a-b471-83d508ae7681
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: NUMBER(19,4)
+            description: Standard cost of the product.
+            hashColumns: []
+            hashDetails: null
+            name: STANDARDCOST
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 67558ba5-fb2e-47f1-a2a1-68d5366d1c6d
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: 753f47b3-3b00-46c4-a20d-4ed60373660a
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: NUMBER(19,4)
+            description: Selling price.
+            hashColumns: []
+            hashDetails: null
+            name: LISTPRICE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 5a4cc637-7111-4684-943c-54cb78b7cc2e
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: 2786e6bb-83b8-4997-9d65-6b374f2d3649
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: VARCHAR(5)
+            description: Product size.
+            hashColumns: []
+            hashDetails: null
+            name: SIZE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 372f4fbd-cd1f-41f5-b836-b646d04dddce
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: c62f44ba-82c4-485b-ae65-57ababa97786
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: VARCHAR(3)
+            description: Unit of measure for Size column.
+            hashColumns: []
+            hashDetails: null
+            name: SIZEUNITMEASURECODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 688ed394-dc7c-4e94-a9a9-ff2659c372dc
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: 93c16289-d572-457e-b6fc-ea01e209372b
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: VARCHAR(3)
+            description: Unit of measure for Weight column.
+            hashColumns: []
+            hashDetails: null
+            name: WEIGHTUNITMEASURECODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: eef318d6-94ac-4c30-aa42-5d03dd78e22b
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: 92ea81ea-56d3-4260-b964-0cbb5586f4ac
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: VARCHAR(16777216)
+            description: Product weight.
+            hashColumns: []
+            hashDetails: null
+            name: WEIGHT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: f5be557d-1e90-4b29-92ec-9c8a6e3c3ad6
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: 454200fb-6734-4a5a-ac12-82f36da1c4b9
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: NUMBER(38,0)
+            description: Number of days required to manufacture the product.
+            hashColumns: []
+            hashDetails: null
+            name: DAYSTOMANUFACTURE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 3215fe2d-5cb2-4aaa-b840-ecdad7571249
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: 857bb316-0991-4e9f-9990-c84bb2dc0e3e
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: VARCHAR(2)
+            description: R = Road, M = Mountain, T = Touring, S = Standard
+            hashColumns: []
+            hashDetails: null
+            name: PRODUCTLINE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 1ad5848a-088d-47dd-a7c9-768ab2da4303
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: 57e0d5ad-0140-43be-b6f4-dc77f0c5d52e
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: VARCHAR(2)
+            description: H = High, M = Medium, L = Low
+            hashColumns: []
+            hashDetails: null
+            name: CLASS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2da04150-2a90-4932-be70-49268a1d4107
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: 24335edc-fb9f-434c-b2db-5e80da807a42
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: VARCHAR(2)
+            description: W = Womens, M = Mens, U = Universal
+            hashColumns: []
+            hashDetails: null
+            name: STYLE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: c8129fca-0b62-48a4-8a7e-f29894509768
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: 95ce20ca-a6c6-44d2-b80d-5df520fe0160
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: VARCHAR(16777216)
+            description: Product is a member of this product subcategory. Foreign key to ProductSubCategory.ProductSubCategoryID.
+            hashColumns: []
+            hashDetails: null
+            name: PRODUCTSUBCATEGORYID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 9a983dee-33ae-4f2f-b3a2-e927cc42bf28
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: a6033d15-b9ca-41be-8e41-d20e0d2f5de2
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: VARCHAR(16777216)
+            description: Product is a member of this product model. Foreign key to ProductModel.ProductModelID.
+            hashColumns: []
+            hashDetails: null
+            name: PRODUCTMODELID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 71a86aba-d92f-4af1-9c20-07aeb3a8b418
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: 94ae12b6-cd76-4d5a-9d17-06cd2be7857c
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: TIMESTAMP_NTZ(9)
+            description: Date the product was available for sale.
+            hashColumns: []
+            hashDetails: null
+            name: SELLSTARTDATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 5d991601-65b4-4fa2-9fe5-61cb06206e1f
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: 84e73d11-9b67-49a1-aa49-4c7d841f3812
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: VARCHAR(16777216)
+            description: Date the product was no longer available for sale.
+            hashColumns: []
+            hashDetails: null
+            name: SELLENDDATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 7b845c02-eb8a-4daf-9d82-cd869f4ff1c9
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: 88b928b2-20b2-4e66-81f4-a1be34890804
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: VARCHAR(16777216)
+            description: Date the product was discontinued.
+            hashColumns: []
+            hashDetails: null
+            name: DISCONTINUEDDATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: d7a693b0-3216-46b9-801e-0c8d3a08ddb5
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: 8ce395e3-dbb8-4481-b3e3-cae2bf2ae5d5
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: VARCHAR(16777216)
+            description: ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.
+            hashColumns: []
+            hashDetails: null
+            name: ROWGUID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 5d9b6cdf-08f8-4796-88eb-a72dcddd7e83
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - columnReference:
+              columnCounter: 9e625192-e439-4305-9b6b-71fac5a08bcf
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            dataType: TIMESTAMP_NTZ(9)
+            description: Date and time the record was last updated.
+            hashColumns: []
+            hashDetails: null
+            name: MODIFIEDDATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: de6614b1-1405-4bc8-bf45-6b6bd7005a56
+                    stepCounter: c98bbd4b-ec03-4ce4-80b7-3c2a819225d6
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: fc5b5830-3f20-4ace-842a-224699d3050e
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            config: {}
+            dataType: NUMBER
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSystemVersion: true
+            name: SYSTEM_VERSION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 26ae3f4c-f180-4443-ac83-00f46f39d86c
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            config: {}
+            dataType: VARCHAR
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSystemCurrentFlag: true
+            name: SYSTEM_CURRENT_FLAG
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 88ade7bd-e13e-44fc-8dfb-a291fbfe5393
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            config: {}
+            dataType: TIMESTAMP
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSystemStartDate: true
+            name: SYSTEM_START_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 7ac104df-6656-478a-ab5b-a11dca2f8326
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            config: {}
+            dataType: TIMESTAMP
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSystemEndDate: true
+            name: SYSTEM_END_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 84dd4bae-75fc-4830-8498-c44d47bb77bc
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            config: {}
+            dataType: TIMESTAMP
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSystemCreateDate: true
+            name: SYSTEM_CREATE_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 9949a192-540e-46fa-bbdd-b5e81ca5d098
+              stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e
+            config: {}
+            dataType: TIMESTAMP
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSystemUpdateDate: true
+            name: SYSTEM_UPDATE_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: STAGE
+                nodeName: STG_AW_LOAD_PRODUCT
+            join:
+              joinCondition: FROM {{ ref('STAGE', 'STG_AW_LOAD_PRODUCT') }} "STG_AW_LOAD_PRODUCT"
+            name: PSTG_AW_LOAD_PRODUCT
+            noLinkRefs: []
+      name: PSTG_AW_LOAD_PRODUCT
+      overrideSQL: false
+      schema: ""
+      sqlType: persistentStage
+      type: sql
+    stepCounter: c37038f3-5f6a-4ce4-ae8e-4b537bb8ba3e

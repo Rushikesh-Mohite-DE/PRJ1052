@@ -1,0 +1,217 @@
+steps:
+  PSTG_AW_LOAD_PRODUCTDESCRIPTION-325fda67-2b9d-43ec-a3fb-bc7b82efeafb:
+    operation:
+      config:
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: TARGET
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: e47c9947-fa40-43b0-ae2e-7db2caf7d2d4
+              stepCounter: 325fda67-2b9d-43ec-a3fb-bc7b82efeafb
+            config: {}
+            dataType: NUMBER
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSurrogateKey: true
+            name: PSTG_AW_LOAD_PRODUCTDESCRIPTION_KEY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: ""
+          - columnReference:
+              columnCounter: b0f8be8c-3e56-484b-9dba-b236b5642896
+              stepCounter: 325fda67-2b9d-43ec-a3fb-bc7b82efeafb
+            dataType: NUMBER(38,0)
+            description: Primary key for ProductDescription records.
+            hashColumns: []
+            hashDetails: null
+            isBusinessKey: true
+            name: PRODUCTDESCRIPTIONID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 6ba5e37b-3624-41a8-b2f1-d11901309b51
+                    stepCounter: 37f9283c-e2c9-40cc-b0f2-727f0673edf1
+                transform: ""
+          - columnReference:
+              columnCounter: b7cf1b8c-e374-4539-aeb9-69ed50fa9266
+              stepCounter: 325fda67-2b9d-43ec-a3fb-bc7b82efeafb
+            dataType: VARCHAR(400)
+            description: Description of the product.
+            hashColumns: []
+            hashDetails: null
+            name: DESCRIPTION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: b8ba64b3-ecff-4968-8fd8-5a692bc2454c
+                    stepCounter: 37f9283c-e2c9-40cc-b0f2-727f0673edf1
+                transform: ""
+          - columnReference:
+              columnCounter: a5845620-6421-4b3a-9c73-0f55de03b436
+              stepCounter: 325fda67-2b9d-43ec-a3fb-bc7b82efeafb
+            dataType: VARCHAR(16777216)
+            description: ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.
+            hashColumns: []
+            hashDetails: null
+            name: ROWGUID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 3b2b47ce-6323-4225-a361-c2b90c15af95
+                    stepCounter: 37f9283c-e2c9-40cc-b0f2-727f0673edf1
+                transform: ""
+          - columnReference:
+              columnCounter: 28a92ed9-df00-4cd7-8e22-913f60296c16
+              stepCounter: 325fda67-2b9d-43ec-a3fb-bc7b82efeafb
+            dataType: TIMESTAMP_NTZ(9)
+            description: Date and time the record was last updated.
+            hashColumns: []
+            hashDetails: null
+            name: MODIFIEDDATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 4977cf28-3df0-4d3b-956e-8613ee7562fe
+                    stepCounter: 37f9283c-e2c9-40cc-b0f2-727f0673edf1
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: e676f58c-4dca-4135-bb0a-06fe6eab5bc2
+              stepCounter: 325fda67-2b9d-43ec-a3fb-bc7b82efeafb
+            config: {}
+            dataType: NUMBER
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSystemVersion: true
+            name: SYSTEM_VERSION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 50840e0b-eaa8-4736-b6e0-009c5a12630f
+              stepCounter: 325fda67-2b9d-43ec-a3fb-bc7b82efeafb
+            config: {}
+            dataType: VARCHAR
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSystemCurrentFlag: true
+            name: SYSTEM_CURRENT_FLAG
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: d2d2aa29-2176-42eb-80d8-b8f25e06afde
+              stepCounter: 325fda67-2b9d-43ec-a3fb-bc7b82efeafb
+            config: {}
+            dataType: TIMESTAMP
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSystemStartDate: true
+            name: SYSTEM_START_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 7abb3941-f1bc-4076-bab7-439d971e6ed6
+              stepCounter: 325fda67-2b9d-43ec-a3fb-bc7b82efeafb
+            config: {}
+            dataType: TIMESTAMP
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSystemEndDate: true
+            name: SYSTEM_END_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: fe472c02-b4e5-4ea5-9b33-17036451110e
+              stepCounter: 325fda67-2b9d-43ec-a3fb-bc7b82efeafb
+            config: {}
+            dataType: TIMESTAMP
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSystemCreateDate: true
+            name: SYSTEM_CREATE_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: dac89506-ae2b-477a-b8f4-9b3ad60799fc
+              stepCounter: 325fda67-2b9d-43ec-a3fb-bc7b82efeafb
+            config: {}
+            dataType: TIMESTAMP
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSystemUpdateDate: true
+            name: SYSTEM_UPDATE_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: STAGE
+                nodeName: STG_AW_LOAD_PRODUCTDESCRIPTION
+            join:
+              joinCondition: FROM {{ ref('STAGE', 'STG_AW_LOAD_PRODUCTDESCRIPTION') }} "STG_AW_LOAD_PRODUCTDESCRIPTION"
+            name: PSTG_AW_LOAD_PRODUCTDESCRIPTION
+            noLinkRefs: []
+      name: PSTG_AW_LOAD_PRODUCTDESCRIPTION
+      overrideSQL: false
+      schema: ""
+      sqlType: persistentStage
+      type: sql
+    stepCounter: 325fda67-2b9d-43ec-a3fb-bc7b82efeafb
