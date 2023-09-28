@@ -1,0 +1,109 @@
+steps:
+  SALES_LOAD_ADDRESS_TYPE-11627443-5c86-47bc-b5d7-e1feab692c3a:
+    operation:
+      database: ""
+      dataset: ""
+      deployEnabled: true
+      description: ""
+      locationID: ""
+      locationName: SOURCE
+      metadata:
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 6e332ab4-2bbd-41fc-ac6f-43df8d831037
+              stepCounter: 11627443-5c86-47bc-b5d7-e1feab692c3a
+            config: {}
+            dataType: VARCHAR(20)
+            defaultValue: ""
+            description: ""
+            name: ADDRESS_TYPE_CODE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: e53eef97-5667-4b59-a4ef-670077d54d1e
+              stepCounter: 11627443-5c86-47bc-b5d7-e1feab692c3a
+            config: {}
+            dataType: VARCHAR(50)
+            defaultValue: ""
+            description: ""
+            name: ADDRESS_TYPE_DESCRIPTION
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: ca969be4-e963-4f11-bc36-716548c90d62
+              stepCounter: 11627443-5c86-47bc-b5d7-e1feab692c3a
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: CREATING_EMPLOYEE_ID
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 69fe6e11-761e-49f7-975c-33b5e16a1ac0
+              stepCounter: 11627443-5c86-47bc-b5d7-e1feab692c3a
+            config: {}
+            dataType: TIMESTAMP_NTZ(9)
+            defaultValue: ""
+            description: ""
+            name: CREATED_DATETIME
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: f54484c2-4f39-41ce-b791-19cfe7efadd4
+              stepCounter: 11627443-5c86-47bc-b5d7-e1feab692c3a
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: LAST_CHANGE_EMPLOYEE_ID
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: e8bb202e-c645-4883-a866-740732dd75e8
+              stepCounter: 11627443-5c86-47bc-b5d7-e1feab692c3a
+            config: {}
+            dataType: TIMESTAMP_NTZ(9)
+            defaultValue: ""
+            description: ""
+            name: LAST_CHANGE_DATETIME
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+        join:
+          joinCondition: FROM {{ ref('SOURCE', 'SALES_LOAD_ADDRESS_TYPE') }}
+      name: SALES_LOAD_ADDRESS_TYPE
+      schema: ""
+      sqlType: Source
+      table: SALES_LOAD_ADDRESS_TYPE
+      type: sourceInput
+    stepCounter: 11627443-5c86-47bc-b5d7-e1feab692c3a
