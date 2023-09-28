@@ -1,0 +1,120 @@
+steps:
+  STG_SALES_LOAD_ADDRESS_TYPE-86f3d14d-1808-49f8-9632-45987277260a:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: SOURCE
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 87e15187-b643-403c-b644-e5c434095292
+              stepCounter: 86f3d14d-1808-49f8-9632-45987277260a
+            dataType: VARCHAR(20)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ADDRESS_TYPE_CODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 3e496937-e0a9-4252-89f0-8616c67eb371
+                    stepCounter: 7c03b17f-278d-4e9b-af0f-937f9c41001e
+                transform: ""
+          - columnReference:
+              columnCounter: 9d9f1e55-3fa6-4d69-a50a-371a1e22b664
+              stepCounter: 86f3d14d-1808-49f8-9632-45987277260a
+            dataType: VARCHAR(50)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ADDRESS_TYPE_DESCRIPTION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 1d3720a1-e2a2-4d76-a26a-048dea3be8ff
+                    stepCounter: 7c03b17f-278d-4e9b-af0f-937f9c41001e
+                transform: ""
+          - columnReference:
+              columnCounter: c0e957e1-75e2-4634-8423-616289a28862
+              stepCounter: 86f3d14d-1808-49f8-9632-45987277260a
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CREATING_EMPLOYEE_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 728a5d44-9396-45ce-bc53-77b54b7977d3
+                    stepCounter: 7c03b17f-278d-4e9b-af0f-937f9c41001e
+                transform: ""
+          - columnReference:
+              columnCounter: ccee4d11-0e86-4524-a888-1a5f8c0f4ac4
+              stepCounter: 86f3d14d-1808-49f8-9632-45987277260a
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CREATED_DATETIME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 4a8b55a6-cd97-4542-bfbe-e2d7fdccef60
+                    stepCounter: 7c03b17f-278d-4e9b-af0f-937f9c41001e
+                transform: ""
+          - columnReference:
+              columnCounter: 510dd8b0-98a5-4a9a-846a-2a7e13cfafd3
+              stepCounter: 86f3d14d-1808-49f8-9632-45987277260a
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: LAST_CHANGE_EMPLOYEE_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 61bbef45-0651-449d-9ece-f41f7541949e
+                    stepCounter: 7c03b17f-278d-4e9b-af0f-937f9c41001e
+                transform: ""
+          - columnReference:
+              columnCounter: 646ee471-44e1-4b5f-8ad9-124bf811cdeb
+              stepCounter: 86f3d14d-1808-49f8-9632-45987277260a
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: LAST_CHANGE_DATETIME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 72666da6-a2c1-43fa-9082-73eef524e531
+                    stepCounter: 7c03b17f-278d-4e9b-af0f-937f9c41001e
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: STAGE
+                nodeName: STG_SALES_LOAD_ADDRESS_TYPE
+            join:
+              joinCondition: FROM {{ ref('STAGE', 'STG_SALES_LOAD_ADDRESS_TYPE') }} "STG_SALES_LOAD_ADDRESS_TYPE"
+            name: STG_SALES_LOAD_ADDRESS_TYPE
+            noLinkRefs: []
+      name: STG_SALES_LOAD_ADDRESS_TYPE
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: 86f3d14d-1808-49f8-9632-45987277260a
