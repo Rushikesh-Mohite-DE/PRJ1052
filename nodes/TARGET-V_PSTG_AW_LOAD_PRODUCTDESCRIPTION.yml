@@ -1,0 +1,187 @@
+steps:
+  V_PSTG_AW_LOAD_PRODUCTDESCRIPTION-ea2f05fa-ef52-426b-9c21-880a7cb3b4ef:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: TARGET
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 45f79d03-1daf-423a-800a-730e16b99473
+              stepCounter: ea2f05fa-ef52-426b-9c21-880a7cb3b4ef
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PSTG_AW_LOAD_PRODUCTDESCRIPTION_KEY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 7ac9f96f-4299-47e3-896c-6627632333d8
+                    stepCounter: fa2cab21-6159-400f-b77f-8c6cb52923f4
+                transform: ""
+          - columnReference:
+              columnCounter: ca6266e5-a2e2-4635-8e29-4a649f5bb579
+              stepCounter: ea2f05fa-ef52-426b-9c21-880a7cb3b4ef
+            dataType: NUMBER(38,0)
+            description: Primary key for ProductDescription records.
+            hashColumns: []
+            hashDetails: null
+            name: PRODUCTDESCRIPTIONID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 888b5529-e93e-4f29-ab65-d47b73a43826
+                    stepCounter: fa2cab21-6159-400f-b77f-8c6cb52923f4
+                transform: ""
+          - columnReference:
+              columnCounter: 4867f35e-b75a-476b-806f-d33ed489ccd0
+              stepCounter: ea2f05fa-ef52-426b-9c21-880a7cb3b4ef
+            dataType: VARCHAR(400)
+            description: Description of the product.
+            hashColumns: []
+            hashDetails: null
+            name: DESCRIPTION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: ad9da887-6a91-426d-9483-195928e86143
+                    stepCounter: fa2cab21-6159-400f-b77f-8c6cb52923f4
+                transform: ""
+          - columnReference:
+              columnCounter: 343840aa-e6ff-443c-9057-ed837aa487eb
+              stepCounter: ea2f05fa-ef52-426b-9c21-880a7cb3b4ef
+            dataType: VARCHAR(16777216)
+            description: ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.
+            hashColumns: []
+            hashDetails: null
+            name: ROWGUID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 615a3946-c957-4278-9d5f-e24ff6ee3586
+                    stepCounter: fa2cab21-6159-400f-b77f-8c6cb52923f4
+                transform: ""
+          - columnReference:
+              columnCounter: 1e06355c-2796-4ff3-9b3e-87512085e68c
+              stepCounter: ea2f05fa-ef52-426b-9c21-880a7cb3b4ef
+            dataType: TIMESTAMP_NTZ(9)
+            description: Date and time the record was last updated.
+            hashColumns: []
+            hashDetails: null
+            name: MODIFIEDDATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 830a95df-1b03-4ae1-9006-77aabd679e00
+                    stepCounter: fa2cab21-6159-400f-b77f-8c6cb52923f4
+                transform: ""
+          - columnReference:
+              columnCounter: 8624a6b0-41f7-4eda-a8f8-ebd4bc6c2772
+              stepCounter: ea2f05fa-ef52-426b-9c21-880a7cb3b4ef
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SYSTEM_VERSION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2e97b70b-231f-4852-a1ba-bd5ac6ab1d7c
+                    stepCounter: fa2cab21-6159-400f-b77f-8c6cb52923f4
+                transform: ""
+          - columnReference:
+              columnCounter: 6aad9699-309c-48cd-8d3d-f3a6e0a66784
+              stepCounter: ea2f05fa-ef52-426b-9c21-880a7cb3b4ef
+            dataType: VARCHAR(16777216)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SYSTEM_CURRENT_FLAG
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 3d893ba9-2409-4f5b-82d2-8ade6c686f22
+                    stepCounter: fa2cab21-6159-400f-b77f-8c6cb52923f4
+                transform: ""
+          - columnReference:
+              columnCounter: 906506a4-2c4d-4268-813d-a5140c4bc33c
+              stepCounter: ea2f05fa-ef52-426b-9c21-880a7cb3b4ef
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SYSTEM_START_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: caa3f069-2857-4b94-aaa3-d8fb174a01e9
+                    stepCounter: fa2cab21-6159-400f-b77f-8c6cb52923f4
+                transform: ""
+          - columnReference:
+              columnCounter: 81593cf0-00e7-40ee-8b55-a0ff451abc84
+              stepCounter: ea2f05fa-ef52-426b-9c21-880a7cb3b4ef
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SYSTEM_END_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 6bd38a2b-3817-4365-a357-a0e5232f3561
+                    stepCounter: fa2cab21-6159-400f-b77f-8c6cb52923f4
+                transform: ""
+          - columnReference:
+              columnCounter: 9adea94c-582b-4b01-92e0-a572a359cd10
+              stepCounter: ea2f05fa-ef52-426b-9c21-880a7cb3b4ef
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SYSTEM_CREATE_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: acbfc92f-9683-4f7d-be79-9f6fa688ba0f
+                    stepCounter: fa2cab21-6159-400f-b77f-8c6cb52923f4
+                transform: ""
+          - columnReference:
+              columnCounter: 870a148f-2180-44be-9547-bfffd1c6f75e
+              stepCounter: ea2f05fa-ef52-426b-9c21-880a7cb3b4ef
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SYSTEM_UPDATE_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2e9d0573-31eb-45fe-b68a-d01859ac6e95
+                    stepCounter: fa2cab21-6159-400f-b77f-8c6cb52923f4
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: TARGET
+                nodeName: PSTG_AW_LOAD_PRODUCTDESCRIPTION
+            join:
+              joinCondition: FROM {{ ref('TARGET', 'PSTG_AW_LOAD_PRODUCTDESCRIPTION') }} "PSTG_AW_LOAD_PRODUCTDESCRIPTION"
+            name: V_PSTG_AW_LOAD_PRODUCTDESCRIPTION
+            noLinkRefs: []
+      name: V_PSTG_AW_LOAD_PRODUCTDESCRIPTION
+      overrideSQL: false
+      schema: ""
+      sqlType: View
+      type: sql
+    stepCounter: ea2f05fa-ef52-426b-9c21-880a7cb3b4ef

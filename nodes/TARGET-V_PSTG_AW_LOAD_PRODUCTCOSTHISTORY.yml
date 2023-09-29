@@ -1,0 +1,201 @@
+steps:
+  V_PSTG_AW_LOAD_PRODUCTCOSTHISTORY-c19e28a8-b1f4-4aa8-aaa0-7c2807e51aed:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: TARGET
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: e4aafeda-566a-4466-994a-a23450979fe8
+              stepCounter: c19e28a8-b1f4-4aa8-aaa0-7c2807e51aed
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PSTG_AW_LOAD_PRODUCTCOSTHISTORY_KEY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 5e30800e-9611-4c59-81cc-ace877e90fbe
+                    stepCounter: 1dc8ece0-2142-499f-8580-cda7f5eed078
+                transform: ""
+          - columnReference:
+              columnCounter: d2bcfa0b-845d-48c9-8e9f-e430c07ac7eb
+              stepCounter: c19e28a8-b1f4-4aa8-aaa0-7c2807e51aed
+            dataType: NUMBER(38,0)
+            description: Product identification number. Foreign key to Product.ProductID
+            hashColumns: []
+            hashDetails: null
+            name: PRODUCTID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 86ffbae3-8fc8-4912-b113-b143446940d3
+                    stepCounter: 1dc8ece0-2142-499f-8580-cda7f5eed078
+                transform: ""
+          - columnReference:
+              columnCounter: dd8532da-4b47-42b3-ac14-3f1688dd283b
+              stepCounter: c19e28a8-b1f4-4aa8-aaa0-7c2807e51aed
+            dataType: TIMESTAMP_NTZ(9)
+            description: Product cost start date.
+            hashColumns: []
+            hashDetails: null
+            name: STARTDATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 042063f7-0985-4e58-ae8e-7f928b4d7a75
+                    stepCounter: 1dc8ece0-2142-499f-8580-cda7f5eed078
+                transform: ""
+          - columnReference:
+              columnCounter: fbb2d639-5b62-4539-a014-710eb9818a05
+              stepCounter: c19e28a8-b1f4-4aa8-aaa0-7c2807e51aed
+            dataType: VARCHAR(16777216)
+            description: Product cost end date.
+            hashColumns: []
+            hashDetails: null
+            name: ENDDATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 772cfdf3-e309-47ce-9d28-36ab2a41f127
+                    stepCounter: 1dc8ece0-2142-499f-8580-cda7f5eed078
+                transform: ""
+          - columnReference:
+              columnCounter: 03ae5637-0cd5-43c6-8017-11453e8fb622
+              stepCounter: c19e28a8-b1f4-4aa8-aaa0-7c2807e51aed
+            dataType: NUMBER(19,4)
+            description: Standard cost of the product.
+            hashColumns: []
+            hashDetails: null
+            name: STANDARDCOST
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 4b799101-e4a2-42cb-8c9f-b9f90c9b07fb
+                    stepCounter: 1dc8ece0-2142-499f-8580-cda7f5eed078
+                transform: ""
+          - columnReference:
+              columnCounter: f08740b5-5691-4778-982a-b4d611eebfcb
+              stepCounter: c19e28a8-b1f4-4aa8-aaa0-7c2807e51aed
+            dataType: TIMESTAMP_NTZ(9)
+            description: Date and time the record was last updated.
+            hashColumns: []
+            hashDetails: null
+            name: MODIFIEDDATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 02ddbb4d-1608-4b6b-bae5-118178c32630
+                    stepCounter: 1dc8ece0-2142-499f-8580-cda7f5eed078
+                transform: ""
+          - columnReference:
+              columnCounter: c571de10-1936-4f4a-ac15-aecbf647524a
+              stepCounter: c19e28a8-b1f4-4aa8-aaa0-7c2807e51aed
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SYSTEM_VERSION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 07aa5d3e-9cc7-4c71-98dd-591793a79505
+                    stepCounter: 1dc8ece0-2142-499f-8580-cda7f5eed078
+                transform: ""
+          - columnReference:
+              columnCounter: 7f26295a-85cf-457a-8aab-59aa4fdd917d
+              stepCounter: c19e28a8-b1f4-4aa8-aaa0-7c2807e51aed
+            dataType: VARCHAR(16777216)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SYSTEM_CURRENT_FLAG
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: b1ac66f9-e380-43a2-b9f2-28b9a2ff1cfa
+                    stepCounter: 1dc8ece0-2142-499f-8580-cda7f5eed078
+                transform: ""
+          - columnReference:
+              columnCounter: 4437d38a-81a3-455f-95ab-7ecb5079fb5b
+              stepCounter: c19e28a8-b1f4-4aa8-aaa0-7c2807e51aed
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SYSTEM_START_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: a7c83700-66c6-41be-815a-9e596815cd35
+                    stepCounter: 1dc8ece0-2142-499f-8580-cda7f5eed078
+                transform: ""
+          - columnReference:
+              columnCounter: 112c6c6a-ed82-4063-a9de-9510a6f5c839
+              stepCounter: c19e28a8-b1f4-4aa8-aaa0-7c2807e51aed
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SYSTEM_END_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 548f15b1-fb94-41cf-a79e-d9814538e289
+                    stepCounter: 1dc8ece0-2142-499f-8580-cda7f5eed078
+                transform: ""
+          - columnReference:
+              columnCounter: a0bd1c83-df6f-48cf-99b8-b82fc12fc31a
+              stepCounter: c19e28a8-b1f4-4aa8-aaa0-7c2807e51aed
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SYSTEM_CREATE_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8b40f9dd-fc0a-4e12-acca-b66200c9b95e
+                    stepCounter: 1dc8ece0-2142-499f-8580-cda7f5eed078
+                transform: ""
+          - columnReference:
+              columnCounter: 2a264474-7088-4c0e-9480-6f673685b9cf
+              stepCounter: c19e28a8-b1f4-4aa8-aaa0-7c2807e51aed
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SYSTEM_UPDATE_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 38b78b84-09ca-4f6d-9c17-978438ea6635
+                    stepCounter: 1dc8ece0-2142-499f-8580-cda7f5eed078
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: TARGET
+                nodeName: PSTG_AW_LOAD_PRODUCTCOSTHISTORY
+            join:
+              joinCondition: FROM {{ ref('TARGET', 'PSTG_AW_LOAD_PRODUCTCOSTHISTORY') }} "PSTG_AW_LOAD_PRODUCTCOSTHISTORY"
+            name: V_PSTG_AW_LOAD_PRODUCTCOSTHISTORY
+            noLinkRefs: []
+      name: V_PSTG_AW_LOAD_PRODUCTCOSTHISTORY
+      overrideSQL: false
+      schema: ""
+      sqlType: View
+      type: sql
+    stepCounter: c19e28a8-b1f4-4aa8-aaa0-7c2807e51aed

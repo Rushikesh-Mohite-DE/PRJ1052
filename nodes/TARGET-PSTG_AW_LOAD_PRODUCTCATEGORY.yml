@@ -1,0 +1,184 @@
+steps:
+  PSTG_AW_LOAD_PRODUCTCATEGORY-8bbb1b64-49fb-490c-afe7-cfeae31f2867:
+    operation:
+      database: ""
+      dataset: ""
+      deployEnabled: true
+      description: ""
+      locationID: ""
+      locationName: TARGET
+      metadata:
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: cac953d3-5c1f-4418-9e90-bd72b8451720
+              stepCounter: 8bbb1b64-49fb-490c-afe7-cfeae31f2867
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: PSTG_AW_LOAD_PRODUCTCATEGORY_KEY
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: f5a00bd0-1334-4087-8a67-527e83104c9e
+              stepCounter: 8bbb1b64-49fb-490c-afe7-cfeae31f2867
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: Primary key for ProductCategory records.
+            name: PRODUCTCATEGORYID
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 897307ed-c817-4438-8e1b-9161bb00e524
+              stepCounter: 8bbb1b64-49fb-490c-afe7-cfeae31f2867
+            config: {}
+            dataType: VARCHAR(16777216)
+            defaultValue: ""
+            description: Category description.
+            name: NAME
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: bc7eeada-cba7-4017-9cc2-e7ea41605b85
+              stepCounter: 8bbb1b64-49fb-490c-afe7-cfeae31f2867
+            config: {}
+            dataType: VARCHAR(16777216)
+            defaultValue: ""
+            description: ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.
+            name: ROWGUID
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: d5d240a4-1823-4257-950e-8a745a788b6f
+              stepCounter: 8bbb1b64-49fb-490c-afe7-cfeae31f2867
+            config: {}
+            dataType: TIMESTAMP_NTZ(9)
+            defaultValue: ""
+            description: Date and time the record was last updated.
+            name: MODIFIEDDATE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 9db63180-e150-4c3e-a100-b51b77d31554
+              stepCounter: 8bbb1b64-49fb-490c-afe7-cfeae31f2867
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: SYSTEM_VERSION
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: c5301b93-0711-4189-9083-3eb0ef34bb5d
+              stepCounter: 8bbb1b64-49fb-490c-afe7-cfeae31f2867
+            config: {}
+            dataType: VARCHAR(16777216)
+            defaultValue: ""
+            description: ""
+            name: SYSTEM_CURRENT_FLAG
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 1d0d8554-5409-4b78-81a8-53d93669b475
+              stepCounter: 8bbb1b64-49fb-490c-afe7-cfeae31f2867
+            config: {}
+            dataType: TIMESTAMP_NTZ(9)
+            defaultValue: ""
+            description: ""
+            name: SYSTEM_START_DATE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 1cd7a749-00c5-44d7-832a-5d3c9f03e10c
+              stepCounter: 8bbb1b64-49fb-490c-afe7-cfeae31f2867
+            config: {}
+            dataType: TIMESTAMP_NTZ(9)
+            defaultValue: ""
+            description: ""
+            name: SYSTEM_END_DATE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: c270a706-b8d0-47a4-9e21-b515cffd7c47
+              stepCounter: 8bbb1b64-49fb-490c-afe7-cfeae31f2867
+            config: {}
+            dataType: TIMESTAMP_NTZ(9)
+            defaultValue: ""
+            description: ""
+            name: SYSTEM_CREATE_DATE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: c6e1f53e-398a-44b0-951e-f70526692d22
+              stepCounter: 8bbb1b64-49fb-490c-afe7-cfeae31f2867
+            config: {}
+            dataType: TIMESTAMP_NTZ(9)
+            defaultValue: ""
+            description: ""
+            name: SYSTEM_UPDATE_DATE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'PSTG_AW_LOAD_PRODUCTCATEGORY') }}
+      name: PSTG_AW_LOAD_PRODUCTCATEGORY
+      schema: ""
+      sqlType: Source
+      table: PSTG_AW_LOAD_PRODUCTCATEGORY
+      type: sourceInput
+    stepCounter: 8bbb1b64-49fb-490c-afe7-cfeae31f2867
