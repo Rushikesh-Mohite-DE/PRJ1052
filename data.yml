@@ -32,6 +32,11 @@ macros:
       {%- macro CONCAT(column1,column2) -%}
           'THIS IS MY ID  -' || {{ column1 }} || 'THIS IS MY ADDRESS - ' || {{column2}}
       {%- endmacro %}
+
+
+      {%- macro unit_measure(column) -%}
+          CASE WHEN {{ column }} = 'EA' THEN 'SAP UNIT' ELSE 'NOT AWARE OF UNIT' END
+      {%- endmacro %}
 packages: {}
 projects: {}
 stepTypes:
@@ -946,7 +951,7 @@ stepTypes:
     version: 1
   StepType-View:
     id: View
-    isDisabled: false
+    isDisabled: true
     metadata:
       defaultStorageLocation: null
       error: null
