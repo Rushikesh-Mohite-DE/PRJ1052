@@ -1,0 +1,163 @@
+steps:
+  STG_AW_LOAD_BILLOFMATERIALS-3000cdd1-ace7-4d0a-ae5a-5d216a1535df:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: SOURCE
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 336c380e-27a7-4f42-8f2a-71e802b9a511
+              stepCounter: 3000cdd1-ace7-4d0a-ae5a-5d216a1535df
+            dataType: NUMBER(38,0)
+            description: Primary key for BillOfMaterials records.
+            hashColumns: []
+            hashDetails: null
+            name: BILLOFMATERIALSID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 6e3a54be-50db-496a-97d2-27be449a6803
+                    stepCounter: 1e5ed8bd-fe93-4e29-8588-c70aa48356e5
+                transform: ""
+          - columnReference:
+              columnCounter: a87a3fcf-ee0e-464b-a9d3-3cdb19384673
+              stepCounter: 3000cdd1-ace7-4d0a-ae5a-5d216a1535df
+            dataType: VARCHAR(16777216)
+            description: Parent product identification number. Foreign key to Product.ProductID.
+            hashColumns: []
+            hashDetails: null
+            name: PRODUCTASSEMBLYID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: ace4c631-6b33-49ad-9681-d451f1b50651
+                    stepCounter: 1e5ed8bd-fe93-4e29-8588-c70aa48356e5
+                transform: ""
+          - columnReference:
+              columnCounter: a5487dc9-24ef-47ea-95a9-20b8b6c8a5b6
+              stepCounter: 3000cdd1-ace7-4d0a-ae5a-5d216a1535df
+            dataType: NUMBER(38,0)
+            description: Component identification number. Foreign key to Product.ProductID.
+            hashColumns: []
+            hashDetails: null
+            name: COMPONENTID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 948437bb-f76b-4701-9789-68781003dd19
+                    stepCounter: 1e5ed8bd-fe93-4e29-8588-c70aa48356e5
+                transform: ""
+          - columnReference:
+              columnCounter: e0087cd3-3f6f-4b4b-9a1b-aa001ff1e7a8
+              stepCounter: 3000cdd1-ace7-4d0a-ae5a-5d216a1535df
+            dataType: TIMESTAMP_NTZ(9)
+            description: Date the component started being used in the assembly item.
+            hashColumns: []
+            hashDetails: null
+            name: STARTDATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 25dda701-8927-4f63-9f7f-2b2299d40196
+                    stepCounter: 1e5ed8bd-fe93-4e29-8588-c70aa48356e5
+                transform: ""
+          - columnReference:
+              columnCounter: a4e9a2d7-ddbb-47ff-b273-66bf63e0c788
+              stepCounter: 3000cdd1-ace7-4d0a-ae5a-5d216a1535df
+            dataType: VARCHAR(16777216)
+            description: Date the component stopped being used in the assembly item.
+            hashColumns: []
+            hashDetails: null
+            name: ENDDATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 06f5fb7e-d930-42ea-93fe-97fdda1d7864
+                    stepCounter: 1e5ed8bd-fe93-4e29-8588-c70aa48356e5
+                transform: ""
+          - columnReference:
+              columnCounter: 9ab3dda9-6c76-44ec-bebc-0f515d8211cd
+              stepCounter: 3000cdd1-ace7-4d0a-ae5a-5d216a1535df
+            dataType: VARCHAR(3)
+            description: Standard code identifying the unit of measure for the quantity.
+            hashColumns: []
+            hashDetails: null
+            name: UNITMEASURECODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: ed45410d-2611-4ea5-9c6b-cc415960219a
+                    stepCounter: 1e5ed8bd-fe93-4e29-8588-c70aa48356e5
+                transform: ""
+          - columnReference:
+              columnCounter: e18196ec-a4c8-4db5-8474-694235bc1a1d
+              stepCounter: 3000cdd1-ace7-4d0a-ae5a-5d216a1535df
+            dataType: NUMBER(38,0)
+            description: Indicates the depth the component is from its parent (AssemblyID).
+            hashColumns: []
+            hashDetails: null
+            name: BOMLEVEL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 71d72424-190c-407a-8cad-0b075dc57edd
+                    stepCounter: 1e5ed8bd-fe93-4e29-8588-c70aa48356e5
+                transform: ""
+          - columnReference:
+              columnCounter: 3129ba77-de56-498b-8c34-e836a77bc53a
+              stepCounter: 3000cdd1-ace7-4d0a-ae5a-5d216a1535df
+            dataType: NUMBER(8,2)
+            description: Quantity of the component needed to create the assembly.
+            hashColumns: []
+            hashDetails: null
+            name: PERASSEMBLYQTY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8bb03736-d930-4a91-879c-18776773a906
+                    stepCounter: 1e5ed8bd-fe93-4e29-8588-c70aa48356e5
+                transform: ""
+          - columnReference:
+              columnCounter: 1ed2098b-22ae-4e7f-ab12-dbaeed640871
+              stepCounter: 3000cdd1-ace7-4d0a-ae5a-5d216a1535df
+            dataType: TIMESTAMP_NTZ(9)
+            description: Date and time the record was last updated.
+            hashColumns: []
+            hashDetails: null
+            name: MODIFIEDDATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 787ce3e7-a92f-4fa7-943d-129c84dccf42
+                    stepCounter: 1e5ed8bd-fe93-4e29-8588-c70aa48356e5
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: SOURCE
+                nodeName: AW_LOAD_BILLOFMATERIALS
+            join:
+              joinCondition: FROM {{ ref('SOURCE', 'AW_LOAD_BILLOFMATERIALS') }} "AW_LOAD_BILLOFMATERIALS"
+            name: STG_AW_LOAD_BILLOFMATERIALS
+            noLinkRefs: []
+      name: STG_AW_LOAD_BILLOFMATERIALS
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: 3000cdd1-ace7-4d0a-ae5a-5d216a1535df

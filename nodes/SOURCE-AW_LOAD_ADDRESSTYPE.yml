@@ -1,0 +1,78 @@
+steps:
+  AW_LOAD_ADDRESSTYPE-96d2cd55-a839-40e4-9db6-80d0a49450db:
+    operation:
+      database: ""
+      dataset: ""
+      deployEnabled: true
+      description: ""
+      locationName: SOURCE
+      metadata:
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: c8b2dccf-e83f-40d5-b3b4-5bfb6645a0dc
+              stepCounter: 96d2cd55-a839-40e4-9db6-80d0a49450db
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: Primary key for AddressType records.
+            name: ADDRESSTYPEID
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 38860dce-96c1-4a28-9692-03b91725184e
+              stepCounter: 96d2cd55-a839-40e4-9db6-80d0a49450db
+            config: {}
+            dataType: VARCHAR(16777216)
+            defaultValue: ""
+            description: Address type description. For example, Billing, Home, or Shipping.
+            name: NAME
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 6f0248a8-b4f7-4a5d-b079-5716dc8a1d7d
+              stepCounter: 96d2cd55-a839-40e4-9db6-80d0a49450db
+            config: {}
+            dataType: VARCHAR(16777216)
+            defaultValue: ""
+            description: ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.
+            name: ROWGUID
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 64d0dd1f-3d69-4d67-8696-d76352b23e14
+              stepCounter: 96d2cd55-a839-40e4-9db6-80d0a49450db
+            config: {}
+            dataType: TIMESTAMP_NTZ(9)
+            defaultValue: ""
+            description: Date and time the record was last updated.
+            name: MODIFIEDDATE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+        join:
+          joinCondition: FROM {{ ref('SOURCE', 'AW_LOAD_ADDRESSTYPE') }}
+      name: AW_LOAD_ADDRESSTYPE
+      schema: ""
+      sqlType: Source
+      table: AW_LOAD_ADDRESSTYPE
+      type: sourceInput
+    stepCounter: 96d2cd55-a839-40e4-9db6-80d0a49450db
