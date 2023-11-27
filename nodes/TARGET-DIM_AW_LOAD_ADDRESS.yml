@@ -2,14 +2,19 @@ steps:
   DIM_AW_LOAD_ADDRESS-985672e1-632b-40be-a213-ee7d56b1aedb:
     operation:
       config:
-        clusterKey: false
+        clusterKey: true
         clusterKeyConfig:
           items:
-            - {}
+            - columnName:
+                columnCounter: dbee6336-844d-49bd-933c-76bcce019b71
+                stepCounter: 985672e1-632b-40be-a213-ee7d56b1aedb
         clusterKeyConfigExpressions:
           items:
-            - {}
-        clusterKeyExpressions: false
+            - columnNameExpressions:
+                columnCounter: dbee6336-844d-49bd-933c-76bcce019b71
+                stepCounter: 985672e1-632b-40be-a213-ee7d56b1aedb
+              sqlExpression: TRUNC(STATEPROVINCEID, 2)
+        clusterKeyExpressions: true
         groupByAll: true
         postSQL: ""
         preSQL: ""
@@ -50,7 +55,7 @@ steps:
             hashColumns: []
             hashDetails: null
             isBusinessKey: true
-            name: ADDRESSID
+            name: ADDRESSID_1
             nullable: true
             sourceColumnReferences:
               - columnReferences:
