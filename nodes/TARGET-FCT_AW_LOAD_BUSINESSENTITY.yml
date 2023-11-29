@@ -2,12 +2,18 @@ steps:
   FCT_AW_LOAD_BUSINESSENTITY-e4e5f14e-d481-4dc3-86c3-8687c5bc80e8:
     operation:
       config:
-        clusterKey: false
+        clusterKey: true
         clusterKeyConfig:
           items: null
         clusterKeyConfigExpressions:
-          items: null
-        clusterKeyExpressions: false
+          items:
+            - columnNameExpressions:
+                columnCounter: 695e2593-ca97-4872-af05-e1c3bef8dbeb
+                stepCounter: e4e5f14e-d481-4dc3-86c3-8687c5bc80e8
+              sqlExpression: |-
+                TRUNC(BUSINESSENTITYID_1
+                ,2)
+        clusterKeyExpressions: true
         groupByAll: false
         postSQL: ""
         preSQL: ""
@@ -29,7 +35,7 @@ steps:
             description: Primary key for all customers, vendors, and employees.
             hashColumns: []
             hashDetails: null
-            name: BUSINESSENTITYID
+            name: BUSINESSENTITYID_1
             nullable: true
             sourceColumnReferences:
               - columnReferences:
