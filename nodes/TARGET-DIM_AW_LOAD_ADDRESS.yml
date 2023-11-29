@@ -8,7 +8,7 @@ steps:
         clusterKeyConfigExpressions:
           items: null
         clusterKeyExpressions: false
-        groupByAll: false
+        groupByAll: true
         postSQL: ""
         preSQL: ""
         selectDistinct: false

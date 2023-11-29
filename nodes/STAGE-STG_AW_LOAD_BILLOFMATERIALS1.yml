@@ -10,7 +10,7 @@ steps:
           items:
             - {}
         clusterKeyExpressions: false
-        groupByAll: false
+        groupByAll: true
         insertStrategy: INSERT
         postSQL: ""
         preSQL: ""
