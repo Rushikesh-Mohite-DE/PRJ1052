@@ -6,9 +6,7 @@ steps:
         groupByAll: false
         insertStrategy: UNION
         lagSpecification:
-          items:
-            - lagPeriod: Minutes
-              lagValue: 60
+          items: null
         selectDistinct: false
         warehouseName: COMPUTE_WH
       database: ""
