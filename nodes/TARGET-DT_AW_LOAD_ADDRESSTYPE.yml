@@ -1,0 +1,97 @@
+steps:
+  DT_AW_LOAD_ADDRESSTYPE-11da6e5b-a416-4244-8ce3-0ad401eb490c:
+    operation:
+      config:
+        downstreamOption: false
+        groupByAll: false
+        insertStrategy: UNION
+        lagSpecification:
+          items:
+            - lagPeriod: Minutes
+              lagValue: 60
+        selectDistinct: false
+        warehouseName: COMPUTE_WH
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: TARGET
+      materializationType: Dynamic Table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 85aa9a41-a503-4386-8eff-79bb278d78aa
+              stepCounter: 11da6e5b-a416-4244-8ce3-0ad401eb490c
+            dataType: NUMBER(38,0)
+            description: Primary key for AddressType records.
+            hashColumns: []
+            hashDetails: null
+            name: ADDRESSTYPEID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: c8b2dccf-e83f-40d5-b3b4-5bfb6645a0dc
+                    stepCounter: 96d2cd55-a839-40e4-9db6-80d0a49450db
+                transform: ""
+          - columnReference:
+              columnCounter: e2d046f4-45a2-4c40-9a74-df2dfca1d330
+              stepCounter: 11da6e5b-a416-4244-8ce3-0ad401eb490c
+            dataType: VARCHAR(16777216)
+            description: Address type description. For example, Billing, Home, or Shipping.
+            hashColumns: []
+            hashDetails: null
+            name: NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 38860dce-96c1-4a28-9692-03b91725184e
+                    stepCounter: 96d2cd55-a839-40e4-9db6-80d0a49450db
+                transform: ""
+          - columnReference:
+              columnCounter: 45d1e8fb-4643-4688-b184-6898c63abb53
+              stepCounter: 11da6e5b-a416-4244-8ce3-0ad401eb490c
+            dataType: VARCHAR(16777216)
+            description: ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.
+            hashColumns: []
+            hashDetails: null
+            name: ROWGUID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 6f0248a8-b4f7-4a5d-b079-5716dc8a1d7d
+                    stepCounter: 96d2cd55-a839-40e4-9db6-80d0a49450db
+                transform: ""
+          - columnReference:
+              columnCounter: eee92ae1-2a12-4c99-bb9c-e6fac8db6e1b
+              stepCounter: 11da6e5b-a416-4244-8ce3-0ad401eb490c
+            dataType: TIMESTAMP_NTZ(9)
+            description: Date and time the record was last updated.
+            hashColumns: []
+            hashDetails: null
+            name: MODIFIEDDATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 64d0dd1f-3d69-4d67-8696-d76352b23e14
+                    stepCounter: 96d2cd55-a839-40e4-9db6-80d0a49450db
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: SOURCE
+                nodeName: AW_LOAD_ADDRESSTYPE
+            join:
+              joinCondition: FROM {{ ref('SOURCE', 'AW_LOAD_ADDRESSTYPE') }} "AW_LOAD_ADDRESSTYPE"
+            name: DT_AW_LOAD_ADDRESSTYPE
+            noLinkRefs: []
+      name: DT_AW_LOAD_ADDRESSTYPE
+      overrideSQL: false
+      schema: ""
+      sqlType: "156"
+      type: sql
+    stepCounter: 11da6e5b-a416-4244-8ce3-0ad401eb490c
