@@ -2,13 +2,11 @@ steps:
   DT_AW_LOAD_ADDRESSTYPE-11da6e5b-a416-4244-8ce3-0ad401eb490c:
     operation:
       config:
-        downstreamOption: false
+        downstreamOption: true
         groupByAll: false
         insertStrategy: UNION
         lagSpecification:
-          items:
-            - lagPeriod: Minutes
-              lagValue: 60
+          items: null
         selectDistinct: false
         warehouseName: COMPUTE_WH
       database: ""
