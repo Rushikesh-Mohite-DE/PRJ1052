@@ -9,7 +9,7 @@ steps:
         testsEnabled: true
       database: ""
       deployEnabled: true
-      description: table
+      description: TABLE LEVEL DEPLOYMENT CHECK
       isMultisource: true
       locationName: TARGET
       materializationType: table
