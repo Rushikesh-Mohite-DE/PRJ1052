@@ -28,7 +28,6 @@ steps:
             dataType: NUMBER
             defaultValue: ""
             description: ""
-            hashColumns: []
             isSurrogateKey: true
             name: PSTG_RESOURCE_TRACKING_KEY
             nullable: true
@@ -63,8 +62,6 @@ steps:
             dataType: VARCHAR(50)
             defaultValue: "0"
             description: column level descriptioncolumn level description
-            hashColumns: []
-            hashDetails: null
             name: NAME
             nullable: true
             sourceColumnReferences:
@@ -83,8 +80,6 @@ steps:
               stepCounter: f532b9d2-c086-4f29-88f8-1fdadd198035
             dataType: VARCHAR(50)
             description: ""
-            hashColumns: []
-            hashDetails: null
             name: DEPT
             nullable: true
             sourceColumnReferences:
@@ -103,8 +98,6 @@ steps:
               stepCounter: f532b9d2-c086-4f29-88f8-1fdadd198035
             dataType: VARCHAR(50)
             description: ""
-            hashColumns: []
-            hashDetails: null
             name: PROJECT
             nullable: true
             sourceColumnReferences:
@@ -123,8 +116,6 @@ steps:
               stepCounter: f532b9d2-c086-4f29-88f8-1fdadd198035
             dataType: VARCHAR(50)
             description: ""
-            hashColumns: []
-            hashDetails: null
             name: STATUS
             nullable: true
             sourceColumnReferences:
@@ -144,8 +135,6 @@ steps:
             dataType: VARCHAR(50)
             defaultValue: "'abc'"
             description: "COlumn Desc IYES NEW ALTERED "
-            hashColumns: []
-            hashDetails: null
             name: RECORD SOURCE
             nullable: true
             sourceColumnReferences:
@@ -164,8 +153,6 @@ steps:
               stepCounter: f532b9d2-c086-4f29-88f8-1fdadd198035
             dataType: VARCHAR(50)
             description: ""
-            hashColumns: []
-            hashDetails: null
             name: RECORD SOURCE1
             nullable: false
             sourceColumnReferences:
@@ -189,7 +176,6 @@ steps:
             dataType: NUMBER
             defaultValue: ""
             description: ""
-            hashColumns: []
             isSystemVersion: true
             name: SYSTEM_VERSION
             nullable: true
@@ -210,7 +196,6 @@ steps:
             dataType: VARCHAR
             defaultValue: ""
             description: ""
-            hashColumns: []
             isSystemCurrentFlag: true
             name: SYSTEM_CURRENT_FLAG
             nullable: true
@@ -231,7 +216,6 @@ steps:
             dataType: TIMESTAMP
             defaultValue: ""
             description: ""
-            hashColumns: []
             isSystemStartDate: true
             name: SYSTEM_START_DATE
             nullable: true
@@ -252,7 +236,6 @@ steps:
             dataType: TIMESTAMP
             defaultValue: ""
             description: ""
-            hashColumns: []
             isSystemEndDate: true
             name: SYSTEM_END_DATE
             nullable: true
@@ -273,7 +256,6 @@ steps:
             dataType: TIMESTAMP
             defaultValue: ""
             description: ""
-            hashColumns: []
             isSystemCreateDate: true
             name: SYSTEM_CREATE_DATE
             nullable: true
@@ -294,7 +276,6 @@ steps:
             dataType: TIMESTAMP
             defaultValue: ""
             description: ""
-            hashColumns: []
             isSystemUpdateDate: true
             name: SYSTEM_UPDATE_DATE
             nullable: true
@@ -303,6 +284,25 @@ steps:
                 transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
               - columnReferences: []
                 transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: f819c347-59da-4de3-9b9f-c0e204a2df87
+              stepCounter: f532b9d2-c086-4f29-88f8-1fdadd198035
+            config: {}
+            dataType: STRING
+            defaultValue: ""
+            description: ""
+            hashDetails:
+              hashAlgorithm: SHA1
+            hashedColumns:
+              - columnCounter: 668bdca7-a582-4131-bd45-43964589e9ed
+                stepCounter: f532b9d2-c086-4f29-88f8-1fdadd198035
+            name: GH
+            nullable: true
+            sourceColumnReferences: []
         enabledColumnTestIDs:
           - isDistinct
         sourceMapping:

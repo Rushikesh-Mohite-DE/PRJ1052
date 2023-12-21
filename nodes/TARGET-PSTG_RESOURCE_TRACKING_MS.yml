@@ -25,7 +25,6 @@ steps:
             dataType: NUMBER
             defaultValue: ""
             description: ""
-            hashColumns: []
             isSurrogateKey: true
             name: PSTG_RESOURCE_TRACKING_MS_KEY
             nullable: true
@@ -37,8 +36,6 @@ steps:
               stepCounter: ab7560d9-68c4-489d-8bb7-f7554c838a2d
             dataType: NUMBER(38,0)
             description: test
-            hashColumns: []
-            hashDetails: null
             name: ID
             nullable: true
             sourceColumnReferences:
@@ -51,8 +48,6 @@ steps:
               stepCounter: ab7560d9-68c4-489d-8bb7-f7554c838a2d
             dataType: VARCHAR(50)
             description: ""
-            hashColumns: []
-            hashDetails: null
             name: NAME
             nullable: true
             sourceColumnReferences:
@@ -65,8 +60,6 @@ steps:
               stepCounter: ab7560d9-68c4-489d-8bb7-f7554c838a2d
             dataType: VARCHAR(50)
             description: ""
-            hashColumns: []
-            hashDetails: null
             name: DEPT
             nullable: true
             sourceColumnReferences:
@@ -79,8 +72,6 @@ steps:
               stepCounter: ab7560d9-68c4-489d-8bb7-f7554c838a2d
             dataType: VARCHAR(50)
             description: ""
-            hashColumns: []
-            hashDetails: null
             name: PROJECT
             nullable: true
             sourceColumnReferences:
@@ -93,8 +84,6 @@ steps:
               stepCounter: ab7560d9-68c4-489d-8bb7-f7554c838a2d
             dataType: VARCHAR(50)
             description: ""
-            hashColumns: []
-            hashDetails: null
             name: STATUS
             nullable: true
             sourceColumnReferences:
@@ -113,7 +102,6 @@ steps:
             dataType: NUMBER
             defaultValue: ""
             description: ""
-            hashColumns: []
             isSystemVersion: true
             name: SYSTEM_VERSION
             nullable: true
@@ -131,7 +119,6 @@ steps:
             dataType: VARCHAR
             defaultValue: ""
             description: ""
-            hashColumns: []
             isSystemCurrentFlag: true
             name: SYSTEM_CURRENT_FLAG
             nullable: true
@@ -149,7 +136,6 @@ steps:
             dataType: TIMESTAMP
             defaultValue: ""
             description: ""
-            hashColumns: []
             isSystemStartDate: true
             name: SYSTEM_START_DATE
             nullable: true
@@ -167,7 +153,6 @@ steps:
             dataType: TIMESTAMP
             defaultValue: ""
             description: ""
-            hashColumns: []
             isSystemEndDate: true
             name: SYSTEM_END_DATE
             nullable: true
@@ -185,7 +170,6 @@ steps:
             dataType: TIMESTAMP
             defaultValue: ""
             description: ""
-            hashColumns: []
             isSystemCreateDate: true
             name: SYSTEM_CREATE_DATE
             nullable: true
@@ -203,7 +187,6 @@ steps:
             dataType: TIMESTAMP
             defaultValue: ""
             description: ""
-            hashColumns: []
             isSystemUpdateDate: true
             name: SYSTEM_UPDATE_DATE
             nullable: true
