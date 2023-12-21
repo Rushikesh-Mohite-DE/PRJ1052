@@ -146,7 +146,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: RECORD SOURCE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: "0"
