@@ -142,7 +142,7 @@ steps:
               columnCounter: 3f4e0c47-b65f-4fd0-8754-4a057a493699
               stepCounter: f532b9d2-c086-4f29-88f8-1fdadd198035
             dataType: VARCHAR(50)
-            description: ""
+            description: COlumn Desc
             hashColumns: []
             hashDetails: null
             name: RECORD SOURCE
