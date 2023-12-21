@@ -8,8 +8,8 @@ steps:
       database: ""
       deployEnabled: true
       description: ""
-      isMultisource: true
-      locationName: SOURCE
+      isMultisource: false
+      locationName: TARGET
       materializationType: table
       metadata:
         appliedNodeTests: []
