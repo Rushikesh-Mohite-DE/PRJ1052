@@ -11,7 +11,7 @@ steps:
       deployEnabled: true
       description: ""
       isMultisource: false
-      locationName: SOURCE
+      locationName: STAGE
       materializationType: table
       metadata:
         appliedNodeTests: []
@@ -29,6 +29,21 @@ steps:
               - columnReferences:
                   - columnCounter: 7684e296-5ba7-4069-a0c6-02609d88e96d
                     stepCounter: 42283883-c802-4877-b865-b64d6310cdbb
+                transform: ""
+          - columnReference:
+              columnCounter: 289c0915-97f9-4cdc-b5bb-0e9986b405ac
+              stepCounter: d4be5a70-f329-4ae7-9759-96fe17dec5b5
+            dataType: NUMBER(38,0)
+            defaultValue: "'0'"
+            description: Primary key for all customers, vendors, and employees.
+            hashColumns: []
+            hashDetails: null
+            name: BUSINESSENTITYID1
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: "0"
+                    stepCounter: "0"
                 transform: ""
           - columnReference:
               columnCounter: 721271fd-02f9-4715-bca1-8059a43c2937
@@ -58,6 +73,48 @@ steps:
                   - columnCounter: 55952967-c9fd-4136-8661-6cad052e2f15
                     stepCounter: 42283883-c802-4877-b865-b64d6310cdbb
                 transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 78dd46bf-e9ec-4d44-8383-b8a13f5dc881
+              stepCounter: d4be5a70-f329-4ae7-9759-96fe17dec5b5
+            config: {}
+            dataType: STRING
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            hashDetails:
+              hashAlgorithm: SHA1
+            hashedColumns:
+              - columnCounter: 289c0915-97f9-4cdc-b5bb-0e9986b405ac
+                stepCounter: d4be5a70-f329-4ae7-9759-96fe17dec5b5
+            name: HAShed
+            nullable: true
+            sourceColumnReferences: []
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 99092ea6-3e5b-413a-a86b-f4285c95e296
+              stepCounter: d4be5a70-f329-4ae7-9759-96fe17dec5b5
+            config: {}
+            dataType: STRING
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            hashDetails:
+              hashAlgorithm: SHA1
+            hashedColumns:
+              - columnCounter: 4b540c04-3b11-42c8-96af-874fdd4579c7
+                stepCounter: d4be5a70-f329-4ae7-9759-96fe17dec5b5
+              - columnCounter: 289c0915-97f9-4cdc-b5bb-0e9986b405ac
+                stepCounter: d4be5a70-f329-4ae7-9759-96fe17dec5b5
+            name: TWO_HASHED
+            nullable: true
+            sourceColumnReferences: []
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:

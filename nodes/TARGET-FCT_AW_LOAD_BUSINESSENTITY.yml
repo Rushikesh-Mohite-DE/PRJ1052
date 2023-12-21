@@ -1,0 +1,173 @@
+steps:
+  FCT_AW_LOAD_BUSINESSENTITY-588379b2-5690-4cf1-b0b0-3d55abcd752f:
+    operation:
+      config:
+        clusterKey: false
+        clusterKeyConfig:
+          items:
+            - {}
+        clusterKeyConfigExpressions:
+          items:
+            - {}
+        clusterKeyExpressions: false
+        groupByAll: false
+        postSQL: ""
+        preSQL: ""
+        selectDistinct: false
+        testsEnabled: true
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: TARGET
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: d3a627b2-fcaf-4674-afa9-f1521502874d
+              stepCounter: 588379b2-5690-4cf1-b0b0-3d55abcd752f
+            dataType: NUMBER(38,0)
+            description: Primary key for all customers, vendors, and employees.
+            hashColumns: []
+            hashDetails: null
+            name: BUSINESSENTITYID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 4b540c04-3b11-42c8-96af-874fdd4579c7
+                    stepCounter: d4be5a70-f329-4ae7-9759-96fe17dec5b5
+                transform: ""
+          - columnReference:
+              columnCounter: c944a65f-cc90-44b4-afee-e5abcdd26024
+              stepCounter: 588379b2-5690-4cf1-b0b0-3d55abcd752f
+            dataType: NUMBER(38,0)
+            description: Primary key for all customers, vendors, and employees.
+            hashColumns: []
+            hashDetails: null
+            name: BUSINESSENTITYID1
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 289c0915-97f9-4cdc-b5bb-0e9986b405ac
+                    stepCounter: d4be5a70-f329-4ae7-9759-96fe17dec5b5
+                transform: ""
+          - columnReference:
+              columnCounter: 20765b9a-b5e5-41da-8d88-60ca90dfed04
+              stepCounter: 588379b2-5690-4cf1-b0b0-3d55abcd752f
+            dataType: VARCHAR(16777216)
+            description: ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.
+            hashColumns: []
+            hashDetails: null
+            name: ROWGUID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 721271fd-02f9-4715-bca1-8059a43c2937
+                    stepCounter: d4be5a70-f329-4ae7-9759-96fe17dec5b5
+                transform: ""
+          - columnReference:
+              columnCounter: 9bbabe34-62d5-4e77-bd82-1e556c9667f8
+              stepCounter: 588379b2-5690-4cf1-b0b0-3d55abcd752f
+            dataType: TIMESTAMP_NTZ(9)
+            description: Date and time the record was last updated.
+            hashColumns: []
+            hashDetails: null
+            name: MODIFIEDDATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: f31968ba-3379-45eb-a610-e9e2667f6050
+                    stepCounter: d4be5a70-f329-4ae7-9759-96fe17dec5b5
+                transform: ""
+          - columnReference:
+              columnCounter: 8563d7be-1a3a-486b-b620-acb35fd21781
+              stepCounter: 588379b2-5690-4cf1-b0b0-3d55abcd752f
+            dataType: STRING
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: HAShed
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 78dd46bf-e9ec-4d44-8383-b8a13f5dc881
+                    stepCounter: d4be5a70-f329-4ae7-9759-96fe17dec5b5
+                transform: ""
+          - columnReference:
+              columnCounter: 1a5b0f59-5bd5-4a4c-9ba9-144319cfab16
+              stepCounter: 588379b2-5690-4cf1-b0b0-3d55abcd752f
+            dataType: STRING
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TWO_HASHED
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 99092ea6-3e5b-413a-a86b-f4285c95e296
+                    stepCounter: d4be5a70-f329-4ae7-9759-96fe17dec5b5
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: c0a9656f-6ddc-4b35-81e4-627c51412912
+              stepCounter: 588379b2-5690-4cf1-b0b0-3d55abcd752f
+            config: {}
+            dataType: TIMESTAMP
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSystemCreateDate: true
+            name: SYSTEM_CREATE_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 00e24961-3101-4f1b-ae15-752ff0a192e2
+              stepCounter: 588379b2-5690-4cf1-b0b0-3d55abcd752f
+            config: {}
+            dataType: TIMESTAMP
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSystemUpdateDate: true
+            name: SYSTEM_UPDATE_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              STG_AW_LOAD_BILLOFMATERIALS: 3000cdd1-ace7-4d0a-ae5a-5d216a1535df
+              STG_AW_LOAD_BUSINESSENTITY: d4be5a70-f329-4ae7-9759-96fe17dec5b5
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: SOURCE
+                nodeName: STG_AW_LOAD_BILLOFMATERIALS
+              - locationName: STAGE
+                nodeName: STG_AW_LOAD_BUSINESSENTITY
+            join:
+              joinCondition: |-
+                FROM {{ ref('STAGE', 'STG_AW_LOAD_BUSINESSENTITY') }} "STG_AW_LOAD_BUSINESSENTITY"
+                LEFT JOIN {{ ref('SOURCE', 'STG_AW_LOAD_BILLOFMATERIALS') }} "STG_AW_LOAD_BILLOFMATERIALS"
+                ON "STG_AW_LOAD_BUSINESSENTITY".BUSINESSENTITYID = "STG_AW_LOAD_BILLOFMATERIALS".BILLOFMATERIALSID
+                WHERE "STG_AW_LOAD_BUSINESSENTITY".BUSINESSENTITYID > 5000
+            name: FCT_AW_LOAD_BUSINESSENTITY
+            noLinkRefs: []
+      name: FCT_AW_LOAD_BUSINESSENTITY
+      overrideSQL: false
+      schema: ""
+      sqlType: "162"
+      type: sql
+    stepCounter: 588379b2-5690-4cf1-b0b0-3d55abcd752f

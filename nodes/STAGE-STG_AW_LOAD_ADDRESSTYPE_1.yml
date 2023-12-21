@@ -1,5 +1,5 @@
 steps:
-  STG_AW_LOAD_ADDRESSTYPE-08f33fbf-41b6-43be-99ec-bdfe0fa980bf:
+  STG_AW_LOAD_ADDRESSTYPE_1-08f33fbf-41b6-43be-99ec-bdfe0fa980bf:
     operation:
       config:
         insertStrategy: INSERT
@@ -11,7 +11,7 @@ steps:
       deployEnabled: true
       description: ""
       isMultisource: false
-      locationName: SOURCE
+      locationName: STAGE
       materializationType: table
       metadata:
         appliedNodeTests: []
@@ -72,6 +72,27 @@ steps:
                   - columnCounter: 64d0dd1f-3d69-4d67-8696-d76352b23e14
                     stepCounter: 96d2cd55-a839-40e4-9db6-80d0a49450db
                 transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 1b828270-c330-4c19-a3e9-f523b9a01b6c
+              stepCounter: 08f33fbf-41b6-43be-99ec-bdfe0fa980bf
+            config: {}
+            dataType: TIMESTAMP_NTZ(9)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: UPDATE_TIME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: "0"
+                    stepCounter: "0"
+                transform: CURRENT_TIMESTAMP()
+            systemColumnType: None
+            transform: ""
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
@@ -83,9 +104,9 @@ steps:
                 nodeName: AW_LOAD_ADDRESSTYPE
             join:
               joinCondition: FROM {{ ref('SOURCE', 'AW_LOAD_ADDRESSTYPE') }} "AW_LOAD_ADDRESSTYPE"
-            name: STG_AW_LOAD_ADDRESSTYPE
+            name: STG_AW_LOAD_ADDRESSTYPE_1
             noLinkRefs: []
-      name: STG_AW_LOAD_ADDRESSTYPE
+      name: STG_AW_LOAD_ADDRESSTYPE_1
       overrideSQL: false
       schema: ""
       sqlType: Stage
