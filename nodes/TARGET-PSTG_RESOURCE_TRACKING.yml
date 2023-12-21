@@ -156,6 +156,26 @@ steps:
                   - columnCounter: "0"
                     stepCounter: "0"
                 transform: "'SOURCE 2'"
+          - appliedColumnTests:
+              isDistinct: false
+            columnReference:
+              columnCounter: 741c1f2a-3b98-40ea-af05-7eb4be103015
+              stepCounter: f532b9d2-c086-4f29-88f8-1fdadd198035
+            dataType: VARCHAR(50)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: RECORD SOURCE1
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: "0"
+                    stepCounter: "0"
+                transform: "'SOURCE 1'"
+              - columnReferences:
+                  - columnCounter: "0"
+                    stepCounter: "0"
+                transform: "'SOURCE 2'"
           - acceptedValues:
               strictMatch: true
               values: []
