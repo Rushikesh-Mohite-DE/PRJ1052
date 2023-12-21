@@ -9,7 +9,7 @@ steps:
         testsEnabled: true
       database: ""
       deployEnabled: true
-      description: TABLE LEVEL DEPLOYMENT CHECK
+      description: TABLE LEVEL DEPLOYMENT CHECK - IS IT WORKING ?
       isMultisource: true
       locationName: TARGET
       materializationType: table
