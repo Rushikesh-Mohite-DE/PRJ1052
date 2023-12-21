@@ -143,7 +143,7 @@ steps:
               stepCounter: f532b9d2-c086-4f29-88f8-1fdadd198035
             dataType: VARCHAR(50)
             defaultValue: "'abc'"
-            description: COlumn Desc
+            description: "COlumn Desc IYES NEW ALTERED "
             hashColumns: []
             hashDetails: null
             name: RECORD SOURCE
