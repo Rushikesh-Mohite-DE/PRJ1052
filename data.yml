@@ -1626,7 +1626,7 @@ stepTypes:
                         {% set dynamicTableComment = "COMMENT = " + "'" + desiredState.node.description + "'" %}
                     {% endif %}
 
-                    {{ stage('Create Dynamic Table', true, "sql", "create") }}
+                    {{ stage('Create Dynamic Work Table', true, "sql", "create") }}
                     CREATE OR REPLACE DYNAMIC TABLE {{ fullyQualifiedTargetDynamicTableName }}
                         TARGET_LAG = '{{ dynamicTableLagSpecification }}'
                         WAREHOUSE = {{dynamicTableWarehouse}}
@@ -1952,7 +1952,7 @@ stepTypes:
                 Copyright (c) 2023 Coalesce. All rights reserved.
             This script and its associated documentation are confidential and proprietary to Coalesce.
             Unauthorized reproduction, distribution, or disclosure of this material is strictly prohibited.
-            Coalesce permits you to copy and modify this script for the purposes of using with Coalsce but
+            Coalesce permits you to copy and modify this script for the purposes of using with Coalesce but
             does not permit copying or modification for any other purpose.  
             #}
             {# == Node Type Version        : 1  == #}
@@ -2142,7 +2142,7 @@ stepTypes:
                     ##Initialize option
                     {% set dynamicTableinitialize = desiredState.config.initialize %}
 
-                    {{ stage('Create Dynamic Table', true, "sql", "create") }}
+                    {{ stage('Create Dynamic Dimension Table', true, "sql", "create") }}
                     CREATE OR REPLACE DYNAMIC TABLE {{ fullyQualifiedTargetDynamicTableName }}
                         TARGET_LAG = '{{ dynamicTableLagSpecification }}'
                         WAREHOUSE = {{dynamicTableWarehouse}}
