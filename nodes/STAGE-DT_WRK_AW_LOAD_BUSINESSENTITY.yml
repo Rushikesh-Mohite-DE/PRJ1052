@@ -10,7 +10,7 @@ steps:
           items:
             - lagPeriod: Minutes
               lagValue: "1"
-        refresh_mode: INCREMENTAL
+        refresh_mode: FULL
         selectDistinct: true
         warehouseName: COMPUTE_WH
       database: ""
