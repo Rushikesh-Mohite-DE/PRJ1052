@@ -6,7 +6,7 @@ steps:
         initialize: ON_CREATE
         lagSpecification:
           items:
-            - lagPeriod: Minutes
+            - lagPeriod: Hours
               lagValue: 60
         orderBy:
           items:
