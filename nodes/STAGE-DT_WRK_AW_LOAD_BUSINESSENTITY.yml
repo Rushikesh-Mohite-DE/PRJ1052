@@ -1,0 +1,134 @@
+steps:
+  DT_WRK_AW_LOAD_BUSINESSENTITY-5c060c32-5711-46cf-ae9a-09cc52967de0:
+    operation:
+      config:
+        downstreamOption: false
+        groupByAll: false
+        initialize: ON_CREATE
+        insertStrategy: UNION ALL
+        lagSpecification:
+          items:
+            - lagPeriod: Minutes
+              lagValue: 60
+        refresh_mode: AUTO
+        selectDistinct: true
+        warehouseName: COMPUTE_WH
+      database: ""
+      deployEnabled: true
+      description: tABLE LEVEL COMMENT_1
+      isMultisource: false
+      locationName: STAGE
+      materializationType: Dynamic Table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: c1283217-33c2-4971-afca-6137f4285980
+              stepCounter: 5c060c32-5711-46cf-ae9a-09cc52967de0
+            dataType: NUMBER(38,0)
+            description: Primary key for all customers, vendors, and employees.
+            name: BUSINESSENTITYID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 4b540c04-3b11-42c8-96af-874fdd4579c7
+                    stepCounter: d4be5a70-f329-4ae7-9759-96fe17dec5b5
+                transform: ""
+          - columnReference:
+              columnCounter: 2ead2f08-a6af-4935-a321-33e65a05a672
+              stepCounter: 5c060c32-5711-46cf-ae9a-09cc52967de0
+            dataType: NUMBER(38,0)
+            description: Primary key for all customers, vendors, and employees.
+            name: BUSINESSENTITYID1
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 289c0915-97f9-4cdc-b5bb-0e9986b405ac
+                    stepCounter: d4be5a70-f329-4ae7-9759-96fe17dec5b5
+                transform: ""
+          - columnReference:
+              columnCounter: 52af488e-72e1-40cf-9edb-2f8c88a8b51d
+              stepCounter: 5c060c32-5711-46cf-ae9a-09cc52967de0
+            dataType: VARCHAR(16777216)
+            description: ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.
+            name: ROWGUID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 721271fd-02f9-4715-bca1-8059a43c2937
+                    stepCounter: d4be5a70-f329-4ae7-9759-96fe17dec5b5
+                transform: ""
+          - columnReference:
+              columnCounter: b8403852-116d-4a6d-8e66-67d91ab769ae
+              stepCounter: 5c060c32-5711-46cf-ae9a-09cc52967de0
+            dataType: TIMESTAMP_NTZ(9)
+            description: Date and time the record was last updated.
+            name: MODIFIEDDATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: f31968ba-3379-45eb-a610-e9e2667f6050
+                    stepCounter: d4be5a70-f329-4ae7-9759-96fe17dec5b5
+                transform: ""
+          - columnReference:
+              columnCounter: 0b25e872-7cb8-4546-997b-697eaadb5ce1
+              stepCounter: 5c060c32-5711-46cf-ae9a-09cc52967de0
+            dataType: STRING
+            description: ""
+            name: HAShed
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 78dd46bf-e9ec-4d44-8383-b8a13f5dc881
+                    stepCounter: d4be5a70-f329-4ae7-9759-96fe17dec5b5
+                transform: ""
+          - columnReference:
+              columnCounter: 62309abc-8f74-443d-83fd-feb912a2a266
+              stepCounter: 5c060c32-5711-46cf-ae9a-09cc52967de0
+            dataType: STRING
+            description: ""
+            name: TWO_HASHED
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 99092ea6-3e5b-413a-a86b-f4285c95e296
+                    stepCounter: d4be5a70-f329-4ae7-9759-96fe17dec5b5
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: a5ee30e7-16f2-48b4-8798-2635f981b2cf
+              stepCounter: 5c060c32-5711-46cf-ae9a-09cc52967de0
+            config: {}
+            dataType: STRING
+            defaultValue: ""
+            description: ""
+            hashDetails:
+              hashAlgorithm: SHA1
+            hashedColumns:
+              - columnCounter: 2ead2f08-a6af-4935-a321-33e65a05a672
+                stepCounter: 5c060c32-5711-46cf-ae9a-09cc52967de0
+            name: GH
+            nullable: true
+            sourceColumnReferences: []
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: STAGE
+                nodeName: STG_AW_LOAD_BUSINESSENTITY
+            join:
+              joinCondition: FROM {{ ref('STAGE', 'STG_AW_LOAD_BUSINESSENTITY') }} "STG_AW_LOAD_BUSINESSENTITY"
+            name: DT_WRK_AW_LOAD_BUSINESSENTITY
+            noLinkRefs: []
+      name: DT_WRK_AW_LOAD_BUSINESSENTITY
+      overrideSQL: false
+      schema: ""
+      sqlType: "156"
+      type: sql
+    stepCounter: 5c060c32-5711-46cf-ae9a-09cc52967de0

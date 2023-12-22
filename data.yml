@@ -320,7 +320,7 @@ projects: {}
 stepTypes:
   StepType-143:
     id: "143"
-    isDisabled: false
+    isDisabled: true
     metadata:
       defaultStorageLocation: null
       error: null
@@ -826,7 +826,7 @@ stepTypes:
     version: 1
   StepType-146:
     id: "146"
-    isDisabled: false
+    isDisabled: true
     metadata:
       defaultStorageLocation: null
       error: null
@@ -1051,7 +1051,7 @@ stepTypes:
     version: 1
   StepType-147:
     id: "147"
-    isDisabled: false
+    isDisabled: true
     metadata:
       defaultStorageLocation: null
       error: null
@@ -1292,13 +1292,13 @@ stepTypes:
     version: 1
   StepType-156:
     id: "156"
-    isDisabled: true
+    isDisabled: false
     metadata:
       defaultStorageLocation: null
       error: null
       nodeMetadataSpec: |-
-        capitalized: Dyanmic Table Stage
-        short: DT
+        capitalized: Dyanmic Table Work
+        short: DT_WRK
         tagColor: "#F6FF3C"
         isDisabled: true
         plural: Dynamic Tables
@@ -1347,6 +1347,25 @@ stepTypes:
               isRequired: false
               enableIf: "{% if config.downstreamOption %} false {% else %} true {% endif %}"
 
+            - type: dropdownSelector
+              displayName: Refresh Mode
+              attributeName: refresh_mode
+              default: "AUTO"
+              options:
+              - AUTO
+              - INCREMENTAL
+              - FULL
+              isRequired: true
+
+            - type: dropdownSelector   
+              displayName: Initialize
+              attributeName: initialize
+              default: "ON_CREATE"
+              options:
+              - ON_CREATE
+              - ON_SCHEDULE 
+              isRequired: true
+
           - groupName: General Options
             items: 
             - type: toggleButton
@@ -1366,7 +1385,7 @@ stepTypes:
             - displayName: Multi Source Strategy
               attributeName: insertStrategy
               type: dropdownSelector
-              default: UNION
+              default: UNION ALL
               options:
               - "UNION"
               - "UNION ALL" 
@@ -1385,6 +1404,18 @@ stepTypes:
       templates:
         create:
           templateString: |
+            {#
+                Copyright (c) 2023 Coalesce. All rights reserved.
+            This script and its associated documentation are confidential and proprietary to Coalesce.
+            Unauthorized reproduction, distribution, or disclosure of this material is strictly prohibited.
+            Coalesce permits you to copy and modify this script for the purposes of using with Coalsce but
+            does not permit copying or modification for any other purpose.  
+            #}
+            {# == Node Type Version        : 1  == #}
+            {# == Node Type Name           : Dynamic Table Stage  == #}
+            {# == Node Type Description    : This node creates and runs dynamic table stage  == #}
+
+
             {% if desiredState == currentState %}
 
             {{ stage('Nothing to do.') }}
@@ -1475,7 +1506,9 @@ stepTypes:
                     {% set desiredStorageLocations = (nsVariables.nsDesiredUsedStorageLocations).split(',') | list %}
                     {% set desiredUniqueStorageLocations = desiredStorageLocations | unique | sort | list %}
 
-                    ## Test 
+                    ## Storage Location Tests
+                    ## Only need to account for updated Storage Location mappings
+                    ## sourceTest handles changed Storage Location Names
                     {% set nsVariables.storageLocationTest = true %}
                     {% for name in desiredUniqueStorageLocations if nsVariables.storageLocationTest == true %}
                         ## Current mappings
@@ -1503,6 +1536,12 @@ stepTypes:
                     {% set nodeMaterializationType = currentState.node.materializationType == desiredState.node.materializationType %}
                     {% set nodeIsMultisource = currentState.node.isMultisource == desiredState.node.isMultisource %}
 
+                    ## Refresh_mode test
+                    {% set refreshTest = currentState.config.refresh_mode == desiredState.config.refresh_mode %}
+
+                    ## Initialize test
+                    {% set initializeTest = currentState.config.initialize == desiredState.config.initialize %}
+
 
                     ## If any of the above are false then a CREATE must be run
                     {% if 
@@ -1516,7 +1555,9 @@ stepTypes:
                         selectDistinctTest == false or 
                         nodeNameTest == false or 
                         nodeMaterializationType == false or 
-                        nodeIsMultisource == false %}    
+                        nodeIsMultisource == false or 
+                        initializeTest == false or
+                        refreshTest == false %}    
 
                         {% set createTest = true %}
                     {% else %}
@@ -1574,6 +1615,12 @@ stepTypes:
                         {% set dynamicTableLagSpecification = dynamicTableLagValue ~ ' ' ~ dynamicTableLagValuePeriod %}
                     {% endif %}
 
+                    ## Refresh-type option
+                    {% set dynamicTablerefresh = desiredState.config.refresh_mode %}
+
+                    ##Initialize option
+                    {% set dynamicTableinitialize = desiredState.config.initialize %}
+
                     ## Node description
                     {%- if desiredState.node.description | length > 0 %} 
                         {% set dynamicTableComment = "COMMENT = " + "'" + desiredState.node.description + "'" %}
@@ -1583,6 +1630,8 @@ stepTypes:
                     CREATE OR REPLACE DYNAMIC TABLE {{ fullyQualifiedTargetDynamicTableName }}
                         TARGET_LAG = '{{ dynamicTableLagSpecification }}'
                         WAREHOUSE = {{dynamicTableWarehouse}}
+                        REFRESH_MODE   = {{dynamicTablerefresh}}
+                        INITIALIZE = {{dynamicTableinitialize}}
                         {{ dynamicTableComment }}
                     (
                         {% for col in desiredState.columns %}
@@ -1609,8 +1658,7 @@ stepTypes:
                     {% endfor %}
                     {% if desiredState.config.groupByAll %} GROUP BY ALL {% endif %}
 
-                    {{ stage('Refresh Dynamic Table', true, "sql", "create") }}
-                    ALTER DYNAMIC TABLE {{ fullyQualifiedTargetDynamicTableName }} REFRESH
+
 
                 {% elif (currentState != undefined) and (alterOnlyTest == true) %}
 
@@ -1637,6 +1685,8 @@ stepTypes:
                         {% set desiredDynamicTableLagSpecification = desiredDynamicTableLagValue ~ ' ' ~ desiredDynamicTableLagValuePeriod %}
                     {% endif %}
 
+
+
                     ## Current Warehouse
                     {% set currentDynamicTableWarehouse = currentState.config.warehouseName %}
 
@@ -1649,6 +1699,9 @@ stepTypes:
 
                         {% set currentDynamicTableLagSpecification = currentDynamicTableLagValue ~ ' ' ~ currentDynamicTableLagValuePeriod %}
                     {% endif %}
+                    
+
+
 
                     ## ALTER for Warehouse if necessary
                     {% set dynamicTableWarehouse = '' %}
@@ -1666,6 +1719,8 @@ stepTypes:
                         {% endif %}
                     {% endif %}
 
+
+
                     {%- if desiredState.node.description | length > 0 %} 
                         {% set dynamicTableComment = "COMMENT = " + "'" + desiredState.node.description + "'" %}
                     {% endif %}
@@ -1675,7 +1730,7 @@ stepTypes:
                         {{ dynamicTableWarehouse }}
                         {{ dynamicTableLagSpecification }}
                         {{ dynamicTableComment }}
-
+                    
                     {{ stage('Refresh Dynamic Table', true, "sql", "create") }}
                     ALTER DYNAMIC TABLE {{ desiredFullyQualifiedTargetDynamicTableName }} REFRESH
 
@@ -1703,33 +1758,19 @@ stepTypes:
 
             {% endif %}
         run:
-          templateString: |+
-            {{ stage('Nothing to do.') }}
-
-            {%- set tst = sources[0].columns | map(attribute='transform') | list %}
-            {%- set nsVariables = namespace(transformArray=[]) %}
-
-            {% for s in sources %}
-                {% for c in s.columns %}
-                    {% set nsVariables.transformArray = nsVariables.transformArray +  [c.transform] -%}
-                {% endfor %}
-            {% endfor %}
-
-            {{ nsVariables.transformArray }}
-
-
-    name: Dynamic Table Stage
+          templateString: ""
+    name: Dynamic Table Work
     version: 1
   StepType-157:
     id: "157"
-    isDisabled: true
+    isDisabled: false
     metadata:
       defaultStorageLocation: null
       error: null
       nodeMetadataSpec: |
         capitalized: Dyanmic Table Dimension
         short: DT_DIM
-        tagColor: yellow
+        tagColor: "#F6FF3C"
         isDisabled: true
         plural: Dynamic Tables
 
@@ -1776,6 +1817,25 @@ stepTypes:
             
               isRequired: false
               enableIf: "{% if config.downstreamOption %} false {% else %} true {% endif %}"
+
+            - type: dropdownSelector
+              displayName: Refresh Mode
+              attributeName: refresh_mode
+              default: "AUTO"
+              options:
+              - AUTO
+              - INCREMENTAL
+              - FULL
+              isRequired: true
+
+            - type: dropdownSelector   
+              displayName: Initialize
+              attributeName: initialize
+              default: "ON_CREATE"
+              options:
+              - ON_CREATE
+              - ON_SCHEDULE 
+              isRequired: true
 
           - groupName: Dimension Options
             items:
@@ -1888,6 +1948,18 @@ stepTypes:
       templates:
         create:
           templateString: |
+            {#
+                Copyright (c) 2023 Coalesce. All rights reserved.
+            This script and its associated documentation are confidential and proprietary to Coalesce.
+            Unauthorized reproduction, distribution, or disclosure of this material is strictly prohibited.
+            Coalesce permits you to copy and modify this script for the purposes of using with Coalsce but
+            does not permit copying or modification for any other purpose.  
+            #}
+            {# == Node Type Version        : 1  == #}
+            {# == Node Type Name           : Dynamic Table Dimension  == #}
+            {# == Node Type Description    : This node creates and runs dynamic table dimension  == #}
+
+
             {% if desiredState == currentState %}
 
             {{ stage('Nothing to do.') }}
@@ -1994,6 +2066,12 @@ stepTypes:
                     {% set nodeIsMultisource = currentState.node.isMultisource == desiredState.node.isMultisource %}
 
 
+                    ## Refresh_mode test
+                    {% set refreshTest = currentState.config.refresh_mode == desiredState.config.refresh_mode %}
+
+                    ## Initialize test
+                    {% set initializeTest = currentState.config.initialize == desiredState.config.initialize %}
+
                     ## If any of the above are false then a CREATE must be run
                     {% if 
                         columnsTest == false or
@@ -2002,7 +2080,9 @@ stepTypes:
                         insertStrategyTest == false or 
                         nodeNameTest == false or 
                         nodeMaterializationType == false or 
-                        nodeIsMultisource == false %}    
+                        nodeIsMultisource == false or 
+                        initializeTest == false or 
+                        refreshTest == false %}    
 
                         {% set createTest = true %}
                     {% else %}
@@ -2056,10 +2136,18 @@ stepTypes:
                         {% set dynamicTableLagSpecification = dynamicTableLagValue ~ ' ' ~ dynamicTableLagValuePeriod %}
                     {% endif %}
 
+                    ## Refresh-type option
+                    {% set dynamicTablerefresh = desiredState.config.refresh_mode %}
+
+                    ##Initialize option
+                    {% set dynamicTableinitialize = desiredState.config.initialize %}
+
                     {{ stage('Create Dynamic Table', true, "sql", "create") }}
                     CREATE OR REPLACE DYNAMIC TABLE {{ fullyQualifiedTargetDynamicTableName }}
                         TARGET_LAG = '{{ dynamicTableLagSpecification }}'
                         WAREHOUSE = {{dynamicTableWarehouse}}
+                        REFRESH_MODE   = {{dynamicTablerefresh}}
+                        INITIALIZE = {{dynamicTableinitialize}}
                         {%- if desiredState.node.description | length > 0 %} COMMENT = '{{ desiredState.node.description }}'{% endif %}
                     (
                         {% for col in desiredState.columns %}
@@ -2085,9 +2173,6 @@ stepTypes:
                         {% endif %}
                     {% endfor %}
                     
-
-                    {{ stage('Refresh Dynamic Table', true, "sql", "create") }}
-                    ALTER DYNAMIC TABLE {{ fullyQualifiedTargetDynamicTableName }} REFRESH
 
                 {% elif (currentState != undefined) and (alterOnlyTest == true) %}
 
@@ -2152,6 +2237,9 @@ stepTypes:
                         {{ dynamicTableWarehouse }}
                         {{ dynamicTableLagSpecification }}
                         {{ dynamicTableComment }}
+                    
+                    {{ stage('Refresh Dynamic Table', true, "sql", "create") }}
+                    ALTER DYNAMIC TABLE {{ desiredFullyQualifiedTargetDynamicTableName }} REFRESH
 
                 {% else %}
                     {{ stage('Nothing to do.') }}
@@ -2177,13 +2265,7 @@ stepTypes:
 
             {% endif %}
         run:
-          templateString: |+
-            {{ stage('Nothing to do1.') }}
-
-                {% set nodeA = nodeMetadata() %}
-
-                {{ nodeMetadata().name }}
-
+          templateString: ""
     name: Dynamic Table Dimension
     version: 1
   StepType-162:
@@ -2848,7 +2930,7 @@ stepTypes:
     version: 1
   StepType-173:
     id: "173"
-    isDisabled: false
+    isDisabled: true
     metadata:
       defaultStorageLocation: null
       error: null
@@ -6731,7 +6813,7 @@ stepTypes:
     version: 1
   StepType-Fact:
     id: Fact
-    isDisabled: false
+    isDisabled: true
     metadata:
       defaultStorageLocation: null
       error: null
@@ -6972,7 +7054,7 @@ stepTypes:
     version: 1
   StepType-Stage:
     id: Stage
-    isDisabled: false
+    isDisabled: true
     metadata:
       defaultStorageLocation: null
       error: null
@@ -7257,7 +7339,7 @@ stepTypes:
     version: 1
   StepType-persistentStage:
     id: persistentStage
-    isDisabled: false
+    isDisabled: true
     metadata:
       defaultStorageLocation: null
       error: null
