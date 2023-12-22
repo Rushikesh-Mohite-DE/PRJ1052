@@ -2,15 +2,15 @@ steps:
   DT_WRK_AW_LOAD_BUSINESSENTITY-15f01489-be9c-4488-b4bf-76eb2385703e:
     operation:
       config:
-        downstreamOption: false
+        downstreamOption: true
         groupByAll: false
         initialize: ON_CREATE
         insertStrategy: UNION ALL
         lagSpecification:
           items:
             - lagPeriod: Minutes
-              lagValue: 60
-        refresh_mode: AUTO
+              lagValue: "1"
+        refresh_mode: INCREMENTAL
         selectDistinct: true
         warehouseName: COMPUTE_WH
       database: ""
