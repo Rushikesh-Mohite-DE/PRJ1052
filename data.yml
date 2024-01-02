@@ -826,7 +826,7 @@ stepTypes:
     version: 1
   StepType-146:
     id: "146"
-    isDisabled: true
+    isDisabled: false
     metadata:
       defaultStorageLocation: null
       error: null
@@ -867,6 +867,7 @@ stepTypes:
             attributeName: truncateBefore
             type: toggleButton
             default: true
+            
 
           - displayName: Enable Tests
             attributeName: testsEnabled
@@ -936,6 +937,9 @@ stepTypes:
                 AS
                 {% for source in sources %}
                     SELECT
+                    {% if config.selectDistinct %}
+                    DISTINCT
+                    {% endif %}
                     {% for col in source.columns %}
                         {{ get_source_transform(col) }} AS "{{ col.name }}"
                         {%- if not loop.last -%}, {% endif %}
@@ -951,6 +955,9 @@ stepTypes:
                         {% endif %}
                     {% endif %}
                 {% endfor %}
+                {% if config.groupByAll %}
+            		Group By All
+            		{% endif %}
 
             {% endif %}
         run:
@@ -1014,15 +1021,16 @@ stepTypes:
             			{% endfor %}
             	
             			{{ source.join }}
+            					{% if config.groupByAll %}
+            			Group By All
+            			{% endif %}	
             	
             			{% if config.insertStrategy in ['UNION', 'UNION ALL'] and not loop.last %}
             				{{config.insertStrategy}}
             			{% endif %}
             	
             		{% endfor %}
-            		{% if config.groupByAll %}
-            		Group By All
-            		{% endif %}	
+
             		
             	
             	{% if config.postSQL %}
@@ -1292,7 +1300,7 @@ stepTypes:
     version: 1
   StepType-156:
     id: "156"
-    isDisabled: false
+    isDisabled: true
     metadata:
       defaultStorageLocation: null
       error: null
@@ -1763,7 +1771,7 @@ stepTypes:
     version: 1
   StepType-157:
     id: "157"
-    isDisabled: false
+    isDisabled: true
     metadata:
       defaultStorageLocation: null
       error: null
@@ -6350,7 +6358,7 @@ stepTypes:
     version: 1
   StepType-Dimension:
     id: Dimension
-    isDisabled: false
+    isDisabled: true
     metadata:
       defaultStorageLocation: null
       error: null

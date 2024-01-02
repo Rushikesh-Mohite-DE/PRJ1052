@@ -2,9 +2,11 @@ steps:
   STG_BUSINESSENTIT_SF-308a2506-ed71-4890-9fdd-503972c45793:
     operation:
       config:
+        groupByAll: false
         insertStrategy: INSERT
         postSQL: ""
         preSQL: ""
+        selectDistinct: false
         testsEnabled: true
         truncateBefore: true
       database: ""
@@ -121,6 +123,6 @@ steps:
       name: STG_BUSINESSENTIT_SF
       overrideSQL: false
       schema: ""
-      sqlType: Stage
+      sqlType: "146"
       type: sql
     stepCounter: 308a2506-ed71-4890-9fdd-503972c45793

@@ -1,17 +1,19 @@
 steps:
-  STG_AW_LOAD_ADDRESS-6177ad0f-ba02-44db-a4de-4da296aff81e:
+  STG_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS12-6177ad0f-ba02-44db-a4de-4da296aff81e:
     operation:
       config:
-        insertStrategy: INSERT
+        groupByAll: true
+        insertStrategy: UNION ALL
         postSQL: ""
-        preSQL: ""
+        preSQL: SELECT * FROM {{ ref('STAGE', 'STG_AW_LOAD_ADDRESS1') }} "STG_AW_LOAD_ADDRESS1"
+        selectDistinct: false
         testsEnabled: true
-        truncateBefore: true
+        truncateBefore: false
       database: ""
       deployEnabled: true
-      description: ""
+      description: test
       isMultisource: false
-      locationName: SOURCE
+      locationName: STAGE
       materializationType: table
       metadata:
         appliedNodeTests: []
@@ -87,6 +89,34 @@ steps:
                     stepCounter: 5e801230-3559-43c0-b3f4-3a36ec5f3968
                 transform: ""
           - columnReference:
+              columnCounter: d15bb1f1-a4e0-4ad3-b9b8-0706636ba682
+              stepCounter: 6177ad0f-ba02-44db-a4de-4da296aff81e
+            dataType: NUMBER(38,0)
+            description: Unique identification number for the state or province. Foreign key to StateProvince table.
+            hashColumns: []
+            hashDetails: null
+            name: STATEPROVINCEID_SUM
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 7ed84c77-ff09-4405-b20c-91ae90c66903
+                    stepCounter: 5e801230-3559-43c0-b3f4-3a36ec5f3968
+                transform: SUM("AW_LOAD_ADDRESS"."STATEPROVINCEID")
+          - columnReference:
+              columnCounter: 83f18643-6b78-43d6-8ea4-ec3eeaac8d08
+              stepCounter: 6177ad0f-ba02-44db-a4de-4da296aff81e
+            dataType: STRING
+            description: Postal code for the street address.
+            hashColumns: []
+            hashDetails: null
+            name: FULL_ADDRESS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: "0"
+                    stepCounter: "0"
+                transform: "'ADDRESSLINE- ' || AW_LOAD_ADDRESS.ADDRESSLINE1 || ',' ||AW_LOAD_ADDRESS.CITY ||'STATEPROVINCEID - '||AW_LOAD_ADDRESS.STATEPROVINCEID ||'POSTAL CODE IS : '||AW_LOAD_ADDRESS.POSTALCODE"
+          - columnReference:
               columnCounter: c2f62efc-a034-4c8e-8574-4ff14265408d
               stepCounter: 6177ad0f-ba02-44db-a4de-4da296aff81e
             dataType: VARCHAR(15)
@@ -142,22 +172,29 @@ steps:
                   - columnCounter: 6cc69f4c-ceaf-45ea-8d51-38ea72db1c70
                     stepCounter: 5e801230-3559-43c0-b3f4-3a36ec5f3968
                 transform: ""
-        cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
-          - aliases: {}
+          - aliases:
+              AW_LOAD_ADDRESS: 5e801230-3559-43c0-b3f4-3a36ec5f3968
+              AW_LOAD_BILLOFMATERIALS: 1e5ed8bd-fe93-4e29-8588-c70aa48356e5
             customSQL:
               customSQL: ""
             dependencies:
               - locationName: SOURCE
                 nodeName: AW_LOAD_ADDRESS
+              - locationName: SOURCE
+                nodeName: AW_LOAD_BILLOFMATERIALS
             join:
-              joinCondition: FROM {{ ref('SOURCE', 'AW_LOAD_ADDRESS') }} "AW_LOAD_ADDRESS"
-            name: STG_AW_LOAD_ADDRESS
+              joinCondition: |
+                FROM {{ ref('SOURCE', 'AW_LOAD_ADDRESS') }} "AW_LOAD_ADDRESS"
+                LEFT JOIN {{ ref('SOURCE', 'AW_LOAD_BILLOFMATERIALS') }} AW_LOAD_BILLOFMATERIALS
+                ON AW_LOAD_ADDRESS."ADDRESSID" = "AW_LOAD_BILLOFMATERIALS"."BILLOFMATERIALSID"
+                WHERE "AW_LOAD_ADDRESS"."ADDRESSID" > 21907
+            name: STG_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS12
             noLinkRefs: []
-      name: STG_AW_LOAD_ADDRESS
+      name: STG_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS12
       overrideSQL: false
       schema: ""
-      sqlType: Stage
+      sqlType: "146"
       type: sql
     stepCounter: 6177ad0f-ba02-44db-a4de-4da296aff81e

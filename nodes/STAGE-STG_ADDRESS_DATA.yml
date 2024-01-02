@@ -2,9 +2,11 @@ steps:
   STG_ADDRESS_DATA-6c12aa6a-3e9e-44fd-a659-47d9bc24f596:
     operation:
       config:
-        insertStrategy: INSERT
+        groupByAll: true
+        insertStrategy: UNION ALL
         postSQL: ""
         preSQL: ""
+        selectDistinct: false
         testsEnabled: true
         truncateBefore: true
       database: ""
@@ -30,6 +32,8 @@ steps:
                   - columnCounter: eb75884d-c83c-420b-a24e-2331bd533c9f
                     stepCounter: 5e801230-3559-43c0-b3f4-3a36ec5f3968
                 transform: ""
+              - columnReferences: []
+                transform: ""
           - columnReference:
               columnCounter: 08e8151d-065b-434e-a145-46d1f81979ca
               stepCounter: 6c12aa6a-3e9e-44fd-a659-47d9bc24f596
@@ -43,6 +47,8 @@ steps:
               - columnReferences:
                   - columnCounter: 157f88a2-dff1-456a-8a1d-9e120b595240
                     stepCounter: 5e801230-3559-43c0-b3f4-3a36ec5f3968
+                transform: ""
+              - columnReferences: []
                 transform: ""
           - columnReference:
               columnCounter: 1f0bfa4b-b15b-4ffa-94d6-a96fa36a7ebd
@@ -58,6 +64,8 @@ steps:
                   - columnCounter: f7a2902e-a5a8-4c57-9330-730dfddc1451
                     stepCounter: 5e801230-3559-43c0-b3f4-3a36ec5f3968
                 transform: ""
+              - columnReferences: []
+                transform: ""
           - columnReference:
               columnCounter: 88516b35-0884-4803-8df4-7c506ad52878
               stepCounter: 6c12aa6a-3e9e-44fd-a659-47d9bc24f596
@@ -71,6 +79,8 @@ steps:
               - columnReferences:
                   - columnCounter: d9e78d48-f7e5-4f73-ab6a-a409f3244479
                     stepCounter: 5e801230-3559-43c0-b3f4-3a36ec5f3968
+                transform: ""
+              - columnReferences: []
                 transform: ""
           - columnReference:
               columnCounter: 2f1e2d3a-c003-453e-a499-0a3b855bf421
@@ -86,6 +96,8 @@ steps:
                   - columnCounter: 7ed84c77-ff09-4405-b20c-91ae90c66903
                     stepCounter: 5e801230-3559-43c0-b3f4-3a36ec5f3968
                 transform: ""
+              - columnReferences: []
+                transform: ""
           - columnReference:
               columnCounter: 87806b94-8e1d-40de-809c-411730cb6d86
               stepCounter: 6c12aa6a-3e9e-44fd-a659-47d9bc24f596
@@ -99,6 +111,8 @@ steps:
               - columnReferences:
                   - columnCounter: ddc89d3a-8cf0-42d9-879a-8de397b60c67
                     stepCounter: 5e801230-3559-43c0-b3f4-3a36ec5f3968
+                transform: ""
+              - columnReferences: []
                 transform: ""
           - columnReference:
               columnCounter: 61c08006-69ec-499b-9e0c-e81dfcde3491
@@ -114,6 +128,8 @@ steps:
                   - columnCounter: 663585ef-ea3c-44b2-b954-805f9a9ce40d
                     stepCounter: 5e801230-3559-43c0-b3f4-3a36ec5f3968
                 transform: ""
+              - columnReferences: []
+                transform: ""
           - columnReference:
               columnCounter: cad23b76-3f97-4263-89d3-e02891823a30
               stepCounter: 6c12aa6a-3e9e-44fd-a659-47d9bc24f596
@@ -127,6 +143,8 @@ steps:
               - columnReferences:
                   - columnCounter: 12a6b6b8-1939-407c-920c-9fced65aa538
                     stepCounter: 5e801230-3559-43c0-b3f4-3a36ec5f3968
+                transform: ""
+              - columnReferences: []
                 transform: ""
           - columnReference:
               columnCounter: a7b67ba8-6ab3-4fc2-8378-4e3e91229109
@@ -142,7 +160,8 @@ steps:
                   - columnCounter: 6cc69f4c-ceaf-45ea-8d51-38ea72db1c70
                     stepCounter: 5e801230-3559-43c0-b3f4-3a36ec5f3968
                 transform: ""
-        cteString: ""
+              - columnReferences: []
+                transform: ""
         enabledColumnTestIDs: []
         sourceMapping:
           - aliases: {}
@@ -155,9 +174,16 @@ steps:
               joinCondition: FROM {{ ref('SOURCE', 'AW_LOAD_ADDRESS') }} "AW_LOAD_ADDRESS"
             name: STG_ADDRESS_DATA
             noLinkRefs: []
+          - customSQL:
+              customSQL: ""
+            dependencies: []
+            join:
+              joinCondition: ""
+            name: NEW_SOURCE
+            noLinkRefs: []
       name: STG_ADDRESS_DATA
       overrideSQL: false
       schema: ""
-      sqlType: Stage
+      sqlType: "146"
       type: sql
     stepCounter: 6c12aa6a-3e9e-44fd-a659-47d9bc24f596
