@@ -202,14 +202,11 @@ steps:
             customSQL:
               customSQL: |-
                 
-                DROP VIEW IF EXISTS {{ ref('STAGE', 'WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS12L')}};
-                
-                
                 {{ stage('Override Create SQL') }}
                 	CREATE OR REPLACE VIEW {{ ref('STAGE', 'WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS12L')}} AS (
                 		SELECT 
                  ADDRESSID AS ADDRESSID,
-                 ADDRESSLINE1 AS ADDRESSLINE1,
+                 ADDRESSLINE1 AS ADDRESSLINE4,
                  ADDRESSLINE2 AS ADDRESSLINE2,
                  CITY AS CITY,
                  'ADDRESSLINE- ' || AW_LOAD_ADDRESS.ADDRESSLINE1 || ',' || AW_LOAD_ADDRESS.CITY || 'STATEPROVINCEID - ' || AW_LOAD_ADDRESS.STATEPROVINCEID || 'POSTAL CODE IS : ' || AW_LOAD_ADDRESS.POSTALCODE AS "OVERRIDE_FULL_ADDRESS",
