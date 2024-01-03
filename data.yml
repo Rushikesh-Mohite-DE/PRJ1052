@@ -831,8 +831,8 @@ stepTypes:
       defaultStorageLocation: null
       error: null
       nodeMetadataSpec: |
-        capitalized: Stage Group All Distinct
-        short: STG
+        capitalized: Work Group All Distinct
+        short: WRK
         plural: Stages
         tagColor: '#2EB67D'
 
@@ -867,7 +867,7 @@ stepTypes:
             attributeName: truncateBefore
             type: toggleButton
             default: true
-            
+            enableIf: "{% if node.materializationType == 'view' %} false {% else %} true {% endif %}"
 
           - displayName: Enable Tests
             attributeName: testsEnabled
@@ -892,12 +892,14 @@ stepTypes:
             type: textBox
             syntax: sql
             isRequired: false
+            enableIf: "{% if node.materializationType == 'view' %} false {% else %} true {% endif %}"
 
           - displayName: Post-SQL
             attributeName: postSQL
             type: textBox
             syntax: sql
             isRequired: false
+            enableIf: "{% if node.materializationType == 'view' %} false {% else %} true {% endif %}"
       templates:
         create:
           templateString: |
@@ -975,6 +977,11 @@ stepTypes:
             		{{ config.preSQL }}
             	{% endif %}
             	
+            	    {% if node.isMultisource %}
+                        {% set insertStrategy = config.insertStrategy  %}
+            		{% else %}
+            		    {% set insertStrategy = 'INSERT' %}
+            		{% endif %}
             	
             	
             		{% if config.truncateBefore %}
@@ -986,7 +993,7 @@ stepTypes:
             	
             	
             		{% if config.insertStrategy in ['UNION', 'UNION ALL'] %}
-            			{{ stage( config.insertStrategy + ' Sources' | string ) }}
+            			{{ stage(insertStrategy + ' Sources' | string ) }}
             			INSERT INTO {{ ref_no_link(node.location.name, node.name) }}
             				(
             					{% for col in columns %}
@@ -1021,7 +1028,7 @@ stepTypes:
             			{% endfor %}
             	
             			{{ source.join }}
-            					{% if config.groupByAll %}
+            			{% if config.groupByAll %}
             			Group By All
             			{% endif %}	
             	
@@ -1055,7 +1062,7 @@ stepTypes:
             		{% endfor %}
             	{% endfor %}
             {% endif %}
-    name: Stage Group All Distinct
+    name: Work Group All Distinct
     version: 1
   StepType-147:
     id: "147"
