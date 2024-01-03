@@ -220,9 +220,6 @@ steps:
                  MODIFIEDDATE AS MODIFIEDDATE
                  FROM {{ ref('SOURCE', 'AW_LOAD_ADDRESS') }}
                 	);
-                
-                {{ stage('Override Create SQL') }}
-                SELECT * FROM {{ ref('SOURCE', 'AW_LOAD_ADDRESS') }} ;
             dependencies:
               - locationName: SOURCE
                 nodeName: AW_LOAD_ADDRESS
