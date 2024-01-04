@@ -908,7 +908,7 @@ stepTypes:
             	{{ node.override.create.script }}
 
             {% elif node.materializationType == 'table' %}
-            	{{ stage('Create Stage Table') }}
+            	{{ stage('Create Work Table') }}
 
             	CREATE OR REPLACE TABLE {{ ref_no_link(node.location.name, node.name) }}
             	(
@@ -925,7 +925,7 @@ stepTypes:
 
 
             {% elif node.materializationType == 'view' %}
-                {{ stage('Create Stage View') }}
+                {{ stage('Create Work View') }}
 
                 CREATE OR REPLACE VIEW {{ ref_no_link(node.location.name, node.name) }}
                 (
