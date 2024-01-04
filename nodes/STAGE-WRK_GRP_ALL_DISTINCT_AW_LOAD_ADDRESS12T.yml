@@ -7,8 +7,8 @@ steps:
         postSQL: ""
         preSQL: ""
         selectDistinct: false
-        testsEnabled: true
-        truncateBefore: false
+        testsEnabled: false
+        truncateBefore: true
       database: ""
       deployEnabled: true
       description: Table Description
@@ -32,7 +32,7 @@ steps:
             description: Primary key for Address records.
             hashColumns: []
             hashDetails: null
-            name: ADDRESSID
+            name: ADDRESSID_RE
             nullable: true
             sourceColumnReferences:
               - columnReferences:
@@ -87,7 +87,7 @@ steps:
               - columnReferences:
                   - columnCounter: d9e78d48-f7e5-4f73-ab6a-a409f3244479
                     stepCounter: 5e801230-3559-43c0-b3f4-3a36ec5f3968
-                transform: ""
+                transform: AW_LOAD_ADDRESS."STATEPROVINCEID" ||'-'||AW_LOAD_ADDRESS."CITY"
               - columnReferences: []
                 transform: ""
           - acceptedValues:
@@ -187,6 +187,29 @@ steps:
                 transform: ""
               - columnReferences: []
                 transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: d0f3f68b-52a9-4f5c-9937-4740e294d837
+              stepCounter: 6177ad0f-ba02-44db-a4de-4da296aff81e
+            config: {}
+            dataType: TIMESTAMP
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: SYS_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: "0"
+                    stepCounter: "0"
+                transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+              - columnReferences: []
+                transform: ""
+            systemColumnType: None
+            transform: ""
         enabledColumnTestIDs: []
         sourceMapping:
           - aliases:
