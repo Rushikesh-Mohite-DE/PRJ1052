@@ -1,5 +1,5 @@
 steps:
-  WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS12L-6177ad0f-ba02-44db-a4de-4da296aff81e:
+  WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS12T1_IN-440d6b6d-4540-4723-8a2a-cf43fb75cdb9:
     operation:
       config:
         groupByAll: true
@@ -14,13 +14,20 @@ steps:
       description: Table Description
       isMultisource: false
       locationName: STAGE
-      materializationType: view
+      materializationType: table
       metadata:
-        appliedNodeTests: []
+        appliedNodeTests:
+          - continueOnFailure: true
+            description: ""
+            name: Test
+            runOrder: After
+            templateString: |-
+              select city from {{ ref('STAGE', 'WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS12T') }}
+              where city = 'Vancouver'
         columns:
           - columnReference:
-              columnCounter: 46b8ca8a-bd18-4a63-9c28-be84e73eab93
-              stepCounter: 6177ad0f-ba02-44db-a4de-4da296aff81e
+              columnCounter: 8f064439-7564-4e31-96e6-ac2b52ce62f0
+              stepCounter: 440d6b6d-4540-4723-8a2a-cf43fb75cdb9
             dataType: NUMBER(38,0)
             description: Primary key for Address records.
             hashColumns: []
@@ -34,9 +41,75 @@ steps:
                 transform: ""
               - columnReferences: []
                 transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 38c8eadb-3e8c-419e-a6e3-05c83ac383e2
+              stepCounter: 440d6b6d-4540-4723-8a2a-cf43fb75cdb9
+            config: {}
+            dataType: VARCHAR(60)
+            defaultValue: ""
+            description: ""
+            name: ADDRESSLINE4
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: ""
+            transform: ""
           - columnReference:
-              columnCounter: ef9ded42-086b-4637-a6ff-22f865f7f919
-              stepCounter: 6177ad0f-ba02-44db-a4de-4da296aff81e
+              columnCounter: 82d39cfc-bd53-436a-88c3-84e5c67c34f2
+              stepCounter: 440d6b6d-4540-4723-8a2a-cf43fb75cdb9
+            dataType: VARCHAR(60)
+            description: Second street address line.
+            hashColumns: []
+            hashDetails: null
+            name: ADDRESSLINE2
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: f7a2902e-a5a8-4c57-9330-730dfddc1451
+                    stepCounter: 5e801230-3559-43c0-b3f4-3a36ec5f3968
+                transform: ""
+              - columnReferences: []
+                transform: ""
+          - columnReference:
+              columnCounter: 55924673-9d22-4843-afa6-2bad3e4ff55f
+              stepCounter: 440d6b6d-4540-4723-8a2a-cf43fb75cdb9
+            dataType: VARCHAR(30)
+            description: Name of the city.
+            hashColumns: []
+            hashDetails: null
+            name: CITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: d9e78d48-f7e5-4f73-ab6a-a409f3244479
+                    stepCounter: 5e801230-3559-43c0-b3f4-3a36ec5f3968
+                transform: ""
+              - columnReferences: []
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 65794f96-2017-4531-89dc-98070d738e93
+              stepCounter: 440d6b6d-4540-4723-8a2a-cf43fb75cdb9
+            config: {}
+            dataType: VARCHAR(16777216)
+            defaultValue: ""
+            description: ""
+            name: OVERRIDE_FULL_ADDRESS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: ""
+            transform: ""
+          - columnReference:
+              columnCounter: a60eef89-10dd-46aa-ae92-855aa57e86c0
+              stepCounter: 440d6b6d-4540-4723-8a2a-cf43fb75cdb9
             dataType: NUMBER(38,0)
             description: Unique identification number for the state or province. Foreign key to StateProvince table.
             hashColumns: []
@@ -51,40 +124,8 @@ steps:
               - columnReferences: []
                 transform: ""
           - columnReference:
-              columnCounter: d15bb1f1-a4e0-4ad3-b9b8-0706636ba682
-              stepCounter: 6177ad0f-ba02-44db-a4de-4da296aff81e
-            dataType: NUMBER(38,0)
-            description: Unique identification number for the state or province. Foreign key to StateProvince table.
-            hashColumns: []
-            hashDetails: null
-            name: STATEPROVINCEID_SUM
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 7ed84c77-ff09-4405-b20c-91ae90c66903
-                    stepCounter: 5e801230-3559-43c0-b3f4-3a36ec5f3968
-                transform: SUM("AW_LOAD_ADDRESS"."STATEPROVINCEID")
-              - columnReferences: []
-                transform: ""
-          - columnReference:
-              columnCounter: 83f18643-6b78-43d6-8ea4-ec3eeaac8d08
-              stepCounter: 6177ad0f-ba02-44db-a4de-4da296aff81e
-            dataType: STRING
-            description: Postal code for the street address.
-            hashColumns: []
-            hashDetails: null
-            name: FULL_ADDRESS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: "0"
-                    stepCounter: "0"
-                transform: "'ADDRESSLINE- ' || AW_LOAD_ADDRESS.ADDRESSLINE1 || ',' ||AW_LOAD_ADDRESS.CITY ||'STATEPROVINCEID - '||AW_LOAD_ADDRESS.STATEPROVINCEID ||'POSTAL CODE IS : '||AW_LOAD_ADDRESS.POSTALCODE"
-              - columnReferences: []
-                transform: ""
-          - columnReference:
-              columnCounter: c2f62efc-a034-4c8e-8574-4ff14265408d
-              stepCounter: 6177ad0f-ba02-44db-a4de-4da296aff81e
+              columnCounter: 37a5178f-5b0b-47d6-b7d7-8ddcd2a59a66
+              stepCounter: 440d6b6d-4540-4723-8a2a-cf43fb75cdb9
             dataType: VARCHAR(15)
             description: Postal code for the street address.
             hashColumns: []
@@ -99,40 +140,8 @@ steps:
               - columnReferences: []
                 transform: ""
           - columnReference:
-              columnCounter: 1c92f310-0141-46fb-8472-2f53bc32bbf1
-              stepCounter: 6177ad0f-ba02-44db-a4de-4da296aff81e
-            dataType: VARCHAR(16777216)
-            description: ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.
-            hashColumns: []
-            hashDetails: null
-            name: ROWGUID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 12a6b6b8-1939-407c-920c-9fced65aa538
-                    stepCounter: 5e801230-3559-43c0-b3f4-3a36ec5f3968
-                transform: ""
-              - columnReferences: []
-                transform: ""
-          - columnReference:
-              columnCounter: ee00419f-18d9-408c-913a-2be5c7f54799
-              stepCounter: 6177ad0f-ba02-44db-a4de-4da296aff81e
-            dataType: VARCHAR(30)
-            description: Name of the city.
-            hashColumns: []
-            hashDetails: null
-            name: CITY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: d9e78d48-f7e5-4f73-ab6a-a409f3244479
-                    stepCounter: 5e801230-3559-43c0-b3f4-3a36ec5f3968
-                transform: ""
-              - columnReferences: []
-                transform: ""
-          - columnReference:
-              columnCounter: e5db5a7d-77a2-4c74-b457-8f391b72be89
-              stepCounter: 6177ad0f-ba02-44db-a4de-4da296aff81e
+              columnCounter: 3b986f55-b2a9-4e16-889c-efacedf65696
+              stepCounter: 440d6b6d-4540-4723-8a2a-cf43fb75cdb9
             dataType: VARCHAR(50)
             description: Latitude and longitude of this address.
             hashColumns: []
@@ -147,8 +156,24 @@ steps:
               - columnReferences: []
                 transform: ""
           - columnReference:
-              columnCounter: 8f7878b3-7c65-4503-9391-5534958cf6ef
-              stepCounter: 6177ad0f-ba02-44db-a4de-4da296aff81e
+              columnCounter: c8534841-0640-45b1-b697-c79ee524e339
+              stepCounter: 440d6b6d-4540-4723-8a2a-cf43fb75cdb9
+            dataType: VARCHAR(16777216)
+            description: ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.
+            hashColumns: []
+            hashDetails: null
+            name: ROWGUID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12a6b6b8-1939-407c-920c-9fced65aa538
+                    stepCounter: 5e801230-3559-43c0-b3f4-3a36ec5f3968
+                transform: ""
+              - columnReferences: []
+                transform: ""
+          - columnReference:
+              columnCounter: 2aa8f4ed-d123-4e14-b814-b92ac2656201
+              stepCounter: 440d6b6d-4540-4723-8a2a-cf43fb75cdb9
             dataType: VARCHAR(50)
             description: Date and time the record was last updated.
             hashColumns: []
@@ -158,38 +183,6 @@ steps:
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 6cc69f4c-ceaf-45ea-8d51-38ea72db1c70
-                    stepCounter: 5e801230-3559-43c0-b3f4-3a36ec5f3968
-                transform: ""
-              - columnReferences: []
-                transform: ""
-          - columnReference:
-              columnCounter: 445f7e8c-8c57-41a6-b4a9-c8a8dcdd41e1
-              stepCounter: 6177ad0f-ba02-44db-a4de-4da296aff81e
-            dataType: VARCHAR(60)
-            description: First street address line.
-            hashColumns: []
-            hashDetails: null
-            name: ADDRESSLINE1
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 157f88a2-dff1-456a-8a1d-9e120b595240
-                    stepCounter: 5e801230-3559-43c0-b3f4-3a36ec5f3968
-                transform: ""
-              - columnReferences: []
-                transform: ""
-          - columnReference:
-              columnCounter: 2c04eee5-a973-44aa-b571-f3477656098a
-              stepCounter: 6177ad0f-ba02-44db-a4de-4da296aff81e
-            dataType: VARCHAR(60)
-            description: Second street address line.
-            hashColumns: []
-            hashDetails: null
-            name: ADDRESSLINE2
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: f7a2902e-a5a8-4c57-9330-730dfddc1451
                     stepCounter: 5e801230-3559-43c0-b3f4-3a36ec5f3968
                 transform: ""
               - columnReferences: []
@@ -228,7 +221,7 @@ steps:
                 LEFT JOIN {{ ref('SOURCE', 'AW_LOAD_BILLOFMATERIALS') }} AW_LOAD_BILLOFMATERIALS
                   ON AW_LOAD_ADDRESS."ADDRESSID" = "AW_LOAD_BILLOFMATERIALS"."BILLOFMATERIALSID"
                 WHERE "AW_LOAD_ADDRESS"."ADDRESSID" > 21907
-            name: WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS12L
+            name: WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS12T1_IN
             noLinkRefs: []
           - customSQL:
               customSQL: ""
@@ -237,9 +230,9 @@ steps:
               joinCondition: ""
             name: NEW_SOURCE
             noLinkRefs: []
-      name: WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS12L
-      overrideSQL: true
+      name: WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS12T1_IN
+      overrideSQL: false
       schema: ""
       sqlType: "146"
       type: sql
-    stepCounter: 6177ad0f-ba02-44db-a4de-4da296aff81e
+    stepCounter: 440d6b6d-4540-4723-8a2a-cf43fb75cdb9
