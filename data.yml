@@ -826,7 +826,7 @@ stepTypes:
     version: 1
   StepType-146:
     id: "146"
-    isDisabled: false
+    isDisabled: true
     metadata:
       defaultStorageLocation: null
       error: null
@@ -2945,7 +2945,7 @@ stepTypes:
     version: 1
   StepType-173:
     id: "173"
-    isDisabled: true
+    isDisabled: false
     metadata:
       defaultStorageLocation: null
       error: null
