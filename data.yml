@@ -826,7 +826,7 @@ stepTypes:
     version: 1
   StepType-146:
     id: "146"
-    isDisabled: true
+    isDisabled: false
     metadata:
       defaultStorageLocation: null
       error: null

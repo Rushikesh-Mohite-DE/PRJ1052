@@ -11,7 +11,7 @@ steps:
         truncateBefore: false
       database: ""
       deployEnabled: true
-      description: Table Description
+      description: Table Description updated
       isMultisource: false
       locationName: STAGE
       materializationType: table
