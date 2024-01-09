@@ -6,15 +6,23 @@ steps:
         postSQL: ""
         preSQL: ""
         selectDistinct: false
-        testsEnabled: true
+        testsEnabled: false
+        truncateBefore: false
       database: ""
       deployEnabled: true
-      description: Table Description
+      description: Table Description_updated
       isMultisource: false
       locationName: TARGET
       materializationType: table
       metadata:
-        appliedNodeTests: []
+        appliedNodeTests:
+          - continueOnFailure: true
+            description: ""
+            name: Customized Test
+            runOrder: After
+            templateString: |-
+              Select addressid FROM {{ ref('TARGET', 'PSTG_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS1213_IN') }}
+              where addressid = 0
         columns:
           - acceptedValues:
               strictMatch: true
