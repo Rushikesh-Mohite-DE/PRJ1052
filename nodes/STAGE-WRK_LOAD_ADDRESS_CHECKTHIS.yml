@@ -1,0 +1,305 @@
+steps:
+  WRK_LOAD_ADDRESS_CHECKTHIS-3439e814-5dd0-4008-ba57-3e2e3f8b84ef:
+    operation:
+      config:
+        groupByAll: false
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        selectDistinct: false
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      deployEnabled: true
+      description: This is table level description
+      isMultisource: false
+      locationName: STAGE
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 7ec8cb45-ebd4-4d77-a2b3-d75eaddf8f1b
+              stepCounter: 3439e814-5dd0-4008-ba57-3e2e3f8b84ef
+            dataType: NUMBER
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PSTG_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS1213_IN_KEY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 6a0af784-ce46-4339-b197-6172d5c8dfae
+                    stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+                transform: ""
+          - columnReference:
+              columnCounter: 4b2cfdf8-d302-4f57-a5bc-02ec1c2d496f
+              stepCounter: 3439e814-5dd0-4008-ba57-3e2e3f8b84ef
+            dataType: NUMBER(38,0)
+            description: Primary key for Address records.
+            hashColumns: []
+            hashDetails: null
+            name: ADDRESSID_1
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 3985d246-2638-4205-934d-8a8b14b706a6
+                    stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+                transform: ""
+          - columnReference:
+              columnCounter: 86f0b6cb-d3b1-4d6b-b831-00f1376810d0
+              stepCounter: 3439e814-5dd0-4008-ba57-3e2e3f8b84ef
+            dataType: VARCHAR(90)
+            description: new
+            hashColumns: []
+            hashDetails: null
+            name: ADDRESSLINE4
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: b9c85f4a-0d8b-4749-bff6-84f16b1a61f6
+                    stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+                transform: ""
+          - columnReference:
+              columnCounter: 0313cb0e-2547-4b63-8f0b-75360ad5eea7
+              stepCounter: 3439e814-5dd0-4008-ba57-3e2e3f8b84ef
+            dataType: VARCHAR(60)
+            description: Second street address line.
+            hashColumns: []
+            hashDetails: null
+            name: ADDRESSLINE2
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 62d4be6c-619a-4fd6-858c-a50ff5acd34d
+                    stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+                transform: ""
+          - columnReference:
+              columnCounter: 82cf06b7-d5ed-4485-ab7d-261b0a5e00ba
+              stepCounter: 3439e814-5dd0-4008-ba57-3e2e3f8b84ef
+            dataType: VARCHAR(100)
+            description: Name of the city.
+            hashColumns: []
+            hashDetails: null
+            name: CITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 117456ec-94cf-4a52-8fa4-4eddb791d99c
+                    stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+                transform: ""
+          - columnReference:
+              columnCounter: 79102b0b-47fc-4483-84a8-205ee9f695d5
+              stepCounter: 3439e814-5dd0-4008-ba57-3e2e3f8b84ef
+            dataType: VARCHAR(16777216)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: OVERRIDE_FULL_ADDRESS_1
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 5c8c0407-c561-4b72-80d6-c41d2ef3b21b
+                    stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+                transform: ""
+          - columnReference:
+              columnCounter: b1af1334-2681-401e-b2ac-0851bca9cf13
+              stepCounter: 3439e814-5dd0-4008-ba57-3e2e3f8b84ef
+            dataType: NUMBER(34,0)
+            description: Unique identification number for the state or province. Foreign key to StateProvince table.
+            hashColumns: []
+            hashDetails: null
+            name: STATEPROVINCEID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: a7588c88-091f-4813-bddd-135df6536524
+                    stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+                transform: ""
+          - columnReference:
+              columnCounter: df2682fb-9881-4c02-9ce3-aab9fbf9cc45
+              stepCounter: 3439e814-5dd0-4008-ba57-3e2e3f8b84ef
+            dataType: VARCHAR(16777216)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: OVERRIDE_FULL_ADDRESS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 54f36fa3-6d22-4443-9dd4-bdcd17e42308
+                    stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+                transform: ""
+          - columnReference:
+              columnCounter: 577cc74d-84f5-4e96-b25e-916ada889fad
+              stepCounter: 3439e814-5dd0-4008-ba57-3e2e3f8b84ef
+            dataType: VARCHAR(15)
+            description: This is col level desc
+            hashColumns: []
+            hashDetails: null
+            name: POSTALCODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 104f3d5b-86f9-4253-8856-7bbce790bf63
+                    stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+                transform: ""
+          - columnReference:
+              columnCounter: 66d0b054-e05e-41f5-96cb-5b82409b04fb
+              stepCounter: 3439e814-5dd0-4008-ba57-3e2e3f8b84ef
+            dataType: VARCHAR(50)
+            description: Latitude and longitude of this address.
+            hashColumns: []
+            hashDetails: null
+            name: SPATIALLOCATION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2d2bfbba-e334-42ba-835d-4b4198c0775e
+                    stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+                transform: ""
+          - columnReference:
+              columnCounter: feedda5a-deac-4f78-8f49-2e9471351162
+              stepCounter: 3439e814-5dd0-4008-ba57-3e2e3f8b84ef
+            dataType: VARCHAR(16777216)
+            description: ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.
+            hashColumns: []
+            hashDetails: null
+            name: ROWGUID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 187a462d-05a1-43f4-b40e-7477d61e6990
+                    stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+                transform: ""
+          - columnReference:
+              columnCounter: 0414c099-e2b7-4264-baa4-2aae4306b56b
+              stepCounter: 3439e814-5dd0-4008-ba57-3e2e3f8b84ef
+            dataType: VARCHAR(50)
+            description: Date and time the record was last updated.
+            hashColumns: []
+            hashDetails: null
+            name: MODIFIEDDATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2393c0fa-3851-497e-a23f-ce753bde8e43
+                    stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+                transform: ""
+          - columnReference:
+              columnCounter: 5efeda4e-69e5-4d4c-a90b-e1bd4b4a9561
+              stepCounter: 3439e814-5dd0-4008-ba57-3e2e3f8b84ef
+            dataType: VARCHAR
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SYSTEM_CURRENT_FLAG
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 07f3a991-2b4b-4329-b3ac-b96609be893e
+                    stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+                transform: ""
+          - columnReference:
+              columnCounter: cea32c64-1d64-41ee-8208-78f83fcbb050
+              stepCounter: 3439e814-5dd0-4008-ba57-3e2e3f8b84ef
+            dataType: TIMESTAMP
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SYSTEM_START_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 1a6299bc-a184-44da-9236-81869e12a43c
+                    stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+                transform: ""
+          - columnReference:
+              columnCounter: 1fd44ac6-df3f-4945-a19a-4498bd7bfb5c
+              stepCounter: 3439e814-5dd0-4008-ba57-3e2e3f8b84ef
+            dataType: TIMESTAMP
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SYSTEM_END_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: fe1e1235-16ba-4959-b725-a83e9318628c
+                    stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+                transform: ""
+          - columnReference:
+              columnCounter: 0c4c07a2-f2ed-4abc-b5e4-eeb5df4dc0af
+              stepCounter: 3439e814-5dd0-4008-ba57-3e2e3f8b84ef
+            dataType: TIMESTAMP
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SYSTEM_CREATE_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 59f177e7-e446-4717-b7ab-9106eb7223ca
+                    stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+                transform: ""
+          - columnReference:
+              columnCounter: 9817c983-4897-4d88-8ed5-6dee227854da
+              stepCounter: 3439e814-5dd0-4008-ba57-3e2e3f8b84ef
+            dataType: TIMESTAMP
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SYSTEM_UPDATE_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 35e69a93-799e-47b1-8383-49650bd2c8b4
+                    stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+                transform: ""
+          - columnReference:
+              columnCounter: 3540a3a2-3288-4fb3-a617-d3e743f55a35
+              stepCounter: 3439e814-5dd0-4008-ba57-3e2e3f8b84ef
+            dataType: NUMBER
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SYSTEM_VERSION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: f0d5da4b-6810-4d9a-8193-a14287e00f56
+                    stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+                transform: ""
+          - columnReference:
+              columnCounter: 0bc41ff1-f7b3-414f-a54f-b2bbd85cec1c
+              stepCounter: 3439e814-5dd0-4008-ba57-3e2e3f8b84ef
+            dataType: STRING
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: GH
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 48194050-b1ba-41bd-912f-1997657b6d5b
+                    stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: TARGET
+                nodeName: PSTG_LOAD_ADDRESS_CHECKTHIS
+            join:
+              joinCondition: FROM {{ ref('TARGET', 'PSTG_LOAD_ADDRESS_CHECKTHIS') }} "PSTG_LOAD_ADDRESS_CHECKTHIS"
+            name: WRK_LOAD_ADDRESS_CHECKTHIS
+            noLinkRefs: []
+      name: WRK_LOAD_ADDRESS_CHECKTHIS
+      overrideSQL: false
+      schema: ""
+      sqlType: "146"
+      type: sql
+    stepCounter: 3439e814-5dd0-4008-ba57-3e2e3f8b84ef
