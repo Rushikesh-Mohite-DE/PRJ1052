@@ -1,5 +1,5 @@
 steps:
-  WRK_LOAD_ADDRESS_CHECKTHIS-3439e814-5dd0-4008-ba57-3e2e3f8b84ef:
+  WRK_LOAD_ADDRESS_CHECKTHIS1-3439e814-5dd0-4008-ba57-3e2e3f8b84ef:
     operation:
       config:
         groupByAll: false
@@ -14,7 +14,7 @@ steps:
       description: This is table level description
       isMultisource: false
       locationName: STAGE
-      materializationType: table
+      materializationType: view
       metadata:
         appliedNodeTests: []
         columns:
@@ -295,9 +295,9 @@ steps:
                 nodeName: PSTG_LOAD_ADDRESS_CHECKTHIS
             join:
               joinCondition: FROM {{ ref('TARGET', 'PSTG_LOAD_ADDRESS_CHECKTHIS') }} "PSTG_LOAD_ADDRESS_CHECKTHIS"
-            name: WRK_LOAD_ADDRESS_CHECKTHIS
+            name: WRK_LOAD_ADDRESS_CHECKTHIS1
             noLinkRefs: []
-      name: WRK_LOAD_ADDRESS_CHECKTHIS
+      name: WRK_LOAD_ADDRESS_CHECKTHIS1
       overrideSQL: false
       schema: ""
       sqlType: "146"
