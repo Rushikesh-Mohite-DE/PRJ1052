@@ -98,7 +98,7 @@ steps:
               - columnReferences:
                   - columnCounter: e72dcc2f-abfa-4943-8463-27e132f1971e
                     stepCounter: 1807aa42-320c-422f-9930-05147dc88a93
-                transform: ""
+                transform: "'This is ' || WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS1213_IN.\"CITY\""
           - columnReference:
               columnCounter: 5c8c0407-c561-4b72-80d6-c41d2ef3b21b
               stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
