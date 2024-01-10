@@ -1,5 +1,5 @@
 steps:
-  PSTG_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS1213_IN-aeda1506-86d7-4eea-ba06-3dc16270d75a:
+  PSTG_LOAD_ADDRESS_CHECKTHIS-aeda1506-86d7-4eea-ba06-3dc16270d75a:
     operation:
       config:
         groupByAll: true
@@ -306,9 +306,9 @@ steps:
                 where "ADDRESSID" > 21978
                 
                 order by ADDRESSID
-            name: PSTG_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS1213_IN
+            name: PSTG_LOAD_ADDRESS_CHECKTHIS
             noLinkRefs: []
-      name: PSTG_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS1213_IN
+      name: PSTG_LOAD_ADDRESS_CHECKTHIS
       overrideSQL: false
       schema: ""
       sqlType: "173"
