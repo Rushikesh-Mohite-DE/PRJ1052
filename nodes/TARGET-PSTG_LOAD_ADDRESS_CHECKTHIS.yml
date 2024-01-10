@@ -131,7 +131,7 @@ steps:
               columnCounter: 104f3d5b-86f9-4253-8856-7bbce790bf63
               stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
             dataType: VARCHAR(15)
-            description: Postal code for the street address.
+            description: This is col level desc
             hashColumns: []
             hashDetails: null
             name: POSTALCODE
