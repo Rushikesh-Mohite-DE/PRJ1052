@@ -88,7 +88,7 @@ steps:
           - columnReference:
               columnCounter: 117456ec-94cf-4a52-8fa4-4eddb791d99c
               stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
-            dataType: VARCHAR(10)
+            dataType: VARCHAR(100)
             description: Name of the city.
             hashColumns: []
             hashDetails: null
@@ -106,7 +106,7 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: OVERRIDE_FULL_ADDRESS
+            name: OVERRIDE_FULL_ADDRESS_1
             nullable: true
             sourceColumnReferences:
               - columnReferences:
@@ -126,6 +126,18 @@ steps:
               - columnReferences:
                   - columnCounter: 1bc01db3-2c98-4a4f-9515-4f73e681c295
                     stepCounter: 1807aa42-320c-422f-9930-05147dc88a93
+                transform: ""
+          - columnReference:
+              columnCounter: 54f36fa3-6d22-4443-9dd4-bdcd17e42308
+              stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+            dataType: VARCHAR(16777216)
+            description: ""
+            name: OVERRIDE_FULL_ADDRESS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65794f96-2017-4531-89dc-98070d738e93
+                    stepCounter: 440d6b6d-4540-4723-8a2a-cf43fb75cdb9
                 transform: ""
           - columnReference:
               columnCounter: 104f3d5b-86f9-4253-8856-7bbce790bf63
@@ -294,18 +306,22 @@ steps:
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
-          - aliases: {}
+          - aliases:
+              WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS1213_IN: 1807aa42-320c-422f-9930-05147dc88a93
+              WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS12T1_IN: 440d6b6d-4540-4723-8a2a-cf43fb75cdb9
             customSQL:
               customSQL: ""
             dependencies:
               - locationName: STAGE
                 nodeName: WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS1213_IN
+              - locationName: STAGE
+                nodeName: WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS12T1_IN
             join:
               joinCondition: |-
                 FROM {{ ref('STAGE', 'WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS1213_IN') }} "WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS1213_IN"
-                where "ADDRESSID" > 21978
-                
-                order by ADDRESSID
+                 LEFT JOIN {{ ref('STAGE', 'WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS12T1_IN') }} "WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS12T1_IN"
+                ON "WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS1213_IN"."ADDRESSID" = "WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS12T1_IN"."ADDRESSID"
+                where WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS1213_IN."ADDRESSID" > 21978
             name: PSTG_LOAD_ADDRESS_CHECKTHIS
             noLinkRefs: []
       name: PSTG_LOAD_ADDRESS_CHECKTHIS
