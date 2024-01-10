@@ -50,7 +50,7 @@ steps:
             hashColumns: []
             hashDetails: null
             isBusinessKey: true
-            name: ADDRESSID
+            name: ADDRESSID_1
             nullable: true
             sourceColumnReferences:
               - columnReferences:
