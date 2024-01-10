@@ -92,6 +92,7 @@ steps:
             description: Name of the city.
             hashColumns: []
             hashDetails: null
+            isBusinessKey: true
             name: CITY
             nullable: true
             sourceColumnReferences:
