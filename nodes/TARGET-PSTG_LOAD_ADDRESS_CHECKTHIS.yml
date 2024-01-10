@@ -10,7 +10,7 @@ steps:
         truncateBefore: false
       database: ""
       deployEnabled: true
-      description: Table Description_updated
+      description: This is table level description
       isMultisource: false
       locationName: TARGET
       materializationType: table
