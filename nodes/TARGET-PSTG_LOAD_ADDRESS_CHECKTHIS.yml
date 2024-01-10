@@ -88,7 +88,7 @@ steps:
           - columnReference:
               columnCounter: 117456ec-94cf-4a52-8fa4-4eddb791d99c
               stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
-            dataType: VARCHAR(30)
+            dataType: VARCHAR(10)
             description: Name of the city.
             hashColumns: []
             hashDetails: null
