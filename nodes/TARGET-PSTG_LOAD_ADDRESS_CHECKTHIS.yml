@@ -60,7 +60,7 @@ steps:
           - columnReference:
               columnCounter: b9c85f4a-0d8b-4749-bff6-84f16b1a61f6
               stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
-            dataType: VARCHAR(60)
+            dataType: VARCHAR(90)
             description: new
             hashColumns: []
             hashDetails: null
