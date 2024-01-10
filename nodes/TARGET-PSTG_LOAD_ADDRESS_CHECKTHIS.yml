@@ -269,7 +269,7 @@ steps:
             hashColumns: []
             isSystemCreateDate: true
             name: SYSTEM_CREATE_DATE
-            nullable: true
+            nullable: false
             sourceColumnReferences:
               - columnReferences: []
                 transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
@@ -287,7 +287,7 @@ steps:
             hashColumns: []
             isSystemUpdateDate: true
             name: SYSTEM_UPDATE_DATE
-            nullable: true
+            nullable: false
             sourceColumnReferences:
               - columnReferences: []
                 transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
