@@ -128,18 +128,6 @@ steps:
                     stepCounter: 440d6b6d-4540-4723-8a2a-cf43fb75cdb9
                 transform: ""
           - columnReference:
-              columnCounter: 104f3d5b-86f9-4253-8856-7bbce790bf63
-              stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
-            dataType: VARCHAR(15)
-            description: This is col level desc
-            name: POSTALCODE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 27e21380-b882-42ee-adfe-1344ef243dff
-                    stepCounter: 1807aa42-320c-422f-9930-05147dc88a93
-                transform: ""
-          - columnReference:
               columnCounter: 2d2bfbba-e334-42ba-835d-4b4198c0775e
               stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
             dataType: VARCHAR(50)
