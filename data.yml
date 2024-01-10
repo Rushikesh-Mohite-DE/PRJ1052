@@ -3136,7 +3136,7 @@ stepTypes:
                         {% endfor %}
                         {% if config.groupByAll %}
                         Group By All
-                        {% endif %}            
+                        {% endif %}           
                         UNION ALL
 
                         /* New Row Needing To Be Inserted Due To Type-2 Column Changes */
@@ -3177,7 +3177,7 @@ stepTypes:
                         {% endfor %}
                         {% if config.groupByAll %}
                         Group By All
-                        {% endif %}            
+                        {% endif %}          
                         UNION ALL
                         /* Rows Needing To Be Expired Due To Type-2 Column Changes
                         In this case, only two columns are merged (version and end date) */

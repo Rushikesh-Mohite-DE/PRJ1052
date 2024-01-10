@@ -294,8 +294,7 @@ steps:
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
-          - aliases:
-              WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS1213_IN: 1807aa42-320c-422f-9930-05147dc88a93
+          - aliases: {}
             customSQL:
               customSQL: ""
             dependencies:
@@ -305,6 +304,8 @@ steps:
               joinCondition: |-
                 FROM {{ ref('STAGE', 'WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS1213_IN') }} "WRK_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS1213_IN"
                 where "ADDRESSID" > 21978
+                
+                order by ADDRESSID
             name: PSTG_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS1213_IN
             noLinkRefs: []
       name: PSTG_GRP_ALL_DISTINCT_AW_LOAD_ADDRESS1213_IN
