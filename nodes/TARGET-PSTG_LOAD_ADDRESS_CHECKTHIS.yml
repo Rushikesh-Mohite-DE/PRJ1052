@@ -304,6 +304,28 @@ steps:
             sourceColumnReferences:
               - columnReferences: []
                 transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 48194050-b1ba-41bd-912f-1997657b6d5b
+              stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+            config: {}
+            dataType: STRING
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            hashDetails:
+              hashAlgorithm: SHA1
+            hashedColumns:
+              - columnCounter: 3985d246-2638-4205-934d-8a8b14b706a6
+                stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+              - columnCounter: b9c85f4a-0d8b-4749-bff6-84f16b1a61f6
+                stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+            name: GH
+            nullable: true
+            sourceColumnReferences: []
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
