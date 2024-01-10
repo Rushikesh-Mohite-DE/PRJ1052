@@ -188,24 +188,6 @@ steps:
               values: []
             appliedColumnTests: {}
             columnReference:
-              columnCounter: f0d5da4b-6810-4d9a-8193-a14287e00f56
-              stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
-            config: {}
-            dataType: NUMBER
-            defaultValue: ""
-            description: ""
-            hashColumns: []
-            isSystemVersion: true
-            name: SYSTEM_VERSION
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences: []
-                transform: ""
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
               columnCounter: 07f3a991-2b4b-4329-b3ac-b96609be893e
               stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
             config: {}
@@ -291,6 +273,24 @@ steps:
             sourceColumnReferences:
               - columnReferences: []
                 transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: f0d5da4b-6810-4d9a-8193-a14287e00f56
+              stepCounter: aeda1506-86d7-4eea-ba06-3dc16270d75a
+            config: {}
+            dataType: NUMBER
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            isSystemVersion: true
+            name: SYSTEM_VERSION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: ""
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
