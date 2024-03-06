@@ -1,5 +1,5 @@
 steps:
-  ML_FCSTS_SALES_DATA-d09e9d41-0d48-49e6-8e86-7afb03eb2cdd:
+  ML_FCSTS_SALES_DATA-94fc5008-94a0-4505-9166-9bf0485d5e5e:
     operation:
       config:
         cobject: false
@@ -9,15 +9,15 @@ steps:
         predictioninterval: ex:0.80(float value)
         series_value: false
         seriescol:
-          columnCounter: 29a136ce-6de8-4448-b4a4-0bc669bd586f
-          stepCounter: d09e9d41-0d48-49e6-8e86-7afb03eb2cdd
+          columnCounter: f9995717-3221-45fc-bc46-a75e889e821b
+          stepCounter: 94fc5008-94a0-4505-9166-9bf0485d5e5e
         svalue: ""
         tgtcol:
-          columnCounter: 82b5abbd-6294-4a35-a04d-0777270a177c
-          stepCounter: d09e9d41-0d48-49e6-8e86-7afb03eb2cdd
+          columnCounter: cae7fb62-6ecc-4d7f-8d0d-895ffc58f562
+          stepCounter: 94fc5008-94a0-4505-9166-9bf0485d5e5e
         tscol:
-          columnCounter: 3899d39c-cda3-4563-a0a4-0fd341997be8
-          stepCounter: d09e9d41-0d48-49e6-8e86-7afb03eb2cdd
+          columnCounter: 4d691a46-a279-49f4-8670-7d4f1517ae1c
+          stepCounter: 94fc5008-94a0-4505-9166-9bf0485d5e5e
       database: ""
       deployEnabled: true
       description: ""
@@ -28,8 +28,8 @@ steps:
         appliedNodeTests: []
         columns:
           - columnReference:
-              columnCounter: 3899d39c-cda3-4563-a0a4-0fd341997be8
-              stepCounter: d09e9d41-0d48-49e6-8e86-7afb03eb2cdd
+              columnCounter: 4d691a46-a279-49f4-8670-7d4f1517ae1c
+              stepCounter: 94fc5008-94a0-4505-9166-9bf0485d5e5e
             dataType: TIMESTAMP_NTZ(9)
             description: ""
             hashColumns: []
@@ -42,8 +42,8 @@ steps:
                     stepCounter: 5f30be68-7ac2-4f12-89c2-dc96e8527402
                 transform: ""
           - columnReference:
-              columnCounter: 82b5abbd-6294-4a35-a04d-0777270a177c
-              stepCounter: d09e9d41-0d48-49e6-8e86-7afb03eb2cdd
+              columnCounter: cae7fb62-6ecc-4d7f-8d0d-895ffc58f562
+              stepCounter: 94fc5008-94a0-4505-9166-9bf0485d5e5e
             dataType: FLOAT
             description: ""
             hashColumns: []
@@ -56,8 +56,8 @@ steps:
                     stepCounter: 5f30be68-7ac2-4f12-89c2-dc96e8527402
                 transform: SUM("SALES_DATA"."SALES")
           - columnReference:
-              columnCounter: 29a136ce-6de8-4448-b4a4-0bc669bd586f
-              stepCounter: d09e9d41-0d48-49e6-8e86-7afb03eb2cdd
+              columnCounter: f9995717-3221-45fc-bc46-a75e889e821b
+              stepCounter: 94fc5008-94a0-4505-9166-9bf0485d5e5e
             dataType: VARCHAR(16777216)
             description: ""
             hashColumns: []
@@ -74,8 +74,8 @@ steps:
               values: []
             appliedColumnTests: {}
             columnReference:
-              columnCounter: fb77af5b-56c9-4ffc-aa3f-308191e55517
-              stepCounter: d09e9d41-0d48-49e6-8e86-7afb03eb2cdd
+              columnCounter: 5bbce06b-45fc-4a68-8cb7-c882e01297d3
+              stepCounter: 94fc5008-94a0-4505-9166-9bf0485d5e5e
             config: {}
             dataType: FLOAT
             defaultValue: ""
@@ -92,8 +92,8 @@ steps:
               values: []
             appliedColumnTests: {}
             columnReference:
-              columnCounter: a36b3773-43dd-45b6-8bea-83a2cdb32af6
-              stepCounter: d09e9d41-0d48-49e6-8e86-7afb03eb2cdd
+              columnCounter: b8706572-d3cf-44b0-9005-a2392cad88d7
+              stepCounter: 94fc5008-94a0-4505-9166-9bf0485d5e5e
             config: {}
             dataType: FLOAT
             defaultValue: ""
@@ -110,8 +110,8 @@ steps:
               values: []
             appliedColumnTests: {}
             columnReference:
-              columnCounter: 431ffe84-c3ba-41ee-a6e4-b2b090019c43
-              stepCounter: d09e9d41-0d48-49e6-8e86-7afb03eb2cdd
+              columnCounter: e77622b3-86e8-4e3b-badc-7185fa0d7e8f
+              stepCounter: 94fc5008-94a0-4505-9166-9bf0485d5e5e
             config: {}
             dataType: FLOAT
             defaultValue: ""
@@ -144,4 +144,4 @@ steps:
       schema: ""
       sqlType: "225"
       type: sql
-    stepCounter: d09e9d41-0d48-49e6-8e86-7afb03eb2cdd
+    stepCounter: 94fc5008-94a0-4505-9166-9bf0485d5e5e
