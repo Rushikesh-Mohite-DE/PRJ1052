@@ -37,7 +37,7 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: DATE
+            name: DATE1
             nullable: true
             sourceColumnReferences:
               - columnReferences:
