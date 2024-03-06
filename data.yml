@@ -4,16 +4,25 @@ jobs: {}
 locations:
   SOURCE:
     mappingDefinitions:
+      "135":
+        database: QUICKSTART
+        schema: ML_FUNCTIONS
       "51":
         database: QUICKSTART
         schema: ML_FUNCTIONS
   STAGE:
     mappingDefinitions:
+      "135":
+        database: QA
+        schema: ML
       "51":
         database: QA
         schema: ML
   TARGET:
     mappingDefinitions:
+      "135":
+        database: QA
+        schema: ML
       "51":
         database: QA
         schema: ML
