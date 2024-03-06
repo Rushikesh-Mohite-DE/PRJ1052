@@ -5,7 +5,7 @@ steps:
         cobject: false
         exvar: false
         fcdays: "30"
-        multiseries: true
+        multiseries: false
         predictioninterval: ex:0.80(float value)
         series_value: false
         seriescol:
@@ -55,20 +55,6 @@ steps:
                   - columnCounter: dbb65745-51dd-4664-9610-d7f487fc5d15
                     stepCounter: 5f30be68-7ac2-4f12-89c2-dc96e8527402
                 transform: SUM("SALES_DATA"."SALES")
-          - columnReference:
-              columnCounter: f9995717-3221-45fc-bc46-a75e889e821b
-              stepCounter: 94fc5008-94a0-4505-9166-9bf0485d5e5e
-            dataType: VARCHAR(16777216)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ITEM
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 4b0b8648-6b6e-40ed-99ef-b38bacd53b39
-                    stepCounter: 5f30be68-7ac2-4f12-89c2-dc96e8527402
-                transform: ""
           - acceptedValues:
               strictMatch: true
               values: []
