@@ -1,0 +1,65 @@
+steps:
+  STG_SALES_DATA_FUTURE-1d685313-01f9-4bd2-9208-640f436f0ee6:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: SOURCE
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: b4c64bcb-27aa-42ae-a0fc-698237b898e5
+              stepCounter: 1d685313-01f9-4bd2-9208-640f436f0ee6
+            dataType: VARCHAR(16777216)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ITEM
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 4b0b8648-6b6e-40ed-99ef-b38bacd53b39
+                    stepCounter: 5f30be68-7ac2-4f12-89c2-dc96e8527402
+                transform: ""
+          - columnReference:
+              columnCounter: 9ecf9e93-00cb-4ca3-8e0f-ea7a1320a8b5
+              stepCounter: 1d685313-01f9-4bd2-9208-640f436f0ee6
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: bb9d9e94-e5f3-44d6-88f3-12e2f9b13bfc
+                    stepCounter: 5f30be68-7ac2-4f12-89c2-dc96e8527402
+                transform: "'2024-03-01 00:00:00.000'"
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: SOURCE
+                nodeName: SALES_DATA
+            join:
+              joinCondition: FROM {{ ref('SOURCE', 'SALES_DATA') }} "SALES_DATA"
+            name: STG_SALES_DATA_FUTURE
+            noLinkRefs: []
+      name: STG_SALES_DATA_FUTURE
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: 1d685313-01f9-4bd2-9208-640f436f0ee6

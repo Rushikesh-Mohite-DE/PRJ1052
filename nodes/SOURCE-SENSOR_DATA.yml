@@ -1,0 +1,93 @@
+steps:
+  SENSOR_DATA-529a90e1-4170-43b3-9e84-b4251531afbb:
+    operation:
+      database: ""
+      dataset: ""
+      deployEnabled: true
+      description: ""
+      locationName: SOURCE
+      metadata:
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 21ba631f-8ce5-4cea-8641-66480821efba
+              stepCounter: 529a90e1-4170-43b3-9e84-b4251531afbb
+            config: {}
+            dataType: TIMESTAMP_NTZ(9)
+            defaultValue: ""
+            description: ""
+            name: TIMESTAMP
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 186a3a49-e2bb-43d1-a011-0db06864a70e
+              stepCounter: 529a90e1-4170-43b3-9e84-b4251531afbb
+            config: {}
+            dataType: FLOAT
+            defaultValue: ""
+            description: ""
+            name: VALUE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: c32169cf-80f2-498d-b414-94e642847cc6
+              stepCounter: 529a90e1-4170-43b3-9e84-b4251531afbb
+            config: {}
+            dataType: VARCHAR(16777216)
+            defaultValue: ""
+            description: ""
+            name: CATEGORY
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: c79b9bab-d8df-45ed-ae3b-9bf5320f0c7e
+              stepCounter: 529a90e1-4170-43b3-9e84-b4251531afbb
+            config: {}
+            dataType: VARCHAR(16777216)
+            defaultValue: ""
+            description: ""
+            name: LOCATION
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 18831355-adda-4249-b62c-f8b000600e32
+              stepCounter: 529a90e1-4170-43b3-9e84-b4251531afbb
+            config: {}
+            dataType: VARCHAR(16777216)
+            defaultValue: ""
+            description: ""
+            name: DEVICE_ID
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+        join:
+          joinCondition: FROM {{ ref('SOURCE', 'SENSOR_DATA') }}
+      name: SENSOR_DATA
+      schema: ""
+      sqlType: Source
+      table: SENSOR_DATA
+      type: sourceInput
+    stepCounter: 529a90e1-4170-43b3-9e84-b4251531afbb

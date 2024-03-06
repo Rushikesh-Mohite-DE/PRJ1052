@@ -1,0 +1,153 @@
+steps:
+  STG_COVID_TRENDS1-849e7766-7c72-433c-96f3-ad7603b83f94:
+    operation:
+      config:
+        insertStrategy: UNION
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: true
+      locationName: SOURCE
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: ad5373c5-f9a2-4d94-92ae-83ec71f0533c
+              stepCounter: 849e7766-7c72-433c-96f3-ad7603b83f94
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 9f8f8089-d9b9-4c69-bfcf-9554ae0d1883
+                    stepCounter: 2fc7e0e5-85a3-46d1-bf80-e846f065d493
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 8c451f62-4a47-476a-b78f-3cc6259e9768
+                    stepCounter: 290e6229-00d1-4066-9d1d-52f724f73db4
+                transform: ""
+          - columnReference:
+              columnCounter: dbdd0b39-eb21-486b-a6d7-d45e640bea15
+              stepCounter: 849e7766-7c72-433c-96f3-ad7603b83f94
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: RECORD_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: fcf05e48-ff90-4916-9434-6b85a0f4729c
+                    stepCounter: 2fc7e0e5-85a3-46d1-bf80-e846f065d493
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 7b94253c-0226-469d-9bcb-e75df1216b49
+                    stepCounter: 290e6229-00d1-4066-9d1d-52f724f73db4
+                transform: ""
+          - columnReference:
+              columnCounter: ad6ed360-dce2-4749-8f2d-cf00b44bc22d
+              stepCounter: 849e7766-7c72-433c-96f3-ad7603b83f94
+            dataType: VARCHAR(100)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: STATE_OR_UT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 3fb0c14d-c47f-4cdc-a270-168499b70f06
+                    stepCounter: 2fc7e0e5-85a3-46d1-bf80-e846f065d493
+                transform: ""
+              - columnReferences:
+                  - columnCounter: b7915bde-6878-4c8e-b95a-59fd619f93f6
+                    stepCounter: 290e6229-00d1-4066-9d1d-52f724f73db4
+                transform: ""
+          - columnReference:
+              columnCounter: 0b27492f-b07b-4d4f-9ae6-e6c3e80142c5
+              stepCounter: 849e7766-7c72-433c-96f3-ad7603b83f94
+            dataType: VARCHAR(100)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SEASON
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 9d14b484-26ef-4f97-8182-85009338827b
+                    stepCounter: 2fc7e0e5-85a3-46d1-bf80-e846f065d493
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 8d46fdda-eb93-4ac5-8865-ac6660738a50
+                    stepCounter: 290e6229-00d1-4066-9d1d-52f724f73db4
+                transform: ""
+          - columnReference:
+              columnCounter: d2fccc7c-189a-4c58-8460-f43b6446626c
+              stepCounter: 849e7766-7c72-433c-96f3-ad7603b83f94
+            dataType: VARCHAR(100)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TEMPERATURE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8ed22142-1cf1-40d3-b4be-0773ea2cf6c5
+                    stepCounter: 2fc7e0e5-85a3-46d1-bf80-e846f065d493
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 92518beb-2fb2-4e11-8e34-8960189de8cb
+                    stepCounter: 290e6229-00d1-4066-9d1d-52f724f73db4
+                transform: ""
+          - columnReference:
+              columnCounter: 9ee12dec-03e0-4e11-8c43-9948fc72a823
+              stepCounter: 849e7766-7c72-433c-96f3-ad7603b83f94
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CONFIRMED_CASES
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 31bddcde-241a-4e60-a3c6-69cb804cfc56
+                    stepCounter: 2fc7e0e5-85a3-46d1-bf80-e846f065d493
+                transform: ""
+              - columnReferences: []
+                transform: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: SOURCE
+                nodeName: STG_COVID_TRENDS
+            join:
+              joinCondition: FROM {{ ref('SOURCE', 'STG_COVID_TRENDS') }} "STG_COVID_TRENDS"
+            name: STG_COVID_TRENDS1
+            noLinkRefs: []
+          - aliases:
+              STG_COVID_TRENDS_FUTURE: 290e6229-00d1-4066-9d1d-52f724f73db4
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: SOURCE
+                nodeName: STG_COVID_TRENDS_FUTURE
+            join:
+              joinCondition: FROM {{ ref('SOURCE', 'STG_COVID_TRENDS_FUTURE') }} "STG_COVID_TRENDS_FUTURE"
+            name: NEW_SOURCE
+            noLinkRefs: []
+      name: STG_COVID_TRENDS1
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: 849e7766-7c72-433c-96f3-ad7603b83f94

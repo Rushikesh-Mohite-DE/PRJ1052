@@ -1,0 +1,204 @@
+steps:
+  ML_FCSTS_COVID_TRENDS-9b222e7f-a897-4a2d-be92-b45bd1ce0f4d:
+    operation:
+      config:
+        cobject: false
+        exvar: "true"
+        fcdays: "30"
+        multiseries: true
+        predictioninterval: ex:0.80(float value)
+        series_value: false
+        seriescol:
+          columnCounter: 7e948e18-4ece-46da-936f-a3c145708db4
+          stepCounter: 9b222e7f-a897-4a2d-be92-b45bd1ce0f4d
+        svalue: ""
+        tgtcol:
+          columnCounter: b4d07830-cf14-465c-8418-6e3c53bb5f21
+          stepCounter: 9b222e7f-a897-4a2d-be92-b45bd1ce0f4d
+        tscol:
+          columnCounter: 108593dd-8410-48e8-ba11-263371ed6aef
+          stepCounter: 9b222e7f-a897-4a2d-be92-b45bd1ce0f4d
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: true
+      locationName: SOURCE
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 108593dd-8410-48e8-ba11-263371ed6aef
+              stepCounter: 9b222e7f-a897-4a2d-be92-b45bd1ce0f4d
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: RECORD_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: fcf05e48-ff90-4916-9434-6b85a0f4729c
+                    stepCounter: 2fc7e0e5-85a3-46d1-bf80-e846f065d493
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 7b94253c-0226-469d-9bcb-e75df1216b49
+                    stepCounter: 290e6229-00d1-4066-9d1d-52f724f73db4
+                transform: ""
+          - columnReference:
+              columnCounter: 2c79285a-35d7-4cbe-b8c9-dd25eb501975
+              stepCounter: 9b222e7f-a897-4a2d-be92-b45bd1ce0f4d
+            dataType: VARCHAR(100)
+            description: ""
+            name: TEMPERATURE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8ed22142-1cf1-40d3-b4be-0773ea2cf6c5
+                    stepCounter: 2fc7e0e5-85a3-46d1-bf80-e846f065d493
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 92518beb-2fb2-4e11-8e34-8960189de8cb
+                    stepCounter: 290e6229-00d1-4066-9d1d-52f724f73db4
+                transform: ""
+          - columnReference:
+              columnCounter: 7e948e18-4ece-46da-936f-a3c145708db4
+              stepCounter: 9b222e7f-a897-4a2d-be92-b45bd1ce0f4d
+            dataType: VARCHAR(100)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: STATE_OR_UT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 3fb0c14d-c47f-4cdc-a270-168499b70f06
+                    stepCounter: 2fc7e0e5-85a3-46d1-bf80-e846f065d493
+                transform: ""
+              - columnReferences:
+                  - columnCounter: b7915bde-6878-4c8e-b95a-59fd619f93f6
+                    stepCounter: 290e6229-00d1-4066-9d1d-52f724f73db4
+                transform: ""
+          - columnReference:
+              columnCounter: fbb700f9-9665-4b79-bab9-a084dbf64eb5
+              stepCounter: 9b222e7f-a897-4a2d-be92-b45bd1ce0f4d
+            dataType: VARCHAR(100)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SEASON
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 9d14b484-26ef-4f97-8182-85009338827b
+                    stepCounter: 2fc7e0e5-85a3-46d1-bf80-e846f065d493
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 8d46fdda-eb93-4ac5-8865-ac6660738a50
+                    stepCounter: 290e6229-00d1-4066-9d1d-52f724f73db4
+                transform: ""
+          - columnReference:
+              columnCounter: b4d07830-cf14-465c-8418-6e3c53bb5f21
+              stepCounter: 9b222e7f-a897-4a2d-be92-b45bd1ce0f4d
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CONFIRMED_CASES
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 31bddcde-241a-4e60-a3c6-69cb804cfc56
+                    stepCounter: 2fc7e0e5-85a3-46d1-bf80-e846f065d493
+                transform: ""
+              - columnReferences: []
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 40413874-b1f5-45ab-a56a-faa075f16ce9
+              stepCounter: 9b222e7f-a897-4a2d-be92-b45bd1ce0f4d
+            config: {}
+            dataType: FLOAT
+            defaultValue: ""
+            description: Generated by ML Forecast Model
+            forecast: true
+            hashColumns: []
+            name: FORECAST
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: ""
+              - columnReferences: []
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 4cc2a0b3-1db1-428f-95ab-c5bf2c869751
+              stepCounter: 9b222e7f-a897-4a2d-be92-b45bd1ce0f4d
+            config: {}
+            dataType: FLOAT
+            defaultValue: ""
+            description: Generated by ML Forecast Model
+            hashColumns: []
+            lower_bound: true
+            name: LOWER_BOUND
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: ""
+              - columnReferences: []
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 61e4ae64-8bb3-48c5-a928-96cf2f02f101
+              stepCounter: 9b222e7f-a897-4a2d-be92-b45bd1ce0f4d
+            config: {}
+            dataType: FLOAT
+            defaultValue: ""
+            description: Generated by ML Forecast Model
+            hashColumns: []
+            name: UPPER_BOUND
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: ""
+              - columnReferences: []
+                transform: ""
+            upper_bound: true
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: SOURCE
+                nodeName: STG_COVID_TRENDS
+            join:
+              joinCondition: FROM {{ ref('SOURCE', 'STG_COVID_TRENDS') }} "STG_COVID_TRENDS"
+            name: ML_FCSTS_COVID_TRENDS
+            noLinkRefs: []
+          - aliases:
+              STG_COVID_TRENDS_FUTURE: 290e6229-00d1-4066-9d1d-52f724f73db4
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: SOURCE
+                nodeName: STG_COVID_TRENDS_FUTURE
+            join:
+              joinCondition: FROM {{ ref('SOURCE', 'STG_COVID_TRENDS_FUTURE') }} "STG_COVID_TRENDS_FUTURE"
+            name: NEW_SOURCE
+            noLinkRefs: []
+      name: ML_FCSTS_COVID_TRENDS
+      overrideSQL: false
+      schema: ""
+      sqlType: "225"
+      type: sql
+    stepCounter: 9b222e7f-a897-4a2d-be92-b45bd1ce0f4d

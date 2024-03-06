@@ -1,0 +1,125 @@
+steps:
+  STG_COVID_TRENDS_FUTURE-290e6229-00d1-4066-9d1d-52f724f73db4:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: false
+        truncateBefore: true
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: SOURCE
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 8c451f62-4a47-476a-b78f-3cc6259e9768
+              stepCounter: 290e6229-00d1-4066-9d1d-52f724f73db4
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: dbdce2d7-f338-43ad-8af5-62bd4dd0d190
+                    stepCounter: eff89369-3c3d-48cc-aca9-03fe85413467
+                transform: ""
+          - columnReference:
+              columnCounter: 7b94253c-0226-469d-9bcb-e75df1216b49
+              stepCounter: 290e6229-00d1-4066-9d1d-52f724f73db4
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: RECORD_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 72029870-4c14-4a11-8670-258c84431c77
+                    stepCounter: eff89369-3c3d-48cc-aca9-03fe85413467
+                transform: "'2024-04-01 00:00:00.000'"
+          - columnReference:
+              columnCounter: b7915bde-6878-4c8e-b95a-59fd619f93f6
+              stepCounter: 290e6229-00d1-4066-9d1d-52f724f73db4
+            dataType: VARCHAR(100)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: STATE_OR_UT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 96c39c2f-1b9e-4127-88bc-0b1ead19690b
+                    stepCounter: eff89369-3c3d-48cc-aca9-03fe85413467
+                transform: ""
+          - columnReference:
+              columnCounter: 8d46fdda-eb93-4ac5-8865-ac6660738a50
+              stepCounter: 290e6229-00d1-4066-9d1d-52f724f73db4
+            dataType: VARCHAR(100)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SEASON
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 96c39c2f-1b9e-4127-88bc-0b1ead19690b
+                    stepCounter: eff89369-3c3d-48cc-aca9-03fe85413467
+                transform: |-
+                  CASE  WHEN "COVID_TRENDS"."STATE_OR_UT" in (
+                  'Tamil Nadu'
+                  ,
+                  'Karnataka'
+                  ) THEN
+                  'Winter'
+                  ELSE
+                  'Summer'
+                  END
+          - columnReference:
+              columnCounter: 92518beb-2fb2-4e11-8e34-8960189de8cb
+              stepCounter: 290e6229-00d1-4066-9d1d-52f724f73db4
+            dataType: VARCHAR(100)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TEMPERATURE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 96c39c2f-1b9e-4127-88bc-0b1ead19690b
+                    stepCounter: eff89369-3c3d-48cc-aca9-03fe85413467
+                transform: |-
+                  CASE  WHEN "COVID_TRENDS"."STATE_OR_UT" in (
+                  'Tamil Nadu'
+                  ,
+                  'Karnataka'
+                  ) THEN
+                  '45'
+                  ELSE
+                  '40'
+                  END
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: SOURCE
+                nodeName: COVID_TRENDS
+            join:
+              joinCondition: FROM {{ ref('SOURCE', 'COVID_TRENDS') }} "COVID_TRENDS"
+            name: STG_COVID_TRENDS_FUTURE
+            noLinkRefs: []
+      name: STG_COVID_TRENDS_FUTURE
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: 290e6229-00d1-4066-9d1d-52f724f73db4

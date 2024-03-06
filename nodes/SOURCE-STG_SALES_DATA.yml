@@ -1,0 +1,79 @@
+steps:
+  STG_SALES_DATA-b6948447-de4a-4ff6-863d-4bcfb595a797:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: SOURCE
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 2adec11e-4741-4e6c-af0f-691395b74423
+              stepCounter: b6948447-de4a-4ff6-863d-4bcfb595a797
+            dataType: VARCHAR(16777216)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ITEM
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 4b0b8648-6b6e-40ed-99ef-b38bacd53b39
+                    stepCounter: 5f30be68-7ac2-4f12-89c2-dc96e8527402
+                transform: ""
+          - columnReference:
+              columnCounter: 815c3f43-c179-4f08-a3d5-69ebd175299f
+              stepCounter: b6948447-de4a-4ff6-863d-4bcfb595a797
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: bb9d9e94-e5f3-44d6-88f3-12e2f9b13bfc
+                    stepCounter: 5f30be68-7ac2-4f12-89c2-dc96e8527402
+                transform: ""
+          - columnReference:
+              columnCounter: d652cafa-8db8-47e9-87af-34451ba50723
+              stepCounter: b6948447-de4a-4ff6-863d-4bcfb595a797
+            dataType: FLOAT
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SALES
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: dbb65745-51dd-4664-9610-d7f487fc5d15
+                    stepCounter: 5f30be68-7ac2-4f12-89c2-dc96e8527402
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: SOURCE
+                nodeName: SALES_DATA
+            join:
+              joinCondition: FROM {{ ref('SOURCE', 'SALES_DATA') }} "SALES_DATA"
+            name: STG_SALES_DATA
+            noLinkRefs: []
+      name: STG_SALES_DATA
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: b6948447-de4a-4ff6-863d-4bcfb595a797
