@@ -5,18 +5,18 @@ locations:
   SOURCE:
     mappingDefinitions:
       "51":
-        database: ""
-        schema: ""
+        database: QUICKSTART
+        schema: ML_FUNCTIONS
   STAGE:
     mappingDefinitions:
       "51":
-        database: ""
-        schema: ""
+        database: QA
+        schema: ML
   TARGET:
     mappingDefinitions:
       "51":
-        database: ""
-        schema: ""
+        database: QA
+        schema: ML
 macros: {}
 packages: {}
 projects: {}
