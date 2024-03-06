@@ -1,35 +1,33 @@
 steps:
-  ML_FCSTS_COVID_TRENDS1-58b76f36-3c70-45f9-a853-e8b859434408:
+  ML_FCSTS_COVID_TRENDS2-103beab0-41b2-4fe1-bb4c-c73479c001f3:
     operation:
       config:
         cobject: false
-        exvar: false
+        exvar: "true"
         fcdays: "30"
-        multiseries: true
-        predictioninterval: "0.45"
-        series_value: true
-        seriescol:
-          columnCounter: 14ef0220-806b-4067-b2db-90e273944ced
-          stepCounter: 58b76f36-3c70-45f9-a853-e8b859434408
-        svalue: Maharashtra
+        multiseries: false
+        predictioninterval: ex:0.80(float value)
+        series_value: false
+        seriescol: null
+        svalue: ""
         tgtcol:
-          columnCounter: 112127ed-604d-4e19-af50-d8c27f49b517
-          stepCounter: 58b76f36-3c70-45f9-a853-e8b859434408
+          columnCounter: 5c017c4d-d9f1-4a35-a9a6-821af1d50032
+          stepCounter: 103beab0-41b2-4fe1-bb4c-c73479c001f3
         tscol:
-          columnCounter: 9b670979-495a-465f-b83e-59291620b06f
-          stepCounter: 58b76f36-3c70-45f9-a853-e8b859434408
+          columnCounter: 9da7c205-ede4-42d0-9235-237e2f83abdc
+          stepCounter: 103beab0-41b2-4fe1-bb4c-c73479c001f3
       database: ""
       deployEnabled: true
       description: ""
       isMultisource: false
-      locationName: SOURCE
+      locationName: TARGET
       materializationType: table
       metadata:
         appliedNodeTests: []
         columns:
           - columnReference:
-              columnCounter: 9b670979-495a-465f-b83e-59291620b06f
-              stepCounter: 58b76f36-3c70-45f9-a853-e8b859434408
+              columnCounter: 9da7c205-ede4-42d0-9235-237e2f83abdc
+              stepCounter: 103beab0-41b2-4fe1-bb4c-c73479c001f3
             dataType: TIMESTAMP_NTZ(9)
             description: ""
             hashColumns: []
@@ -38,12 +36,12 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: dbdd0b39-eb21-486b-a6d7-d45e640bea15
-                    stepCounter: 849e7766-7c72-433c-96f3-ad7603b83f94
+                  - columnCounter: bebdc829-97b6-4d43-a75a-2eed743993cd
+                    stepCounter: 042a546f-8757-46c5-a72f-77a5bc1fc894
                 transform: ""
           - columnReference:
-              columnCounter: 14ef0220-806b-4067-b2db-90e273944ced
-              stepCounter: 58b76f36-3c70-45f9-a853-e8b859434408
+              columnCounter: 46db3071-028c-4834-8390-6e1b01041def
+              stepCounter: 103beab0-41b2-4fe1-bb4c-c73479c001f3
             dataType: VARCHAR(100)
             description: ""
             hashColumns: []
@@ -52,12 +50,12 @@ steps:
             nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 0b27492f-b07b-4d4f-9ae6-e6c3e80142c5
-                    stepCounter: 849e7766-7c72-433c-96f3-ad7603b83f94
+                  - columnCounter: 8c022ea8-075b-4c2e-8cea-7e7b2b81fdbc
+                    stepCounter: 042a546f-8757-46c5-a72f-77a5bc1fc894
                 transform: ""
           - columnReference:
-              columnCounter: 112127ed-604d-4e19-af50-d8c27f49b517
-              stepCounter: 58b76f36-3c70-45f9-a853-e8b859434408
+              columnCounter: 5c017c4d-d9f1-4a35-a9a6-821af1d50032
+              stepCounter: 103beab0-41b2-4fe1-bb4c-c73479c001f3
             dataType: NUMBER(38,0)
             description: ""
             hashColumns: []
@@ -66,16 +64,16 @@ steps:
             nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 9ee12dec-03e0-4e11-8c43-9948fc72a823
-                    stepCounter: 849e7766-7c72-433c-96f3-ad7603b83f94
-                transform: SUM("STG_COVID_TRENDS1"."CONFIRMED_CASES")
+                  - columnCounter: b959d7e7-87d6-4f75-93aa-d31fac6774ff
+                    stepCounter: 042a546f-8757-46c5-a72f-77a5bc1fc894
+                transform: ""
           - acceptedValues:
               strictMatch: true
               values: []
             appliedColumnTests: {}
             columnReference:
-              columnCounter: 7a0192ae-611a-442f-8be3-49bb0e6dfe6a
-              stepCounter: 58b76f36-3c70-45f9-a853-e8b859434408
+              columnCounter: e87eda23-35da-4d8f-8dc9-298241cbfc8e
+              stepCounter: 103beab0-41b2-4fe1-bb4c-c73479c001f3
             config: {}
             dataType: FLOAT
             defaultValue: ""
@@ -92,8 +90,8 @@ steps:
               values: []
             appliedColumnTests: {}
             columnReference:
-              columnCounter: 901213e1-50e7-4727-afd9-e12873eec2a0
-              stepCounter: 58b76f36-3c70-45f9-a853-e8b859434408
+              columnCounter: 63f37e39-80af-4f2f-a12c-8cd8477dcac7
+              stepCounter: 103beab0-41b2-4fe1-bb4c-c73479c001f3
             config: {}
             dataType: FLOAT
             defaultValue: ""
@@ -110,8 +108,8 @@ steps:
               values: []
             appliedColumnTests: {}
             columnReference:
-              columnCounter: a9261fee-0e04-429f-a648-e746b371809d
-              stepCounter: 58b76f36-3c70-45f9-a853-e8b859434408
+              columnCounter: a028bd53-0789-4d5f-8d5e-f4208b004d1a
+              stepCounter: 103beab0-41b2-4fe1-bb4c-c73479c001f3
             config: {}
             dataType: FLOAT
             defaultValue: ""
@@ -126,22 +124,19 @@ steps:
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
-          - aliases:
-              STG_COVID_TRENDS1: 849e7766-7c72-433c-96f3-ad7603b83f94
+          - aliases: {}
             customSQL:
               customSQL: ""
             dependencies:
               - locationName: SOURCE
-                nodeName: STG_COVID_TRENDS1
+                nodeName: STG_COVID_TRENDS2
             join:
-              joinCondition: |-
-                FROM {{ ref('SOURCE', 'STG_COVID_TRENDS1') }} "STG_COVID_TRENDS1"
-                GROUP BY 1,2
-            name: ML_FCSTS_COVID_TRENDS1
+              joinCondition: FROM {{ ref('SOURCE', 'STG_COVID_TRENDS2') }} "STG_COVID_TRENDS2"
+            name: ML_FCSTS_COVID_TRENDS2
             noLinkRefs: []
-      name: ML_FCSTS_COVID_TRENDS1
+      name: ML_FCSTS_COVID_TRENDS2
       overrideSQL: false
       schema: ""
       sqlType: "225"
       type: sql
-    stepCounter: 58b76f36-3c70-45f9-a853-e8b859434408
+    stepCounter: 103beab0-41b2-4fe1-bb4c-c73479c001f3
