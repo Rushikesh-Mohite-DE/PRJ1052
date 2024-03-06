@@ -44,7 +44,7 @@ steps:
           - columnReference:
               columnCounter: 14ef0220-806b-4067-b2db-90e273944ced
               stepCounter: 58b76f36-3c70-45f9-a853-e8b859434408
-            dataType: VARCHAR(100)
+            dataType: VARCHAR(1000)
             description: ""
             hashColumns: []
             hashDetails: null
