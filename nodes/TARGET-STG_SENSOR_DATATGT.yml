@@ -1,0 +1,137 @@
+steps:
+  STG_SENSOR_DATATGT-e2256da8-82e4-4496-ab26-f420f804d2fc:
+    operation:
+      config:
+        insertStrategy: UNION
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: true
+      locationName: TARGET
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 8bb22f83-9bb8-4840-91b0-ea4d477a800e
+              stepCounter: e2256da8-82e4-4496-ab26-f420f804d2fc
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TIMESTAMP
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 6e470dec-8b6f-4c10-b59b-ba232345688e
+                    stepCounter: 8ab5f369-c8bf-4b9d-8222-62b21b25c63e
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 865f90a5-05df-413b-83a7-69b88bac1a08
+                    stepCounter: 7a59e657-ebeb-437b-b93a-46da9fd057fb
+                transform: ""
+          - columnReference:
+              columnCounter: 2c9be4d8-ad84-417b-8ce4-9ee3efa28974
+              stepCounter: e2256da8-82e4-4496-ab26-f420f804d2fc
+            dataType: FLOAT
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: VALUE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 54e9879f-4570-475a-9516-46c02c2e6137
+                    stepCounter: 8ab5f369-c8bf-4b9d-8222-62b21b25c63e
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 6b6724c8-773d-407c-8c29-f11707600596
+                    stepCounter: 7a59e657-ebeb-437b-b93a-46da9fd057fb
+                transform: ""
+          - columnReference:
+              columnCounter: f8277c76-3d84-4744-b244-1c96efeee10c
+              stepCounter: e2256da8-82e4-4496-ab26-f420f804d2fc
+            dataType: VARCHAR(16777216)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CATEGORY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 51e1380a-6423-40af-a833-5a68b3ce326a
+                    stepCounter: 8ab5f369-c8bf-4b9d-8222-62b21b25c63e
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 2c84670c-7764-416a-8b12-d36a7f35a3a5
+                    stepCounter: 7a59e657-ebeb-437b-b93a-46da9fd057fb
+                transform: ""
+          - columnReference:
+              columnCounter: 9d549c78-6da9-4e00-adc6-94c801665175
+              stepCounter: e2256da8-82e4-4496-ab26-f420f804d2fc
+            dataType: VARCHAR(16777216)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: LOCATION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: ed8ccb66-bab9-4274-bd85-f70e85910c06
+                    stepCounter: 8ab5f369-c8bf-4b9d-8222-62b21b25c63e
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 0dac6cfa-6fd0-49d0-9d9c-2476203e6fad
+                    stepCounter: 7a59e657-ebeb-437b-b93a-46da9fd057fb
+                transform: ""
+          - columnReference:
+              columnCounter: 7d964017-d639-444d-9ebf-b05be0c792fb
+              stepCounter: e2256da8-82e4-4496-ab26-f420f804d2fc
+            dataType: VARCHAR(16777216)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DEVICE_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 9a94765e-dd6b-414a-b781-1cb508923a98
+                    stepCounter: 8ab5f369-c8bf-4b9d-8222-62b21b25c63e
+                transform: ""
+              - columnReferences:
+                  - columnCounter: cc66ce98-cb50-44c0-b74c-3830be75df7f
+                    stepCounter: 7a59e657-ebeb-437b-b93a-46da9fd057fb
+                transform: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: STAGE
+                nodeName: STG_SENSOR_DATA
+            join:
+              joinCondition: FROM {{ ref('STAGE', 'STG_SENSOR_DATA') }} "STG_SENSOR_DATA"
+            name: STG_SENSOR_DATA
+            noLinkRefs: []
+          - aliases:
+              STG_SENSOR_DATA1: 7a59e657-ebeb-437b-b93a-46da9fd057fb
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: STAGE
+                nodeName: STG_SENSOR_DATA1
+            join:
+              joinCondition: FROM {{ ref('STAGE', 'STG_SENSOR_DATA1') }} "STG_SENSOR_DATA1"
+            name: NEW_SOURCE
+            noLinkRefs: []
+      name: STG_SENSOR_DATATGT
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: e2256da8-82e4-4496-ab26-f420f804d2fc

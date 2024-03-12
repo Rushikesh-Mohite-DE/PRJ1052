@@ -5,12 +5,13 @@ steps:
         cobject: false
         exvar: false
         fcdays: "30"
-        multiseries: true
+        multiseries: false
         predictioninterval: "0.45"
         series_value: true
         seriescol:
           columnCounter: 14ef0220-806b-4067-b2db-90e273944ced
           stepCounter: 58b76f36-3c70-45f9-a853-e8b859434408
+        spdata: false
         svalue: Maharashtra
         tgtcol:
           columnCounter: 112127ed-604d-4e19-af50-d8c27f49b517
@@ -18,6 +19,7 @@ steps:
         tscol:
           columnCounter: 9b670979-495a-465f-b83e-59291620b06f
           stepCounter: 58b76f36-3c70-45f9-a853-e8b859434408
+        uspdata: false
       database: ""
       deployEnabled: true
       description: ""
@@ -142,6 +144,6 @@ steps:
       name: ML_FCSTS_COVID_TRENDS1
       overrideSQL: false
       schema: ""
-      sqlType: "225"
+      sqlType: "244"
       type: sql
     stepCounter: 58b76f36-3c70-45f9-a853-e8b859434408

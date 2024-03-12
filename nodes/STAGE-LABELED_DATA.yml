@@ -1,0 +1,98 @@
+steps:
+  LABELED_DATA-98c9e274-4f20-4117-831c-510c6ea45fc7:
+    operation:
+      config:
+        insertStrategy: UNION
+        postSQL: ""
+        preSQL: null
+        selectDistinct: false
+        testsEnabled: false
+        truncateBefore: true
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: STAGE
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 7adb336a-7ead-43ad-8dd1-eccc2cde26d4
+              stepCounter: 98c9e274-4f20-4117-831c-510c6ea45fc7
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: d626afba-c0df-4915-b864-edd39012502f
+                    stepCounter: a804f266-0572-425a-8eff-f2cd91205885
+                transform: ""
+          - columnReference:
+              columnCounter: 40f538d3-fc16-4ffe-8ffd-014a564faa7d
+              stepCounter: 98c9e274-4f20-4117-831c-510c6ea45fc7
+            dataType: INTEGER
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TOTAL_CALLS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 70fdf3d6-4725-4391-9e84-2dc2ef0a05ab
+                    stepCounter: a804f266-0572-425a-8eff-f2cd91205885
+                transform: |-
+                  "CALL_HISTORY"."TOTAL_CALLS" + CASE 
+                              WHEN date = to_date('1/5/2023') THEN 400
+                              WHEN date = to_date('1/11/2023') THEN 500
+                              WHEN date = to_date('1/21/2023') THEN -400
+                              WHEN date = to_date('1/22/2023') THEN -500
+                              WHEN date = to_date('2/18/2023') THEN -500
+                              ELSE "CALL_HISTORY"."TOTAL_CALLS"
+                          END
+          - columnReference:
+              columnCounter: 86516536-a362-4f18-ba66-d590fdebe60f
+              stepCounter: 98c9e274-4f20-4117-831c-510c6ea45fc7
+            dataType: BOOLEAN
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: LABELCOL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: "0"
+                    stepCounter: "0"
+                transform: |2-
+                      CASE 
+                          WHEN "CALL_HISTORY"."DATE" IN (
+                              to_date('1/5/2023'),
+                              to_date('1/11/2023'),
+                              to_date('1/21/2023'),
+                              to_date('1/22/2023'),
+                              to_date('2/18/2023')
+                          ) THEN TRUE
+                          ELSE FALSE
+                      END
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: STAGE
+                nodeName: CALL_HISTORY
+            join:
+              joinCondition: FROM {{ ref('STAGE', 'CALL_HISTORY') }} "CALL_HISTORY"
+            name: LABELED_DATA
+            noLinkRefs: []
+      name: LABELED_DATA
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: 98c9e274-4f20-4117-831c-510c6ea45fc7
