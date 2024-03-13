@@ -1317,7 +1317,7 @@ stepTypes:
           items:
 
 
-        # Toggle to determine if a single-series forecast or a multi-series forecast is to be created #
+
 
             - type: toggleButton
               displayName: 'Multi-Series'
@@ -1325,7 +1325,7 @@ stepTypes:
               isRequired: false
               default: 'true'
 
-        # For multiple time series models, the name of the column defining the multiple time series in input data #
+
 
             - type: columnDropdownSelector
               displayName: 'Series Column'
@@ -1388,7 +1388,7 @@ stepTypes:
               attributeName: 'lcdata'
               isRequired: false
               default: 'false'
-              enableIf: '{%-config.spdata %}true{%- else %}false{%- endif %}'
+              enableIf: '{%-if config.spdata %}true{%- else %}false{%- endif %}'
 
 
             - type: toggleButton
@@ -1396,6 +1396,7 @@ stepTypes:
               attributeName: 'uspdata'
               isRequired: false
               default: 'false'
+              enableIf: '{%-if config.spdata %}false{%- else %}true{%- endif %}'
          
 
 
@@ -1460,27 +1461,8 @@ stepTypes:
             does not permit copying or modification for any other purpose.  
             #}
             {# == Node Type Version        : 1  == #}
-            {# == Node Type Name           : ML Forecast == #}
-            {# == Node Type Description    : This node creates a forecast table  == #}
-            
-            {% set source = sources[0] %}
-            {% set src_node = source.dependencies[0].node %}
-            {% set forecast_name = 'AnomalyDetection_' ~ src_node.name %}
-            
-            {# Forecast table creation #}
-            
-            {{ stage('Create Anomaly Detection Table') }}
-            
-            {#
-                Copyright (c) 2023 Coalesce. All rights reserved.
-            This script and its associated documentation are confidential and proprietary to Coalesce.
-            Unauthorized reproduction, distribution, or disclosure of this material is strictly prohibited.
-            Coalesce permits you to copy and modify this script for the purposes of using with Coalsce but
-            does not permit copying or modification for any other purpose.  
-            #}
-            {# == Node Type Version        : 1  == #}
-            {# == Node Type Name           : ML Forecast == #}
-            {# == Node Type Description    : This node creates a forecast table  == #}
+            {# == Node Type Name           : ML Anomaly Detection == #}
+            {# == Node Type Description    : This node creates a Anomaly Detection table  == #}
             
             {% set source = sources[0] %}
             {% set src_node = source.dependencies[0].node %}
@@ -1493,8 +1475,8 @@ stepTypes:
             {% if config.spdata %}
                 CREATE OR REPLACE TABLE {{ this }}
                 (
-                    {% for col in source.columns %}
-                        {%- if not col.lcdata %}
+                    {%- for col in columns %}
+                            {%- if col.name != config.lcdata.name %}
                             "{{ col.name }}" 
                             {%- if col.name == config.tscol.name %} TIMESTAMP 
                             {%- elif col.name == config.tgtcol.name %} FLOAT 
@@ -1530,15 +1512,15 @@ stepTypes:
             does not permit copying or modification for any other purpose.  
             #}
             {# == Node Type Version        : 1  == #}
-            {# == Node Type Name           : ML Forecast == #}
-            {# == Node Type Description    : This node creates a forecast table  == #}
+            {# == Node Type Name           : ML Anomaly Detection == #}
+            {# == Node Type Description    : This node creates a Anomaly Detection table  == #}
             
             
             {# INitialize forecast model name #}
             
             {% set source = sources[0] %}
             {% set src_node = source.dependencies[0].node %}
-            {% set forecast_name = 'FORECAST_' ~ src_node.name %}
+            {% set forecast_name = 'ANOMALY_' ~ src_node.name %}
             
             {%- set nsVariables = namespace(squotes="") -%}
             
@@ -1637,8 +1619,10 @@ stepTypes:
                 CALL {{ ref_no_link(node.location.name, forecast_name) }}!detect_anomalies(
                     INPUT_DATA => SYSTEM$QUERY_REFERENCE('
                     SELECT 
-                    {%- for col in columns if not (col.forecast or col.upper_bound or col.lower_bound or col.anomaly or col.percentile or col.distance or col.lcdata ) %}
+                    {%- for col in columns if not (col.forecast or col.upper_bound or col.lower_bound or col.anomaly or col.percentile or col.distance) %}
+                    {%- if col.name != config.lcdata.name %}
                         "{{col.name}}"{%- if not loop.last %}, {%- endif %}
+                     {%- endif %}
                     {%- endfor %}
                     {{ sources[-1].join }}
                 '),
@@ -1650,13 +1634,15 @@ stepTypes:
             
                 INSERT INTO {{ this }}
                 (
-                    {%- for col in columns if not ( col.lcdata ) %}
+                    {%- for col in columns %}
+                    {%- if col.name != config.lcdata.name %}
                         "{{col.name}}"{%- if not loop.last %}, {%- endif %}
+                    {%- endif %}
                     {%- endfor %}
                 )
                 SELECT 
                 {% for col in source.columns %}
-                    {%- if not col.lcdata %}
+                    {%- if col.name != config.lcdata.name %}
                         {%- if config.multiseries and col.id == config.seriescol.id %}"SERIES"
                         {%- elif col.id == config.tscol.id %}"TS"
                         {%- elif col.id == config.tgtcol.id %}"Y"
@@ -2608,6 +2594,367 @@ stepTypes:
             	{% endfor %}
             {% endif %}
     name: Copy of Dimension
+    version: 1
+  StepType-259:
+    id: "259"
+    isDisabled: false
+    metadata:
+      defaultStorageLocation: null
+      error: null
+      nodeMetadataSpec: |+
+        capitalized: Anomaly Detection
+        short: ML_AD
+        tagColor: 'blue'
+        plural: ML Anomaly Detections
+
+
+        config:
+         
+        - groupName: Anomaly Model Input
+          items:
+
+
+
+
+            - type: toggleButton
+              displayName: 'Multi-Series'
+              attributeName: 'multiseries'
+              isRequired: false
+              default: 'true'
+
+
+
+            - type: columnDropdownSelector
+              displayName: 'Series Column'
+              attributeName: 'seriescol'
+              isRequired: false
+              enableIf: "{{ config.multiseries }}"
+
+        # Name of the column containing the timestamps in input data #
+
+            - type: columnDropdownSelector
+              displayName: 'Timestamp Column'
+              attributeName: 'tscol'
+              isRequired: true
+
+        # Name of the column containing the target (dependent value) in input data #
+
+            - type: columnDropdownSelector
+              displayName: 'Target Column'
+              attributeName: 'tgtcol'
+              isRequired: true
+
+
+        # An OBJECT containing key-value pairs used to configure the forecast job #
+
+            - type: toggleButton
+              displayName: 'Config Object'
+              attributeName: 'cobject'
+              isRequired: false
+              default: false
+
+            - type: textBox
+              displayName: 'Prediction Interval'
+              attributeName: 'predictioninterval'
+              enableIf: '{%- if config.cobject %}true{%- else %}false{%- endif %}'
+              default: 'ex:0.80(float value)'
+
+
+        # Exogenous variable:additional features influencing the forecast #
+
+            - type: toggleButton
+              displayName: 'Supervised Data'
+              attributeName: 'spdata'
+              isRequired: false
+              default: 'false'
+              enableIf: '{%-if config.uspdata %}false{%- else %}true{%- endif %}'
+
+            - type: columnDropdownSelector
+              displayName: 'Labeled Column'
+              attributeName: 'lcdata'
+              isRequired: false
+              default: 'false'
+              enableIf: '{%-if config.spdata %}true{%- else %}false{%- endif %}'
+
+
+            - type: toggleButton
+              displayName: 'Unsupervised Data'
+              attributeName: 'uspdata'
+              isRequired: false
+              default: 'false'
+              enableIf: '{%-if config.spdata %}false{%- else %}true{%- endif %}'
+         
+            - displayName: Data that needs to be analyzed can be added by enabling the multi-source toggle below 
+              type: label
+              enableIf: '{%- if config.spdata or config.uspdata %}true{%- else %}false{%- endif %}'
+
+            - displayName: Exogenous data source
+              type: multisourceToggle
+              attributeName: 'mtoggle'
+              default: 'true'
+              enableIf: '{%- if config.spdata or config.uspdata %}true{%- else %}false{%- endif %}'
+
+            
+
+
+
+        systemColumns:
+        - displayName: "FORECAST"
+          attributeName: forecast
+          transform: ""
+          dataType: FLOAT
+          placement: end
+          description: 'Generated by ML Anomaly Detection Model'
+        - displayName: "LOWER_BOUND"
+          attributeName: lower_bound
+          transform: ""
+          dataType: FLOAT
+          placement: end
+          description: 'Generated by ML Anomaly Detection Model'
+        - displayName: "UPPER_BOUND"
+          attributeName: upper_bound
+          transform: ""
+          dataType: FLOAT
+          placement: end
+          description: 'Generated by ML Anomaly Detection Model'
+        - displayName: "IS_ANOMALY"
+          attributeName: anomaly
+          transform: ""
+          dataType: BOOLEAN
+          placement: end
+          description: 'Generated by ML Anomaly Detection Model'
+        - displayName: "PERCENTILE"
+          attributeName: percentile
+          transform: ""
+          dataType: FLOAT
+          placement: end
+          description: 'Generated by ML Anomaly Detection Model'
+        - displayName: "DISTANCE"
+          attributeName: distance
+          transform: ""
+          dataType: FLOAT
+          placement: end
+          description: 'Generated by ML Anomaly Detection Model'
+
+
+
+      templates:
+        create:
+          templateString: |
+            {#
+                Copyright (c) 2023 Coalesce. All rights reserved.
+            This script and its associated documentation are confidential and proprietary to Coalesce.
+            Unauthorized reproduction, distribution, or disclosure of this material is strictly prohibited.
+            Coalesce permits you to copy and modify this script for the purposes of using with Coalsce but
+            does not permit copying or modification for any other purpose.  
+            #}
+            {# == Node Type Version        : 1  == #}
+            {# == Node Type Name           : ML Anomaly Detection == #}
+            {# == Node Type Description    : This node creates a Anomaly Detection table  == #}
+            
+            {% set source = sources[0] %}
+            {% set src_node = source.dependencies[0].node %}
+            {% set forecast_name = 'AnomalyDetection_' ~ src_node.name %}
+            
+            {# Forecast table creation #}
+            
+            {{ stage('Create Anomaly Detection Table') }}
+            
+            {% if config.spdata %}
+                CREATE OR REPLACE TABLE {{ this }}
+                (
+                    {%- for col in columns %}
+                            {%- if col.name != config.lcdata.name %}
+                            "{{ col.name }}" 
+                            {%- if col.name == config.tscol.name %} TIMESTAMP 
+                            {%- elif col.name == config.tgtcol.name %} FLOAT 
+                            {%- else %} {{ col.dataType }}
+                            {%- endif %}
+                            {%- if col.description | length > 0 %} COMMENT '{{ col.description | escape }}'{%- endif %}
+                            {%- if not loop.last -%}, {% endif %}
+                        {%- endif %}
+                    {% endfor %}
+                )
+            {% else %}
+                CREATE OR REPLACE TABLE {{ this }}
+                (
+                    {% for col in source.columns %}
+                        "{{ col.name }}" 
+                        {%- if col.name == config.tscol.name %} TIMESTAMP 
+                        {%- elif col.name == config.tgtcol.name %} FLOAT 
+                        {%- else %} {{ col.dataType }}
+                        {%- endif %}
+                        {%- if col.description | length > 0 %} COMMENT '{{ col.description | escape }}'{%- endif %}
+                        {%- if not loop.last -%}, {% endif %}
+                    {% endfor %}
+                )
+            {% endif %}
+            {%- if node.description | length > 0 %} COMMENT = '{{ node.description | escape }}'{% endif %}
+        run:
+          templateString: |
+            {#
+                Copyright (c) 2023 Coalesce. All rights reserved.
+            This script and its associated documentation are confidential and proprietary to Coalesce.
+            Unauthorized reproduction, distribution, or disclosure of this material is strictly prohibited.
+            Coalesce permits you to copy and modify this script for the purposes of using with Coalsce but
+            does not permit copying or modification for any other purpose.  
+            #}
+            {# == Node Type Version        : 1  == #}
+            {# == Node Type Name           : ML Anomaly Detection == #}
+            {# == Node Type Description    : This node creates a Anomaly Detection table  == #}
+            
+            
+            {# INitialize forecast model name #}
+            
+            {% set source = sources[0] %}
+            {% set src_node = source.dependencies[0].node %}
+            {% set forecast_name = 'ANOMALY_' ~ src_node.name %}
+            
+            {%- set nsVariables = namespace(squotes="") -%}
+            
+            {# Check series column datatype to determine if quoted required for series value #}
+            
+            {% if config.series_value %}
+                    {% for col in source.columns  %} 
+                        {% if col.id == config.seriescol.id %}
+            			    {%if  (col.dataType | replace("0", "")
+                | replace("1", "")
+                | replace("2", "")
+                | replace("3", "")
+                | replace("4", "")
+                | replace("5", "")
+                | replace("6", "")
+                | replace("7", "")
+                | replace("8", "")
+                | replace("9", "") |replace("(","")|replace(")",""))  in ('STRING','VARCHAR','CHAR','TEXT') %}
+            				   {% set  nsVariables.squotes ="'" %}
+            				{% else %}
+            				   {% set  nsVariables.squotes = ""  %}
+                                {{ col.dataType}}
+            				{% endif %}
+            			{% endif %}
+                    {% endfor %}
+            
+            {% endif %}
+            
+            {# Forecast table truncated #}
+            
+            {{ stage('Truncate Anomaly Detection table') }}
+            
+            TRUNCATE IF EXISTS {{ this }}
+            
+            {# Initial training data inserted into forecast table #}
+            
+            
+            {# Forecast model created #}
+            
+            {{ stage('Create Anomaly Model Instance') }}
+            
+            
+            CREATE OR REPLACE SNOWFLAKE.ML.ANOMALY_DETECTION
+             {{ ref_no_link(node.location.name, forecast_name) }}(
+                INPUT_DATA => SYSTEM$QUERY_REFERENCE('
+                    SELECT
+                    {%- for col in columns if not (col.forecast or col.upper_bound or col.lower_bound or col.anomaly or col.percentile or col.distance) %}
+                        "{{col.name}}"{%- if not loop.last %}, {%- endif %}
+                    {%- endfor %}            
+                    {{ source.join }}
+                    WHERE  "{{ config.tgtcol.name }}" IS NOT NULL
+                '),
+                {% if config.multiseries %}SERIES_COLNAME => '{{ config.seriescol.name }}', {% endif %}
+                TIMESTAMP_COLNAME => '{{ config.tscol.name }}',
+                TARGET_COLNAME => '{{ config.tgtcol.name }}',
+            	{% if config.lcdata  %}LABEL_COLNAME => '{{ config.lcdata.name.lower() }}' {% else %} LABEL_COLNAME => '' {% endif %}
+            )
+            
+            {# Forecast data based on model with predicted values  is inserted into forecast table #}
+            
+            {{ stage('Insert Anomaly data') }}
+            BEGIN
+            {% if config.uspdata %}
+                CALL {{ ref_no_link(node.location.name, forecast_name) }}!detect_anomalies(
+                    INPUT_DATA => SYSTEM$QUERY_REFERENCE('
+                    SELECT 
+                    {%- for col in columns if not (col.forecast or col.upper_bound or col.lower_bound or col.anomaly or col.percentile or col.distance or col.lcdata) %}
+                        "{{col.name}}"{%- if not loop.last %}, {%- endif %}
+                    {%- endfor %}
+                    {{ sources[-1].join }}
+                '),
+                {%if config.multiseries %}SERIES_COLNAME => '{{ config.seriescol.name }}', {% endif %}
+                TIMESTAMP_COLNAME => '{{ config.tscol.name }}' ,
+                TARGET_COLNAME => '{{ config.tgtcol.name }}'
+                {% if config.cobject %},CONFIG_OBJECT => {'prediction_interval': {{ config.predictioninterval }}} {% endif %});
+            
+            
+                INSERT INTO {{ this }}
+                (
+                    {%- for col in source.columns  %} 
+                        "{{ col.name }}" {%- if not loop.last -%}, {% endif %}
+                    {%- endfor %}
+                )
+                SELECT 
+                    {% for col in source.columns %}
+                        {%- if config.multiseries and col.id == config.seriescol.id %}"SERIES"
+                        {%- elif col.id == config.tscol.id %}"TS"
+                        {%- elif col.id == config.tgtcol.id %}"Y"
+                        {%- elif col.forecast or col.lower_bound or col.upper_bound or col.anomaly or col.percentile or col.distance %}"{{ col.name }}"
+                        {%- else %}{{ get_source_transform(col) }} AS "{{ col.name }}"
+                        {%- endif %}{%- if not loop.last %}, {%- endif %}
+                    {% endfor %}
+                FROM TABLE(RESULT_SCAN(-1)) RES;
+            
+            {% else %}
+                CALL {{ ref_no_link(node.location.name, forecast_name) }}!detect_anomalies(
+                INPUT_DATA => SYSTEM$QUERY_REFERENCE('
+                    SELECT 
+                    {%- for col in columns if not (col.forecast or col.upper_bound or col.lower_bound or col.anomaly or col.percentile or col.distance) %}
+                        {%- if col.name != config.lcdata.name %}
+                            "{{col.name}}"{%- if not loop.last %}, {%- endif %}
+                        {%- endif %}
+                    {%- endfor %}
+                    {{ sources[-1].join }}
+                '),
+                {%if config.multiseries %}SERIES_COLNAME => '{{ config.seriescol.name }}', {% endif %}
+                TIMESTAMP_COLNAME => '{{ config.tscol.name }}',
+                TARGET_COLNAME => '{{ config.tgtcol.name }}'{% if config.cobject %},
+                
+                CONFIG_OBJECT => {'prediction_interval': {{ config.predictioninterval }}} {% endif %}
+            );
+            
+            
+            
+            
+            
+                INSERT INTO {{ this }}
+                (
+                    {%- for col in columns %}
+                    {%- if col.name != config.lcdata.name %}
+                        "{{col.name}}"{%- if not loop.last %}, {%- endif %}
+                    {%- endif %}
+                    {%- endfor %}
+                )
+                SELECT 
+                {% for col in source.columns %}
+                    {%- if col.name != config.lcdata.name %}
+                        {%- if config.multiseries and col.id == config.seriescol.id %}"SERIES"
+                        {%- elif col.id == config.tscol.id %}"TS"
+                        {%- elif col.id == config.tgtcol.id %}"Y"
+                        {%- elif col.forecast or col.lower_bound or col.upper_bound or col.anomaly or col.percentile or col.distance %}"{{ col.name }}"
+                        {%- else %}{{ get_source_transform(col) }} AS "{{ col.name }}"
+                        {%- endif %}{%- if not loop.last %}, {%- endif %}
+                    {%- endif %}
+                {% endfor %}
+            FROM TABLE(RESULT_SCAN(-1)) RES;
+            
+            
+            {% endif %}
+            
+            END
+            
+            
+            
+            
+    name: Anomaly Detection 1.0
     version: 1
   StepType-Dimension:
     id: Dimension
@@ -4072,20 +4419,36 @@ subgraphs:
     id: "56"
     name: Supervised Data
     steps:
-      - bdf93438-0576-44a8-9af1-3d634055b426
-      - 98c9e274-4f20-4117-831c-510c6ea45fc7
-      - a804f266-0572-425a-8eff-f2cd91205885
       - 9e99ca9b-9c93-4454-85c0-c9592f7a9f99
       - 0b61ea6a-258f-4107-9271-825c33ae0501
       - fd555d58-9016-4e85-b8a4-1d57f8123931
       - 2fa38cf7-5ea6-454f-ac3f-7fa4cd69f094
-      - f508f976-a270-48bb-9bd4-55c6d1d874e2
+      - 58342162-5fa9-4ef2-bfb9-1b68603a0fba
+      - 2dda3f81-e415-4fb1-871f-85a8c52c179f
   Subgraph-57:
     id: "57"
     name: Unsupervised Data
     steps:
-      - d03cf894-1967-428b-829f-d71d09e0ac4f
       - 9e99ca9b-9c93-4454-85c0-c9592f7a9f99
       - 0b61ea6a-258f-4107-9271-825c33ae0501
       - a804f266-0572-425a-8eff-f2cd91205885
+      - daa0a4c4-4dc0-45fb-92f4-d499fb774e1c
+  Subgraph-58:
+    id: "58"
+    name: Supervised Data with Multiseries
+    steps:
+      - 89a0a39f-daca-4271-a1e7-41abc27f72ae
+      - c3498c55-5a7b-4d15-b220-46166d532e4f
+      - 8915b6ee-9b22-4726-a936-1cf70caa4a71
+      - f1a58ce0-a9e1-4a41-aeee-44f813aee468
+      - 29f0e6bd-7f52-4454-bd41-bd3e5a14e094
+  Subgraph-59:
+    id: "59"
+    name: Unsupervised Data with MultiSeries
+    steps:
+      - 89a0a39f-daca-4271-a1e7-41abc27f72ae
+      - c3498c55-5a7b-4d15-b220-46166d532e4f
+      - c63d25b3-834d-4fe1-ab69-8b15cf377a95
+      - 9aa8db0e-c16b-4da6-b6d6-b7f9011a335a
+      - 4f26afbe-2a17-49dd-86a9-b2df7b548e98
 version: 2

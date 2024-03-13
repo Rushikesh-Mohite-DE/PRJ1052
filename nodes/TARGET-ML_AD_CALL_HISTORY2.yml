@@ -1,11 +1,11 @@
 steps:
-  ML_AD_CALL_HISTORY1-58342162-5fa9-4ef2-bfb9-1b68603a0fba:
+  ML_AD_CALL_HISTORY2-2dda3f81-e415-4fb1-871f-85a8c52c179f:
     operation:
       config:
         cobject: true
         lcdata:
-          columnCounter: e879179f-96a2-4f8b-8e3f-330e5a619fed
-          stepCounter: 58342162-5fa9-4ef2-bfb9-1b68603a0fba
+          columnCounter: 34ee3804-0f77-4752-b321-2e988732ef4b
+          stepCounter: 2dda3f81-e415-4fb1-871f-85a8c52c179f
         mtoggle: "true"
         multiseries: false
         predictioninterval: "0.90"
@@ -14,11 +14,11 @@ steps:
         spdata: true
         svalue: ""
         tgtcol:
-          columnCounter: 5c6168a1-6345-47aa-a5cf-e719b05b78e5
-          stepCounter: 58342162-5fa9-4ef2-bfb9-1b68603a0fba
+          columnCounter: 69915f7b-33a7-4b6e-b7d4-9a58dbb006b2
+          stepCounter: 2dda3f81-e415-4fb1-871f-85a8c52c179f
         tscol:
-          columnCounter: 2dc93457-6cf8-4951-9562-4c48bffba4dd
-          stepCounter: 58342162-5fa9-4ef2-bfb9-1b68603a0fba
+          columnCounter: 4fce8595-98bb-41e1-ba48-20202d69583a
+          stepCounter: 2dda3f81-e415-4fb1-871f-85a8c52c179f
         uspdata: false
       database: ""
       deployEnabled: true
@@ -30,8 +30,8 @@ steps:
         appliedNodeTests: []
         columns:
           - columnReference:
-              columnCounter: 2dc93457-6cf8-4951-9562-4c48bffba4dd
-              stepCounter: 58342162-5fa9-4ef2-bfb9-1b68603a0fba
+              columnCounter: 4fce8595-98bb-41e1-ba48-20202d69583a
+              stepCounter: 2dda3f81-e415-4fb1-871f-85a8c52c179f
             dataType: TIMESTAMP_NTZ(9)
             description: ""
             hashColumns: []
@@ -48,8 +48,8 @@ steps:
                     stepCounter: 9e99ca9b-9c93-4454-85c0-c9592f7a9f99
                 transform: ""
           - columnReference:
-              columnCounter: 5c6168a1-6345-47aa-a5cf-e719b05b78e5
-              stepCounter: 58342162-5fa9-4ef2-bfb9-1b68603a0fba
+              columnCounter: 69915f7b-33a7-4b6e-b7d4-9a58dbb006b2
+              stepCounter: 2dda3f81-e415-4fb1-871f-85a8c52c179f
             dataType: INTEGER
             description: ""
             hashColumns: []
@@ -66,8 +66,8 @@ steps:
                     stepCounter: 9e99ca9b-9c93-4454-85c0-c9592f7a9f99
                 transform: ""
           - columnReference:
-              columnCounter: e879179f-96a2-4f8b-8e3f-330e5a619fed
-              stepCounter: 58342162-5fa9-4ef2-bfb9-1b68603a0fba
+              columnCounter: 34ee3804-0f77-4752-b321-2e988732ef4b
+              stepCounter: 2dda3f81-e415-4fb1-871f-85a8c52c179f
             dataType: BOOLEAN
             description: ""
             hashColumns: []
@@ -86,8 +86,8 @@ steps:
               values: []
             appliedColumnTests: {}
             columnReference:
-              columnCounter: 918908a1-8b40-4aac-b7cb-709db48fec7c
-              stepCounter: 58342162-5fa9-4ef2-bfb9-1b68603a0fba
+              columnCounter: 071a6f22-6ec4-4655-acb4-7f49dc123af3
+              stepCounter: 2dda3f81-e415-4fb1-871f-85a8c52c179f
             config: {}
             dataType: FLOAT
             defaultValue: ""
@@ -106,8 +106,8 @@ steps:
               values: []
             appliedColumnTests: {}
             columnReference:
-              columnCounter: 1c4fb76a-4017-46b4-819f-37f0b21210eb
-              stepCounter: 58342162-5fa9-4ef2-bfb9-1b68603a0fba
+              columnCounter: f8f1ad78-6b7c-4a78-9785-6006589c538c
+              stepCounter: 2dda3f81-e415-4fb1-871f-85a8c52c179f
             config: {}
             dataType: FLOAT
             defaultValue: ""
@@ -126,8 +126,8 @@ steps:
               values: []
             appliedColumnTests: {}
             columnReference:
-              columnCounter: 16b540ce-f781-42c3-b260-b46d1974cd70
-              stepCounter: 58342162-5fa9-4ef2-bfb9-1b68603a0fba
+              columnCounter: 24a75dee-01bb-4c57-b20f-b3bd08386786
+              stepCounter: 2dda3f81-e415-4fb1-871f-85a8c52c179f
             config: {}
             dataType: FLOAT
             defaultValue: ""
@@ -146,8 +146,8 @@ steps:
               values: []
             appliedColumnTests: {}
             columnReference:
-              columnCounter: 70ead88e-10b0-43db-b991-54ccce42dc9e
-              stepCounter: 58342162-5fa9-4ef2-bfb9-1b68603a0fba
+              columnCounter: 448a1878-17dd-4b47-8957-fdf5b20a1f00
+              stepCounter: 2dda3f81-e415-4fb1-871f-85a8c52c179f
             config: {}
             dataType: FLOAT
             defaultValue: ""
@@ -167,8 +167,8 @@ steps:
             anomaly: true
             appliedColumnTests: {}
             columnReference:
-              columnCounter: 0780e2d1-416f-4d32-a795-b7e8785b5235
-              stepCounter: 58342162-5fa9-4ef2-bfb9-1b68603a0fba
+              columnCounter: d6dc16f1-157b-422e-98ef-9619c54a96f4
+              stepCounter: 2dda3f81-e415-4fb1-871f-85a8c52c179f
             config: {}
             dataType: BOOLEAN
             defaultValue: ""
@@ -186,8 +186,8 @@ steps:
               values: []
             appliedColumnTests: {}
             columnReference:
-              columnCounter: 6de0f8c4-745f-4f1c-8dee-bc0b15c471d9
-              stepCounter: 58342162-5fa9-4ef2-bfb9-1b68603a0fba
+              columnCounter: db1f5c31-80a3-4954-9533-8c280ca00a3e
+              stepCounter: 2dda3f81-e415-4fb1-871f-85a8c52c179f
             config: {}
             dataType: FLOAT
             defaultValue: ""
@@ -224,9 +224,9 @@ steps:
               joinCondition: FROM {{ ref('STAGE', 'CALLS_FOR_DETECTION') }} "CALLS_FOR_DETECTION"
             name: DATASET
             noLinkRefs: []
-      name: ML_AD_CALL_HISTORY1
+      name: ML_AD_CALL_HISTORY2
       overrideSQL: false
       schema: ""
       sqlType: "259"
       type: sql
-    stepCounter: 58342162-5fa9-4ef2-bfb9-1b68603a0fba
+    stepCounter: 2dda3f81-e415-4fb1-871f-85a8c52c179f

@@ -5,6 +5,7 @@ steps:
         cobject: false
         exvar: false
         fcdays: "30"
+        lcdata: null
         multiseries: false
         predictioninterval: "0.45"
         series_value: true

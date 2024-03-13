@@ -71,7 +71,7 @@ steps:
             defaultValue: ""
             description: ""
             keyColumnType: None
-            name: LABELCOL
+            name: IDENTIFIERS
             nullable: true
             sourceColumnReferences:
               - columnReferences:
