@@ -23,7 +23,7 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: DATE
+            name: TIMESTAMPS
             nullable: true
             sourceColumnReferences:
               - columnReferences:

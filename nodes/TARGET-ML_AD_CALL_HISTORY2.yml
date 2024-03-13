@@ -8,10 +8,10 @@ steps:
           stepCounter: 2dda3f81-e415-4fb1-871f-85a8c52c179f
         mtoggle: "true"
         multiseries: false
-        predictioninterval: "0.90"
+        predictioninterval: "0.99"
         series_value: false
         seriescol: null
-        spdata: true
+        spdata: false
         svalue: ""
         tgtcol:
           columnCounter: 69915f7b-33a7-4b6e-b7d4-9a58dbb006b2
@@ -36,7 +36,7 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: DATE
+            name: TIMESTAMPS
             nullable: true
             sourceColumnReferences:
               - columnReferences:
@@ -64,22 +64,6 @@ steps:
               - columnReferences:
                   - columnCounter: 283bed3e-1369-4050-a4fa-2a864bd8974f
                     stepCounter: 9e99ca9b-9c93-4454-85c0-c9592f7a9f99
-                transform: ""
-          - columnReference:
-              columnCounter: 34ee3804-0f77-4752-b321-2e988732ef4b
-              stepCounter: 2dda3f81-e415-4fb1-871f-85a8c52c179f
-            dataType: BOOLEAN
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: IDENTIFIERS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 9a12e1ea-74af-429a-932a-28d092fb901f
-                    stepCounter: 2fa38cf7-5ea6-454f-ac3f-7fa4cd69f094
-                transform: ""
-              - columnReferences: []
                 transform: ""
           - acceptedValues:
               strictMatch: true
