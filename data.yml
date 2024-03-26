@@ -1,19 +1,35 @@
 defaultStorageMapping: SOURCE
 installedPackages: {}
-jobs: {}
+jobs:
+  Job-26:
+    excludeSelector: ""
+    id: 26
+    includeSelector: "{ location: SOURCE name: SALES_DATA } OR { location: TARGET name: PSTG_SALES_DATA }"
+    name: SALES_REFRESH
+    steps: []
+    subgraphs: []
 locations:
   SOURCE:
     mappingDefinitions:
+      "137":
+        database: SALES2
+        schema: SOURCE
       "51":
         database: ""
         schema: ""
   STAGE:
     mappingDefinitions:
+      "137":
+        database: SALES2
+        schema: SALES_QA
       "51":
         database: ""
         schema: ""
   TARGET:
     mappingDefinitions:
+      "137":
+        database: SALES2
+        schema: SALES_QA
       "51":
         database: ""
         schema: ""
