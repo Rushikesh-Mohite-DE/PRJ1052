@@ -2,15 +2,18 @@ steps:
   ML_FCSTS_SALES_DATA-116cfb2d-c951-43a2-bf81-37dda6cb92b7:
     operation:
       config:
+        Forcecreate: true
         cobject: false
         exvar: false
         fcdays: "30"
+        mname: r12
         multiseries: true
         predictioninterval: ex:0.80(float value)
         series_value: true
         seriescol:
           columnCounter: 156c4199-3fb6-4a7d-9504-b7c2cc4b00e1
           stepCounter: 116cfb2d-c951-43a2-bf81-37dda6cb92b7
+        spdata: false
         svalue: jacket
         tgtcol:
           columnCounter: 7656e4bd-b255-4e2a-a314-b343df450c77
@@ -18,11 +21,12 @@ steps:
         tscol:
           columnCounter: a8742cb9-e3f9-4fce-9eb1-d75898588b55
           stepCounter: 116cfb2d-c951-43a2-bf81-37dda6cb92b7
+        uspdata: false
       database: ""
       deployEnabled: true
       description: ""
       isMultisource: false
-      locationName: SOURCE
+      locationName: TARGET
       materializationType: table
       metadata:
         appliedNodeTests: []
@@ -139,6 +143,6 @@ steps:
       name: ML_FCSTS_SALES_DATA
       overrideSQL: false
       schema: ""
-      sqlType: "225"
+      sqlType: "262"
       type: sql
     stepCounter: 116cfb2d-c951-43a2-bf81-37dda6cb92b7

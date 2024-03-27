@@ -1,0 +1,33 @@
+steps:
+  TEXTSTRINGS-59fac64d-cf4a-47d0-b44e-53483fb27f15:
+    operation:
+      database: ""
+      dataset: ""
+      deployEnabled: true
+      description: ""
+      locationName: SOURCE
+      metadata:
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 89c0335d-0a28-40b1-9b90-392d66a57e4a
+              stepCounter: 59fac64d-cf4a-47d0-b44e-53483fb27f15
+            config: {}
+            dataType: VARCHAR(255)
+            defaultValue: ""
+            description: ""
+            name: TEXTSTRING
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+        join:
+          joinCondition: FROM {{ ref('SOURCE', 'TEXTSTRINGS') }}
+      name: TEXTSTRINGS
+      schema: ""
+      sqlType: Source
+      table: TEXTSTRINGS
+      type: sourceInput
+    stepCounter: 59fac64d-cf4a-47d0-b44e-53483fb27f15

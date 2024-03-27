@@ -2,10 +2,12 @@ steps:
   ML_AD_VIEW_WITH_TRAINING_DATA_MULTIPLE_SERIES1-29f0e6bd-7f52-4454-bd41-bd3e5a14e094:
     operation:
       config:
+        Forcecreate: false
         cobject: false
         lcdata:
           columnCounter: 8aecd294-220c-4ba4-ad9f-500ad9012b04
           stepCounter: 29f0e6bd-7f52-4454-bd41-bd3e5a14e094
+        mname: MULTIPLE_SERIES1
         mtoggle: "true"
         multiseries: true
         predictioninterval: "0.99"
@@ -247,6 +249,6 @@ steps:
       name: ML_AD_VIEW_WITH_TRAINING_DATA_MULTIPLE_SERIES1
       overrideSQL: false
       schema: ""
-      sqlType: "259"
+      sqlType: "261"
       type: sql
     stepCounter: 29f0e6bd-7f52-4454-bd41-bd3e5a14e094

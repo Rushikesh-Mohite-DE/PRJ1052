@@ -1,0 +1,48 @@
+steps:
+  TRANSALATE_IT-42da54b1-cba3-406d-90d7-b5476c4dd679:
+    operation:
+      database: ""
+      dataset: ""
+      deployEnabled: true
+      description: ""
+      locationName: SOURCE
+      metadata:
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: b577c4af-9b15-44aa-aea3-8676be479d1f
+              stepCounter: 42da54b1-cba3-406d-90d7-b5476c4dd679
+            config: {}
+            dataType: VARCHAR(255)
+            defaultValue: ""
+            description: ""
+            name: JAPSTRING
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 9b237c1d-cd8c-4140-b30a-6ae66d69280a
+              stepCounter: 42da54b1-cba3-406d-90d7-b5476c4dd679
+            config: {}
+            dataType: VARCHAR(255)
+            defaultValue: ""
+            description: ""
+            name: RUSSIANSTRING
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+        join:
+          joinCondition: FROM {{ ref('SOURCE', 'TRANSALATE_IT') }}
+      name: TRANSALATE_IT
+      schema: ""
+      sqlType: Source
+      table: TRANSALATE_IT
+      type: sourceInput
+    stepCounter: 42da54b1-cba3-406d-90d7-b5476c4dd679

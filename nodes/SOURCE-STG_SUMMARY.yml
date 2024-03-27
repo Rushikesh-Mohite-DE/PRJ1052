@@ -1,0 +1,105 @@
+steps:
+  STG_SUMMARY-69ea8729-e7ce-407e-8002-2786b6e1ea79:
+    operation:
+      config:
+        cfunctions: true
+        eby:
+          items:
+            - expartColName:
+                columnCounter: 5ad8d62e-e743-44b4-acd8-e897a2250718
+                stepCounter: 69ea8729-e7ce-407e-8002-2786b6e1ea79
+        extractfunction: false
+        insertStrategy: INSERT
+        partitionBy:
+          items:
+            - {}
+        pby:
+          items:
+            - partColName:
+                columnCounter: 1308c13c-c612-4a63-9ca7-182559718420
+                stepCounter: 69ea8729-e7ce-407e-8002-2786b6e1ea79
+            - partColName:
+                columnCounter: 5ad8d62e-e743-44b4-acd8-e897a2250718
+                stepCounter: 69ea8729-e7ce-407e-8002-2786b6e1ea79
+        postSQL: ""
+        preSQL: ""
+        sby:
+          items:
+            - spartColName:
+                columnCounter: c7e69755-791d-40b5-9c65-2d5a06c1c8fa
+                stepCounter: 69ea8729-e7ce-407e-8002-2786b6e1ea79
+        sentimentfunction: false
+        summarizefunction: false
+        testsEnabled: true
+        truncateBefore: true
+        whatsque: null
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: SOURCE
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: c7e69755-791d-40b5-9c65-2d5a06c1c8fa
+              stepCounter: 69ea8729-e7ce-407e-8002-2786b6e1ea79
+            dataType: VARCHAR(50)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: a59a1d56-ca29-4760-b334-0af4e531aeb7
+                    stepCounter: 5c106385-0dfd-4949-84cc-659be9fd7227
+                transform: ""
+          - columnReference:
+              columnCounter: 5ad8d62e-e743-44b4-acd8-e897a2250718
+              stepCounter: 69ea8729-e7ce-407e-8002-2786b6e1ea79
+            dataType: VARCHAR(16777216)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REVIEW_CONTENT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 6ad7ba4b-3b6c-4b50-a162-8dac2bb543af
+                    stepCounter: 5c106385-0dfd-4949-84cc-659be9fd7227
+                transform: ""
+          - columnReference:
+              columnCounter: 1308c13c-c612-4a63-9ca7-182559718420
+              stepCounter: 69ea8729-e7ce-407e-8002-2786b6e1ea79
+            dataType: VARCHAR(16777216)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TEST
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 6ad7ba4b-3b6c-4b50-a162-8dac2bb543af
+                    stepCounter: 5c106385-0dfd-4949-84cc-659be9fd7227
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: SOURCE
+                nodeName: SUMMARY
+            join:
+              joinCondition: FROM {{ ref('SOURCE', 'SUMMARY') }} "SUMMARY"
+            name: STG_SUMMARY
+            noLinkRefs: []
+      name: STG_SUMMARY
+      overrideSQL: false
+      schema: ""
+      sqlType: "268"
+      type: sql
+    stepCounter: 69ea8729-e7ce-407e-8002-2786b6e1ea79

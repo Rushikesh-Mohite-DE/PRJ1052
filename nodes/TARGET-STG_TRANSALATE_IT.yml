@@ -1,0 +1,85 @@
+steps:
+  STG_TRANSALATE_IT-e9348206-58aa-4258-a28d-4f9f2aa53191:
+    operation:
+      config:
+        cfunctions: true
+        insertStrategy: INSERT
+        pby:
+          items:
+            - {}
+        postSQL: ""
+        preSQL: ""
+        sby:
+          items:
+            - {}
+        sentimentfunction: false
+        summarizefunction: false
+        tby:
+          items:
+            - lanorder: "'ja', 'en'"
+              tpartColName:
+                columnCounter: d085771d-2d7b-45b2-9f2b-c82c791f725e
+                stepCounter: e9348206-58aa-4258-a28d-4f9f2aa53191
+            - lanorder: "'ru', 'en'"
+              tpartColName:
+                columnCounter: 5fa98148-de4d-4906-8772-c7e60d610e22
+                stepCounter: e9348206-58aa-4258-a28d-4f9f2aa53191
+        testsEnabled: true
+        translatefunction: true
+        truncateBefore: true
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: TARGET
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: d085771d-2d7b-45b2-9f2b-c82c791f725e
+              stepCounter: e9348206-58aa-4258-a28d-4f9f2aa53191
+            dataType: VARCHAR(255)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: JAPSTRING
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: b577c4af-9b15-44aa-aea3-8676be479d1f
+                    stepCounter: 42da54b1-cba3-406d-90d7-b5476c4dd679
+                transform: ""
+          - columnReference:
+              columnCounter: 5fa98148-de4d-4906-8772-c7e60d610e22
+              stepCounter: e9348206-58aa-4258-a28d-4f9f2aa53191
+            dataType: VARCHAR(255)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: RUSSIANSTRING
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 9b237c1d-cd8c-4140-b30a-6ae66d69280a
+                    stepCounter: 42da54b1-cba3-406d-90d7-b5476c4dd679
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: SOURCE
+                nodeName: TRANSALATE_IT
+            join:
+              joinCondition: FROM {{ ref('SOURCE', 'TRANSALATE_IT') }} "TRANSALATE_IT"
+            name: STG_TRANSALATE_IT
+            noLinkRefs: []
+      name: STG_TRANSALATE_IT
+      overrideSQL: false
+      schema: ""
+      sqlType: "268"
+      type: sql
+    stepCounter: e9348206-58aa-4258-a28d-4f9f2aa53191

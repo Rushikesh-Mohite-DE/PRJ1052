@@ -1,0 +1,107 @@
+steps:
+  STG_TEXTSTRINGS-1c2266e6-bf96-4ea2-a15f-ce8b0c210384:
+    operation:
+      config:
+        cfunctions: true
+        eby:
+          items:
+            - expartColName:
+                columnCounter: 4e6676a6-4877-465d-b2b1-d5d0a46caf0b
+                stepCounter: 1c2266e6-bf96-4ea2-a15f-ce8b0c210384
+        exby:
+          items:
+            - askque: whats the capital?
+              epartColName:
+                columnCounter: 5830abda-0a6e-4baf-8fe6-fab2ff47d54c
+                stepCounter: 1c2266e6-bf96-4ea2-a15f-ce8b0c210384
+            - askque: "CAPITAL? "
+              epartColName:
+                columnCounter: e05a71e7-9b7e-4744-b4ed-1f44aa0e3b1f
+                stepCounter: 1c2266e6-bf96-4ea2-a15f-ce8b0c210384
+        extractfunction: true
+        insertStrategy: INSERT
+        lagValue: ""
+        pby:
+          items:
+            - {}
+        postSQL: ""
+        preSQL: ""
+        sby:
+          items:
+            - {}
+        sentimentfunction: false
+        summarizefunction: false
+        testsEnabled: false
+        translatefunction: false
+        truncateBefore: true
+        whatsque: "'Paris is capital of ?'"
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: TARGET
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 4e6676a6-4877-465d-b2b1-d5d0a46caf0b
+              stepCounter: 1c2266e6-bf96-4ea2-a15f-ce8b0c210384
+            dataType: VARCHAR(255)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TEXTSTRING
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 89c0335d-0a28-40b1-9b90-392d66a57e4a
+                    stepCounter: 59fac64d-cf4a-47d0-b44e-53483fb27f15
+                transform: ""
+          - columnReference:
+              columnCounter: 5830abda-0a6e-4baf-8fe6-fab2ff47d54c
+              stepCounter: 1c2266e6-bf96-4ea2-a15f-ce8b0c210384
+            dataType: ARRAY
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TEXTSTRING1
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: "0"
+                    stepCounter: "0"
+                transform: TEXTSTRINGS."TEXTSTRING"
+          - columnReference:
+              columnCounter: e05a71e7-9b7e-4744-b4ed-1f44aa0e3b1f
+              stepCounter: 1c2266e6-bf96-4ea2-a15f-ce8b0c210384
+            dataType: ARRAY
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TEXTSTRING_MULTI
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: "0"
+                    stepCounter: "0"
+                transform: TEXTSTRINGS."TEXTSTRING"
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: SOURCE
+                nodeName: TEXTSTRINGS
+            join:
+              joinCondition: FROM {{ ref('SOURCE', 'TEXTSTRINGS') }} "TEXTSTRINGS"
+            name: STG_TEXTSTRINGS
+            noLinkRefs: []
+      name: STG_TEXTSTRINGS
+      overrideSQL: false
+      schema: ""
+      sqlType: "268"
+      type: sql
+    stepCounter: 1c2266e6-bf96-4ea2-a15f-ce8b0c210384

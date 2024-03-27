@@ -1,0 +1,48 @@
+steps:
+  SUMMARY-5c106385-0dfd-4949-84cc-659be9fd7227:
+    operation:
+      database: ""
+      dataset: ""
+      deployEnabled: true
+      description: ""
+      locationName: SOURCE
+      metadata:
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: a59a1d56-ca29-4760-b334-0af4e531aeb7
+              stepCounter: 5c106385-0dfd-4949-84cc-659be9fd7227
+            config: {}
+            dataType: VARCHAR(50)
+            defaultValue: ""
+            description: ""
+            name: NAME
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 6ad7ba4b-3b6c-4b50-a162-8dac2bb543af
+              stepCounter: 5c106385-0dfd-4949-84cc-659be9fd7227
+            config: {}
+            dataType: VARCHAR(16777216)
+            defaultValue: ""
+            description: ""
+            name: REVIEW_CONTENT
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+        join:
+          joinCondition: FROM {{ ref('SOURCE', 'SUMMARY') }}
+      name: SUMMARY
+      schema: ""
+      sqlType: Source
+      table: SUMMARY
+      type: sourceInput
+    stepCounter: 5c106385-0dfd-4949-84cc-659be9fd7227

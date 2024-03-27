@@ -64,8 +64,8 @@ steps:
             join:
               joinCondition: |-
                 FROM {{ ref('SOURCE', 'CALLS') }} "CALLS"
-                 where DATE between to_date('1/1/2023') and to_date('3/14/2023') 
-                group by date
+                WHERE DATE between to_date('1/1/2023') and to_date('3/14/2023') 
+                GROUP BY DATE
             name: CALL_HISTORY
             noLinkRefs: []
       name: CALL_HISTORY

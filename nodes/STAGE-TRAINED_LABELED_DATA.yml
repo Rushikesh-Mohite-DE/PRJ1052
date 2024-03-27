@@ -1,5 +1,5 @@
 steps:
-  STG_CALL_HISTORY-2fa38cf7-5ea6-454f-ac3f-7fa4cd69f094:
+  TRAINED_LABELED_DATA-2fa38cf7-5ea6-454f-ac3f-7fa4cd69f094:
     operation:
       config:
         insertStrategy: INSERT
@@ -23,13 +23,13 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: TIMESTAMPS
+            name: DATE
             nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 5a63f4d6-5cb8-42f2-8166-7bcb7eda78de
                     stepCounter: 0b61ea6a-258f-4107-9271-825c33ae0501
-                transform: cast(calls.ts as timestamp_ntz)
+                transform: CAST(CALLS.TS AS TIMESTAMP_NTZ)
           - acceptedValues:
               strictMatch: true
               values: []
@@ -105,9 +105,9 @@ steps:
                 FROM {{ ref('SOURCE', 'CALLS') }} "CALLS"
                  where DATE between to_date('1/1/2023') and to_date('3/14/2023') 
                 group by date
-            name: STG_CALL_HISTORY
+            name: TRAINED_LABELED_DATA
             noLinkRefs: []
-      name: STG_CALL_HISTORY
+      name: TRAINED_LABELED_DATA
       overrideSQL: false
       schema: ""
       sqlType: Stage

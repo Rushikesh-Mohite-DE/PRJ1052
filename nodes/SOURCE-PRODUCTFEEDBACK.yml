@@ -1,0 +1,93 @@
+steps:
+  PRODUCTFEEDBACK-6a73ac49-d677-49a7-bcb5-4a4f113c3b9b:
+    operation:
+      database: ""
+      dataset: ""
+      deployEnabled: true
+      description: ""
+      locationName: SOURCE
+      metadata:
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: c1a22b6d-b7b7-47e4-b4a3-48ba5518d39d
+              stepCounter: 6a73ac49-d677-49a7-bcb5-4a4f113c3b9b
+            config: {}
+            dataType: VARCHAR(50)
+            defaultValue: ""
+            description: ""
+            name: USER_NAME
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: c4a1b9fe-8bc7-4d6f-8d71-cc5bcdc10959
+              stepCounter: 6a73ac49-d677-49a7-bcb5-4a4f113c3b9b
+            config: {}
+            dataType: VARCHAR(16777216)
+            defaultValue: ""
+            description: ""
+            name: REVIEW_CONTENT
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 4116b4b0-8534-4c5b-b0ab-d6fac62eefe8
+              stepCounter: 6a73ac49-d677-49a7-bcb5-4a4f113c3b9b
+            config: {}
+            dataType: VARCHAR(255)
+            defaultValue: ""
+            description: ""
+            name: REVIEW_CONTENT_JAPSTRING
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: e611e4f8-9ed8-4364-87be-59b28b4b763f
+              stepCounter: 6a73ac49-d677-49a7-bcb5-4a4f113c3b9b
+            config: {}
+            dataType: VARCHAR(255)
+            defaultValue: ""
+            description: ""
+            name: REVIEW_CONTENT_RUSSIANSTRING
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: c9335b1c-21e7-46ed-90da-33873dd3a6d8
+              stepCounter: 6a73ac49-d677-49a7-bcb5-4a4f113c3b9b
+            config: {}
+            dataType: VARCHAR(255)
+            defaultValue: ""
+            description: ""
+            name: STATEMENTS
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+        join:
+          joinCondition: FROM {{ ref('SOURCE', 'PRODUCTFEEDBACK') }}
+      name: PRODUCTFEEDBACK
+      schema: ""
+      sqlType: Source
+      table: PRODUCTFEEDBACK
+      type: sourceInput
+    stepCounter: 6a73ac49-d677-49a7-bcb5-4a4f113c3b9b

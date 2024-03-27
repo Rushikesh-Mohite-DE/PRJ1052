@@ -1,0 +1,162 @@
+steps:
+  LLM__PRODUCTFEEDBACK-84f1feb3-db13-48e9-9b78-06180d33bb90:
+    operation:
+      config:
+        cfunctions: true
+        exby:
+          items:
+            - askque: capital ?
+              epartColName:
+                columnCounter: 5014d7a3-eec9-4faa-aca7-57fea6b444ef
+                stepCounter: 84f1feb3-db13-48e9-9b78-06180d33bb90
+        extractfunction: true
+        insertStrategy: INSERT
+        pby:
+          items:
+            - partColName:
+                columnCounter: 22604fdb-2638-4000-9cb7-752b2f530ec9
+                stepCounter: 84f1feb3-db13-48e9-9b78-06180d33bb90
+        postSQL: ""
+        preSQL: ""
+        sby:
+          items:
+            - spartColName:
+                columnCounter: a2072b65-3685-4707-9151-f81e81e53e59
+                stepCounter: 84f1feb3-db13-48e9-9b78-06180d33bb90
+        sentimentfunction: true
+        summarizefunction: true
+        tby:
+          items:
+            - lanorder: "'ja', 'en'"
+              tpartColName:
+                columnCounter: 412b2fc2-e9f1-420b-86bb-82c737042ace
+                stepCounter: 84f1feb3-db13-48e9-9b78-06180d33bb90
+        testsEnabled: false
+        translatefunction: true
+        truncateBefore: true
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: TARGET
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 4f1410a9-ccde-4625-a0a8-d6bd207c5a21
+              stepCounter: 84f1feb3-db13-48e9-9b78-06180d33bb90
+            dataType: VARCHAR(50)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: USER_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: c1a22b6d-b7b7-47e4-b4a3-48ba5518d39d
+                    stepCounter: 6a73ac49-d677-49a7-bcb5-4a4f113c3b9b
+                transform: ""
+          - columnReference:
+              columnCounter: a2072b65-3685-4707-9151-f81e81e53e59
+              stepCounter: 84f1feb3-db13-48e9-9b78-06180d33bb90
+            dataType: VARCHAR(16777216)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REVIEW_CONTENT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: c4a1b9fe-8bc7-4d6f-8d71-cc5bcdc10959
+                    stepCounter: 6a73ac49-d677-49a7-bcb5-4a4f113c3b9b
+                transform: ""
+          - columnReference:
+              columnCounter: 22604fdb-2638-4000-9cb7-752b2f530ec9
+              stepCounter: 84f1feb3-db13-48e9-9b78-06180d33bb90
+            dataType: VARCHAR(16777216)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REVIEWS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: c4a1b9fe-8bc7-4d6f-8d71-cc5bcdc10959
+                    stepCounter: 6a73ac49-d677-49a7-bcb5-4a4f113c3b9b
+                transform: ""
+          - columnReference:
+              columnCounter: 412b2fc2-e9f1-420b-86bb-82c737042ace
+              stepCounter: 84f1feb3-db13-48e9-9b78-06180d33bb90
+            dataType: VARCHAR(255)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REVIEW_CONTENT_JAPSTRING
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 4116b4b0-8534-4c5b-b0ab-d6fac62eefe8
+                    stepCounter: 6a73ac49-d677-49a7-bcb5-4a4f113c3b9b
+                transform: ""
+          - columnReference:
+              columnCounter: 8f1fb0c3-5502-4069-878e-66642bf35f64
+              stepCounter: 84f1feb3-db13-48e9-9b78-06180d33bb90
+            dataType: VARCHAR(255)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REVIEW_CONTENT_RUSSIANSTRING
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: e611e4f8-9ed8-4364-87be-59b28b4b763f
+                    stepCounter: 6a73ac49-d677-49a7-bcb5-4a4f113c3b9b
+                transform: ""
+          - columnReference:
+              columnCounter: 172c4fa4-dc2e-48a2-9771-451ccf3bef5a
+              stepCounter: 84f1feb3-db13-48e9-9b78-06180d33bb90
+            dataType: VARCHAR(255)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: STATEMENTS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: c9335b1c-21e7-46ed-90da-33873dd3a6d8
+                    stepCounter: 6a73ac49-d677-49a7-bcb5-4a4f113c3b9b
+                transform: ""
+          - columnReference:
+              columnCounter: 5014d7a3-eec9-4faa-aca7-57fea6b444ef
+              stepCounter: 84f1feb3-db13-48e9-9b78-06180d33bb90
+            dataType: ARRAY
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: STATEMENTS1
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: c9335b1c-21e7-46ed-90da-33873dd3a6d8
+                    stepCounter: 6a73ac49-d677-49a7-bcb5-4a4f113c3b9b
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: SOURCE
+                nodeName: PRODUCTFEEDBACK
+            join:
+              joinCondition: FROM {{ ref('SOURCE', 'PRODUCTFEEDBACK') }} "PRODUCTFEEDBACK"
+            name: LLM__PRODUCTFEEDBACK
+            noLinkRefs: []
+      name: LLM__PRODUCTFEEDBACK
+      overrideSQL: false
+      schema: ""
+      sqlType: "268"
+      type: sql
+    stepCounter: 84f1feb3-db13-48e9-9b78-06180d33bb90

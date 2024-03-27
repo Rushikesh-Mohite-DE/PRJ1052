@@ -2,8 +2,10 @@ steps:
   ML_AD_CALL_HISTORY1GH-daa0a4c4-4dc0-45fb-92f4-d499fb774e1c:
     operation:
       config:
+        Forcecreate: true
         cobject: true
         lcdata: null
+        mname: CALL_HISTORY1GH
         mtoggle: "true"
         multiseries: false
         predictioninterval: "0.80"
@@ -196,19 +198,19 @@ steps:
             name: ML_AD_CALL_HISTORY1GH
             noLinkRefs: []
           - aliases:
-              CALLS_FOR_DETECTION: 9e99ca9b-9c93-4454-85c0-c9592f7a9f99
+              CALL_DATASET_FOR_ANALYSIS: 9e99ca9b-9c93-4454-85c0-c9592f7a9f99
             customSQL:
               customSQL: ""
             dependencies:
               - locationName: STAGE
-                nodeName: CALLS_FOR_DETECTION
+                nodeName: CALL_DATASET_FOR_ANALYSIS
             join:
-              joinCondition: FROM {{ ref('STAGE', 'CALLS_FOR_DETECTION') }} "CALLS_FOR_DETECTION"
+              joinCondition: FROM {{ ref('STAGE', 'CALL_DATASET_FOR_ANALYSIS') }} "CALL_DATASET_FOR_ANALYSIS"
             name: DATASET
             noLinkRefs: []
       name: ML_AD_CALL_HISTORY1GH
       overrideSQL: false
       schema: ""
-      sqlType: "259"
+      sqlType: "261"
       type: sql
     stepCounter: daa0a4c4-4dc0-45fb-92f4-d499fb774e1c

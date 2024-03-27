@@ -1,5 +1,5 @@
 steps:
-  CALLS_FOR_DETECTION-9e99ca9b-9c93-4454-85c0-c9592f7a9f99:
+  CALL_DATASET_FOR_ANALYSIS-9e99ca9b-9c93-4454-85c0-c9592f7a9f99:
     operation:
       config:
         insertStrategy: INSERT
@@ -23,13 +23,13 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: TIMESTAMPS
+            name: DATE
             nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 5a63f4d6-5cb8-42f2-8166-7bcb7eda78de
                     stepCounter: 0b61ea6a-258f-4107-9271-825c33ae0501
-                transform: cast(calls.ts as timestamp_ntz)
+                transform: CAST(CALLS.TS AS TIMESTAMP_NTZ)
           - acceptedValues:
               strictMatch: true
               values: []
@@ -64,11 +64,11 @@ steps:
             join:
               joinCondition: |-
                 FROM {{ ref('SOURCE', 'CALLS') }} "CALLS"
-                where TIMESTAMPS between to_date('3/15/2023') and to_date('4/14/2023') 
-                group by TIMESTAMPS
-            name: CALLS_FOR_DETECTION
+                WHERE DATE between to_date('3/15/2023') and to_date('4/14/2023') 
+                GROUP BY DATE
+            name: CALL_DATASET_FOR_ANALYSIS
             noLinkRefs: []
-      name: CALLS_FOR_DETECTION
+      name: CALL_DATASET_FOR_ANALYSIS
       overrideSQL: false
       schema: ""
       sqlType: Stage
