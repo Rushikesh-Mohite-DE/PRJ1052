@@ -198,6 +198,6 @@ steps:
       name: PSTG_SALES_DATA
       overrideSQL: false
       schema: ""
-      sqlType: "255"
+      sqlType: persistentStage
       type: sql
     stepCounter: 9577f266-b6c6-4e51-8705-9290700f8291
