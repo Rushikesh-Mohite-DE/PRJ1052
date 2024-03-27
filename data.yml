@@ -543,15 +543,15 @@ stepTypes:
             {# == Node Type Version        : 1  == #}
             {# == Node Type Name           : ML Forecast == #}
             {# == Node Type Description    : This node creates a forecast table  == #}
-            
+
             {% set source = sources[0] %}
             {% set src_node = source.dependencies[0].node %}
             {% set forecast_name = 'FORECAST_' ~ src_node.name %}
-            
+
             {# Forecast table creation #}
-            
+
             {{ stage('Create Forecast Table') }}
-            
+
             CREATE OR REPLACE TABLE {{ this }}
             (
                 {% for col in source.columns  %}
@@ -577,18 +577,18 @@ stepTypes:
             {# == Node Type Version        : 1  == #}
             {# == Node Type Name           : ML Forecast == #}
             {# == Node Type Description    : This node creates a forecast table  == #}
-            
-            
+
+
             {# INitialize forecast model name #}
-            
+
             {% set source = sources[0] %}
             {% set src_node = source.dependencies[0].node %}
             {% set forecast_name = 'FORECAST_' ~ src_node.name %}
-            
+
             {%- set nsVariables = namespace(squotes="") -%}
-            
+
             {# Check series column datatype to determine if quoted required for series value #}
-            
+
             {% if config.series_value %}
                     {% for col in source.columns  %} 
                         {% if col.id == config.seriescol.id %}
@@ -609,21 +609,21 @@ stepTypes:
             				{% endif %}
             			{% endif %}
                     {% endfor %}
-            
+
             {% endif %}
-            
+
             {# Forecast table truncated #}
-            
+
             {{ stage('Truncate Forecast table') }}
-            
+
             TRUNCATE IF EXISTS {{ this }}
-            
+
             {# Initial training data inserted into forecast table #}
-            
+
             {{ stage('Populate Forecast Table with Historical Data') }}
-            
+
             {% if not config.exvar %}
-            
+
             INSERT INTO {{ this }}
             (
                 {%- for col in source.columns  %} 
@@ -636,16 +636,16 @@ stepTypes:
                     {%- if not loop.last -%}, {% endif %}
                 {% endfor %}
             {{ source.join }}
-            
+
             {% else %}
-            
+
                    INSERT INTO {{ this }}
                   (
                    {%- for col in source.columns  %} 
                     "{{ col.name }}" {%- if not loop.last -%}, {% endif %}
                    {%- endfor %}
                    )
-            
+
                     {% for source in sources %}
             		    SELECT 
                			{% for col in source.columns %}
@@ -661,15 +661,15 @@ stepTypes:
                          {% endif %}
             	
             		{% endfor %}  
-            
+
             {% endif %}
-            
-            
+
+
             {# Forecast model created #}
-            
+
             {{ stage('Create Forecast Model Instance') }}
-            
-            
+
+
             CREATE OR REPLACE SNOWFLAKE.ML.FORECAST
              {{ ref_no_link(node.location.name, forecast_name) }}(
                 INPUT_DATA => SYSTEM$QUERY_REFERENCE('
@@ -684,13 +684,13 @@ stepTypes:
                 TIMESTAMP_COLNAME => '{{ config.tscol.name }}',
                 TARGET_COLNAME => '{{ config.tgtcol.name }}'
             )
-            
+
             {# Forecast data based on model with predicted values  is inserted into forecast table #}
-            
+
             {{ stage('Insert Forecast data') }}
             BEGIN
-            
-            
+
+
             {% if config.exvar %}
                 CALL {{ ref_no_link(node.location.name, forecast_name) }}!FORECAST(
                     INPUT_DATA => SYSTEM$QUERY_REFERENCE('
@@ -705,8 +705,8 @@ stepTypes:
                 TIMESTAMP_COLNAME => '{{ config.tscol.name }}' 
                 {% if config.series_value %}, SERIES_VALUE => {{ nsVariables.squotes}}{{config.svalue}}{{nsVariables.squotes}}  :: Variant {% endif %}
                 {% if config.cobject %},CONFIG_OBJECT => {'prediction_interval': {{ config.predictioninterval }}} {% endif %});
-            
-            
+
+
                 UPDATE {{ this }} SRC
                 SET 
                     {%- for col in columns if  col.forecast or col.lower_bound or col.upper_bound %}
@@ -718,16 +718,16 @@ stepTypes:
                     {%- if config.multiseries  %}
                     AND RES."SERIES" = SRC."{{ config.seriescol.name }}"            
                     {%- endif %};
-            
-            
+
+
             {% else %}
-            
-            
+
+
                 CALL {{ ref_no_link(node.location.name, forecast_name) }}!FORECAST(FORECASTING_PERIODS =>{{ config.fcdays }}
                 {% if config.series_value %},SERIES_VALUE =>{{ nsVariables.squotes}}{{config.svalue}}{{nsVariables.squotes}}  :: Variant {% endif %}
                 {% if config.cobject %},CONFIG_OBJECT => {'prediction_interval': {{ config.predictioninterval }}} {% endif %});
-            
-            
+
+
                 INSERT INTO {{ this }}
                 (
                     {%- for col in source.columns  %} 
@@ -745,7 +745,7 @@ stepTypes:
                     {% endfor %}
                 FROM TABLE(RESULT_SCAN(-1)) RES;
             {% endif %}
-            
+
             END
     name: ML Forecast
     version: 1
@@ -914,15 +914,15 @@ stepTypes:
             {# == Node Type Version        : 1  == #}
             {# == Node Type Name           : ML Anomaly Detection == #}
             {# == Node Type Description    : This node creates a Anomaly Detection table  == #}
-            
+
             {% set source = sources[0] %}
             {% set src_node = source.dependencies[0].node %}
             {% set forecast_name = 'AnomalyDetection_' ~ src_node.name %}
-            
+
             {# Forecast table creation #}
-            
+
             {{ stage('Create Anomaly Detection Table') }}
-            
+
             {% if config.spdata %}
                 CREATE OR REPLACE TABLE {{ this }}
                 (
@@ -965,18 +965,18 @@ stepTypes:
             {# == Node Type Version        : 1  == #}
             {# == Node Type Name           : ML Anomaly Detection == #}
             {# == Node Type Description    : This node creates a Anomaly Detection table  == #}
-            
-            
+
+
             {# INitialize forecast model name #}
-            
+
             {% set source = sources[0] %}
             {% set src_node = source.dependencies[0].node %}
             {% set forecast_name = 'ANOMALY_' ~ src_node.name %}
-            
+
             {%- set nsVariables = namespace(squotes="") -%}
-            
+
             {# Check series column datatype to determine if quoted required for series value #}
-            
+
             {% if config.series_value %}
                     {% for col in source.columns  %} 
                         {% if col.id == config.seriescol.id %}
@@ -997,23 +997,23 @@ stepTypes:
             				{% endif %}
             			{% endif %}
                     {% endfor %}
-            
+
             {% endif %}
-            
+
             {# Forecast table truncated #}
-            
+
             {{ stage('Truncate Anomaly Detection table') }}
-            
+
             TRUNCATE IF EXISTS {{ this }}
-            
+
             {# Initial training data inserted into forecast table #}
-            
-            
+
+
             {# Forecast model created #}
-            
+
             {{ stage('Create Anomaly Model Instance') }}
-            
-            
+
+
             CREATE OR REPLACE SNOWFLAKE.ML.ANOMALY_DETECTION
              {{ ref_no_link(node.location.name, forecast_name) }}(
                 INPUT_DATA => SYSTEM$QUERY_REFERENCE('
@@ -1029,9 +1029,9 @@ stepTypes:
                 TARGET_COLNAME => '{{ config.tgtcol.name }}',
             	{% if config.lcdata  %}LABEL_COLNAME => '{{ config.lcdata.name.lower() }}' {% else %} LABEL_COLNAME => '' {% endif %}
             )
-            
+
             {# Forecast data based on model with predicted values  is inserted into forecast table #}
-            
+
             {{ stage('Insert Anomaly data') }}
             BEGIN
             {% if config.uspdata %}
@@ -1047,8 +1047,8 @@ stepTypes:
                 TIMESTAMP_COLNAME => '{{ config.tscol.name }}' ,
                 TARGET_COLNAME => '{{ config.tgtcol.name }}')
                 {% if config.cobject %},CONFIG_OBJECT => {'prediction_interval': {{ config.predictioninterval }}} {% endif %};
-            
-            
+
+
                 INSERT INTO {{ this }}
                 (
                     {%- for col in source.columns  %} 
@@ -1065,7 +1065,7 @@ stepTypes:
                         {%- endif %}{%- if not loop.last %}, {%- endif %}
                     {% endfor %}
                 FROM TABLE(RESULT_SCAN(-1)) RES;
-            
+
             {% else %}
                 CALL {{ ref_no_link(node.location.name, forecast_name) }}!detect_anomalies(
                     INPUT_DATA => SYSTEM$QUERY_REFERENCE('
@@ -1081,8 +1081,8 @@ stepTypes:
                 TIMESTAMP_COLNAME => '{{ config.tscol.name }}' ,
                 TARGET_COLNAME => '{{ config.tgtcol.name }}')
                 {% if config.cobject %},CONFIG_OBJECT => {'prediction_interval': {{ config.predictioninterval }}} {% endif %};
-            
-            
+
+
                 INSERT INTO {{ this }}
                 (
                     {%- for col in columns %}
@@ -1103,15 +1103,11 @@ stepTypes:
                     {%- endif %}
                 {% endfor %}
             FROM TABLE(RESULT_SCAN(-1)) RES;
-            
-            
+
+
             {% endif %}
-            
+
             END
-            
-            
-            
-            
     name: Anomaly Detection 01
     version: 1
   StepType-259:
@@ -1262,15 +1258,15 @@ stepTypes:
             {# == Node Type Version        : 1  == #}
             {# == Node Type Name           : ML Anomaly Detection == #}
             {# == Node Type Description    : This node creates a Anomaly Detection table  == #}
-            
+
             {% set source = sources[0] %}
             {% set src_node = source.dependencies[0].node %}
             {% set anomaly_name = 'AnomalyDetection_' ~ src_node.name %}
-            
+
             {# Anomaly table creation #}
-            
+
             {{ stage('Create Anomaly Detection Table') }}
-            
+
             {% if config.spdata %}
                 CREATE OR REPLACE TABLE {{ this }}
                 (
@@ -1313,29 +1309,29 @@ stepTypes:
             {# == Node Type Version        : 1  == #}
             {# == Node Type Name           : ML Anomaly Detection == #}
             {# == Node Type Description    : This node creates a Anomaly Detection table  == #}
-            
-            
+
+
             {# INitialize anomaly model name #}
-            
+
             {% set source = sources[0] %}
             {% set src_node = source.dependencies[0].node %}
             {% set anomaly_name = 'ANOMALY_' ~ src_node.name %}
-            
+
             {%- set nsVariables = namespace(squotes="") -%}
-            
-            
+
+
             {# anomaly table truncated #}
-            
+
             {{ stage('Truncate Anomaly Detection table') }}
-            
+
             TRUNCATE IF EXISTS {{ this }}
-            
-            
+
+
             {# anomaly model created #}
-            
+
             {{ stage('Create Anomaly Model Instance') }}
-            
-            
+
+
             CREATE OR REPLACE SNOWFLAKE.ML.ANOMALY_DETECTION
              {{ ref_no_link(node.location.name, anomaly_name) }}(
                 INPUT_DATA => SYSTEM$QUERY_REFERENCE('
@@ -1351,9 +1347,9 @@ stepTypes:
                 TARGET_COLNAME => '{{ config.tgtcol.name }}',
             	{% if config.lcdata  %}LABEL_COLNAME => '{{ config.lcdata.name.lower() }}' {% else %} LABEL_COLNAME => '' {% endif %}
             )
-            
+
             {# Anomaly data based on the model, including anomalous values, is inserted into the Anomaly table. #}
-            
+
             {{ stage('Insert Anomaly data') }}
             BEGIN
             {% if config.uspdata %}
@@ -1369,8 +1365,8 @@ stepTypes:
                 TIMESTAMP_COLNAME => '{{ config.tscol.name }}' ,
                 TARGET_COLNAME => '{{ config.tgtcol.name }}'
                 {% if config.cobject %},CONFIG_OBJECT => {'prediction_interval': {{ config.predictioninterval }}} {% endif %});
-            
-            
+
+
                 INSERT INTO {{ this }}
                 (
                     {%- for col in source.columns  %} 
@@ -1387,7 +1383,7 @@ stepTypes:
                         {%- endif %}{%- if not loop.last %}, {%- endif %}
                     {% endfor %}
                 FROM TABLE(RESULT_SCAN(-1)) RES;
-            
+
             {% else %}
                 CALL {{ ref_no_link(node.location.name, anomaly_name) }}!detect_anomalies(
                 INPUT_DATA => SYSTEM$QUERY_REFERENCE('
@@ -1405,8 +1401,8 @@ stepTypes:
                 
                 CONFIG_OBJECT => {'prediction_interval': {{ config.predictioninterval }}} {% endif %}
             );
-            
-            
+
+
                 INSERT INTO {{ this }}
                 (
                     {%- for col in columns %}
@@ -1427,15 +1423,11 @@ stepTypes:
                     {%- endif %}
                 {% endfor %}
             FROM TABLE(RESULT_SCAN(-1)) RES;
-            
-            
+
+
             {% endif %}
-            
+
             END
-            
-            
-            
-            
     name: Anomaly Detection 1.0
     version: 1
   StepType-261:
@@ -1596,15 +1588,15 @@ stepTypes:
             {# == Node Type Version        : 1  == #}
             {# == Node Type Name           : ML Anomaly Detection == #}
             {# == Node Type Description    : This node creates a Anomaly Detection table  == #}
-            
+
             {% set source = sources[0] %}
             {% set src_node = source.dependencies[0].node %}
             {% set anomaly_name = 'AnomalyDetection_' ~ src_node.name %}
-            
+
             {# Anomaly table creation #}
-            
+
             {{ stage('Create Anomaly Detection Table') }}
-            
+
             {% if config.spdata %}
                 CREATE OR REPLACE TABLE {{ this }}
                 (
@@ -1647,29 +1639,29 @@ stepTypes:
             {# == Node Type Version        : 1  == #}
             {# == Node Type Name           : ML Anomaly Detection == #}
             {# == Node Type Description    : This node creates a Anomaly Detection table  == #}
-            
-            
+
+
             {# INitialize anomaly model name #}
-            
+
             {% set source = sources[0] %}
             {% set src_node = source.dependencies[0].node %}
             {% set anomaly_name = config.mname %}
             {% set result = ref_no_link(node.location.name, node.name) %}
-            
+
             {%- set nsVariables = namespace(squotes="") -%}
-            
-            
+
+
             {# anomaly table truncated #}
-            
+
             {{ stage('Truncate Anomaly Detection table') }}
-            
+
             TRUNCATE IF EXISTS {{ this }}
-            
+
             {# anomaly model created #}
-            
+
             {{ stage('Anomaly Model') }}
             {% if config.Forcecreate%}
-            
+
             CREATE OR REPLACE SNOWFLAKE.ML.ANOMALY_DETECTION
              {{ ref_no_link(node.location.name, anomaly_name) }}(
                 INPUT_DATA => SYSTEM$QUERY_REFERENCE('
@@ -1685,13 +1677,13 @@ stepTypes:
                 TARGET_COLNAME => '{{ config.tgtcol.name }}',
             	{% if config.lcdata  %}LABEL_COLNAME => '{{ config.lcdata.name.lower() }}' {% else %} LABEL_COLNAME => '' {% endif %}
             )
-            
+
             {% else %}
                         SHOW SNOWFLAKE.ML.ANOMALY_DETECTION LIKE '{{ anomaly_name }}' IN SCHEMA {{ result.split('.')[:2]|join('.') }}
             {% endif %}
-            
+
             {# Anomaly data based on the model, including anomalous values, is inserted into the Anomaly table. #}
-            
+
             {{ stage('Insert Anomaly data') }}
             BEGIN
             {% if config.uspdata %}
@@ -1707,8 +1699,8 @@ stepTypes:
                 TIMESTAMP_COLNAME => '{{ config.tscol.name }}' ,
                 TARGET_COLNAME => '{{ config.tgtcol.name }}'
                 {% if config.cobject %},CONFIG_OBJECT => {'prediction_interval': {{ config.predictioninterval }}} {% endif %});
-            
-            
+
+
                 INSERT INTO {{ this }}
                 (
                     {%- for col in source.columns  %} 
@@ -1725,7 +1717,7 @@ stepTypes:
                         {%- endif %}{%- if not loop.last %}, {%- endif %}
                     {% endfor %}
                 FROM TABLE(RESULT_SCAN(-1)) RES;
-            
+
             {% else %}
                 CALL {{ ref_no_link(node.location.name, anomaly_name) }}!detect_anomalies(
                 INPUT_DATA => SYSTEM$QUERY_REFERENCE('
@@ -1743,8 +1735,8 @@ stepTypes:
                 
                 CONFIG_OBJECT => {'prediction_interval': {{ config.predictioninterval }}} {% endif %}
             );
-            
-            
+
+
                 INSERT INTO {{ this }}
                 (
                     {%- for col in columns %}
@@ -1765,15 +1757,11 @@ stepTypes:
                     {%- endif %}
                 {% endfor %}
             FROM TABLE(RESULT_SCAN(-1)) RES;
-            
-            
+
+
             {% endif %}
-            
+
             END
-            
-            
-            
-            
     name: Anomaly Detection 2.0
     version: 1
   StepType-262:
@@ -1920,15 +1908,15 @@ stepTypes:
             {# == Node Type Version        : 1  == #}
             {# == Node Type Name           : ML Forecast == #}
             {# == Node Type Description    : This node creates a forecast table  == #}
-            
+
             {% set source = sources[0] %}
             {% set src_node = source.dependencies[0].node %}
             {% set forecast_name = 'FORECAST_' ~ src_node.name %}
-            
+
             {# Forecast table creation #}
-            
+
             {{ stage('Create Forecast Table') }}
-            
+
             CREATE OR REPLACE TABLE {{ this }}
             (
                 {% for col in source.columns  %}
@@ -1954,21 +1942,21 @@ stepTypes:
             {# == Node Type Version        : 1  == #}
             {# == Node Type Name           : ML Forecast == #}
             {# == Node Type Description    : This node creates a forecast table  == #}
-            
-            
+
+
             {# INitialize forecast model name #}
-            
+
             {% set source = sources[0] %}
             {% set src_node = source.dependencies[0].node %}
             {% set forecast_name = config.mname %}
             {% set result = ref_no_link(node.location.name, node.name) %}
-            
+
             {%- set nsVariables = namespace(squotes="") -%}
-            
+
             {# Check series column datatype to determine if quoted required for series value #}
-            
-            
-            
+
+
+
             {% if config.series_value %}
                     {% for col in source.columns  %} 
                         {% if col.id == config.seriescol.id %}
@@ -1989,34 +1977,34 @@ stepTypes:
             				{% endif %}
             			{% endif %}
                     {% endfor %}
-            
+
             {% endif %}
-            
+
             {{ stage('Model check') }}
-            
+
             {% if not config.Forcecreate %}
-            
+
              CALL {{ ref_no_link(node.location.name, forecast_name) }}!FORECAST(FORECASTING_PERIODS =>1);
-            
+
              {% else %}
-            
+
             select 'Model will be created'
-            
+
             {% endif %}
-            
-            
+
+
             {# Forecast table truncated #}
-            
+
             {{ stage('Truncate Forecast table') }}
-            
+
             TRUNCATE IF EXISTS {{ this }}
-            
+
             {# Initial training data inserted into forecast table #}
-            
+
             {{ stage('Populate Forecast Table with Historical Data') }}
-            
+
             {% if not config.exvar %}
-            
+
             INSERT INTO {{ this }}
             (
                 {%- for col in source.columns  %} 
@@ -2029,16 +2017,16 @@ stepTypes:
                     {%- if not loop.last -%}, {% endif %}
                 {% endfor %}
             {{ source.join }}
-            
+
             {% else %}
-            
+
                    INSERT INTO {{ this }}
                   (
                    {%- for col in source.columns  %} 
                     "{{ col.name }}" {%- if not loop.last -%}, {% endif %}
                    {%- endfor %}
                    )
-            
+
                     {% for source in sources %}
             		    SELECT 
                			{% for col in source.columns %}
@@ -2054,14 +2042,14 @@ stepTypes:
                          {% endif %}
             	
             		{% endfor %}  
-            
+
             {% endif %}
-            
-            
+
+
             {# Forecast model created #}
-            
+
             {{ stage('Forecast Model Instance') }}
-            
+
             {% if config.Forcecreate%}
             CREATE OR REPLACE SNOWFLAKE.ML.FORECAST
              {{ ref_no_link(node.location.name, forecast_name) }}(
@@ -2077,20 +2065,20 @@ stepTypes:
                 TIMESTAMP_COLNAME => '{{ config.tscol.name }}',
                 TARGET_COLNAME => '{{ config.tgtcol.name }}'
             )
-            
+
             {% else %}
-            
+
              SHOW SNOWFLAKE.ML.FORECAST LIKE '{{ forecast_name }}' IN SCHEMA {{ result.split('.')[:2]|join('.') }}
-            
-            
+
+
             {% endif %}
-            
+
             {# Forecast data based on model with predicted values  is inserted into forecast table #}
-            
+
             {{ stage('Insert Forecast data') }}
             BEGIN
-            
-            
+
+
             {% if config.exvar %}
                 CALL {{ ref_no_link(node.location.name, forecast_name) }}!FORECAST(
                     INPUT_DATA => SYSTEM$QUERY_REFERENCE('
@@ -2105,8 +2093,8 @@ stepTypes:
                 TIMESTAMP_COLNAME => '{{ config.tscol.name }}' 
                 {% if config.series_value %}, SERIES_VALUE => {{ nsVariables.squotes}}{{config.svalue}}{{nsVariables.squotes}}  :: Variant {% endif %}
                 {% if config.cobject %},CONFIG_OBJECT => {'prediction_interval': {{ config.predictioninterval }}} {% endif %});
-            
-            
+
+
                 UPDATE {{ this }} SRC
                 SET 
                     {%- for col in columns if  col.forecast or col.lower_bound or col.upper_bound %}
@@ -2118,16 +2106,16 @@ stepTypes:
                     {%- if config.multiseries  %}
                     AND RES."SERIES" = SRC."{{ config.seriescol.name }}"            
                     {%- endif %};
-            
-            
+
+
             {% else %}
-            
-            
+
+
                 CALL {{ ref_no_link(node.location.name, forecast_name) }}!FORECAST(FORECASTING_PERIODS =>{{ config.fcdays }}
                 {% if config.series_value %},SERIES_VALUE =>{{ nsVariables.squotes}}{{config.svalue}}{{nsVariables.squotes}}  :: Variant {% endif %}
                 {% if config.cobject %},CONFIG_OBJECT => {'prediction_interval': {{ config.predictioninterval }}} {% endif %});
-            
-            
+
+
                 INSERT INTO {{ this }}
                 (
                     {%- for col in source.columns  %} 
@@ -2145,7 +2133,7 @@ stepTypes:
                     {% endfor %}
                 FROM TABLE(RESULT_SCAN(-1)) RES;
             {% endif %}
-            
+
             END
     name: ML Forecast_mname
     version: 1
@@ -2307,15 +2295,15 @@ stepTypes:
             {# == Node Type Version        : 1  == #}
             {# == Node Type Name           : ML Anomaly Detection == #}
             {# == Node Type Description    : This node creates a Anomaly Detection table  == #}
-            
+
             {% set source = sources[0] %}
             {% set src_node = source.dependencies[0].node %}
             {% set anomaly_name = 'AnomalyDetection_' ~ src_node.name %}
-            
+
             {# Anomaly table creation #}
-            
+
             {{ stage('Create Anomaly Detection Table') }}
-            
+
             {% if config.spdata %}
                 CREATE OR REPLACE TABLE {{ this }}
                 (
@@ -2358,26 +2346,26 @@ stepTypes:
             {# == Node Type Version        : 1  == #}
             {# == Node Type Name           : ML Anomaly Detection == #}
             {# == Node Type Description    : This node creates a Anomaly Detection table  == #}
-            
-            
+
+
             {# INitialize anomaly model name #}
-            
+
             {% set source = sources[0] %}
             {% set src_node = source.dependencies[0].node %}
             {% set anomaly_name = config.mname %}
             {% set result = ref_no_link(node.location.name, node.name) %}
-            
+
             {%- set nsVariables = namespace(squotes="") -%}
-            
-            
+
+
             {# anomaly table truncated #}
-            
+
             {{ stage('Truncate Anomaly Detection table') }}
-            
+
             TRUNCATE IF EXISTS {{ this }}
-            
+
             {# anomaly model created #}
-            
+
             {{ stage('Model availability check', true, "sql", "create") }}
             DECLARE
                 sqlDml1 STRING;
@@ -2392,11 +2380,11 @@ stepTypes:
                 
                 RETURN '';
             END;
-            
-            
+
+
             {{ stage('Anomaly Model') }}
             {% if config.Forcecreate%}
-            
+
             CREATE OR REPLACE SNOWFLAKE.ML.ANOMALY_DETECTION
              {{ ref_no_link(node.location.name, anomaly_name) }}(
                 INPUT_DATA => SYSTEM$QUERY_REFERENCE('
@@ -2412,13 +2400,13 @@ stepTypes:
                 TARGET_COLNAME => '{{ config.tgtcol.name }}',
             	{% if config.lcdata  %}LABEL_COLNAME => '{{ config.lcdata.name.lower() }}' {% else %} LABEL_COLNAME => '' {% endif %}
             )
-            
+
             {% else %}
                         SHOW SNOWFLAKE.ML.ANOMALY_DETECTION LIKE '{{ anomaly_name }}' IN SCHEMA {{ result.split('.')[:2]|join('.') }}
             {% endif %}
-            
+
             {# Anomaly data based on the model, including anomalous values, is inserted into the Anomaly table. #}
-            
+
             {{ stage('Insert Anomaly data') }}
             BEGIN
             {% if config.uspdata %}
@@ -2434,8 +2422,8 @@ stepTypes:
                 TIMESTAMP_COLNAME => '{{ config.tscol.name }}' ,
                 TARGET_COLNAME => '{{ config.tgtcol.name }}'
                 {% if config.cobject %},CONFIG_OBJECT => {'prediction_interval': {{ config.predictioninterval }}} {% endif %});
-            
-            
+
+
                 INSERT INTO {{ this }}
                 (
                     {%- for col in source.columns  %} 
@@ -2452,7 +2440,7 @@ stepTypes:
                         {%- endif %}{%- if not loop.last %}, {%- endif %}
                     {% endfor %}
                 FROM TABLE(RESULT_SCAN(-1)) RES;
-            
+
             {% else %}
                 CALL {{ ref_no_link(node.location.name, anomaly_name) }}!detect_anomalies(
                 INPUT_DATA => SYSTEM$QUERY_REFERENCE('
@@ -2470,8 +2458,8 @@ stepTypes:
                 
                 CONFIG_OBJECT => {'prediction_interval': {{ config.predictioninterval }}} {% endif %}
             );
-            
-            
+
+
                 INSERT INTO {{ this }}
                 (
                     {%- for col in columns %}
@@ -2492,15 +2480,11 @@ stepTypes:
                     {%- endif %}
                 {% endfor %}
             FROM TABLE(RESULT_SCAN(-1)) RES;
-            
-            
+
+
             {% endif %}
-            
+
             END
-            
-            
-            
-            
     name: Copy of Anomaly Detection_Mname
     version: 1
   StepType-268:
