@@ -28,7 +28,7 @@ steps:
         translatefunction: true
         truncateBefore: true
       database: ""
-      deployEnabled: true
+      deployEnabled: false
       description: ""
       isMultisource: false
       locationName: TARGET

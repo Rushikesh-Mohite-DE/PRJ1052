@@ -34,7 +34,7 @@ steps:
         truncateBefore: true
         whatsque: null
       database: ""
-      deployEnabled: true
+      deployEnabled: false
       description: ""
       isMultisource: false
       locationName: SOURCE

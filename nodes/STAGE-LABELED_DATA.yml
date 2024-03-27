@@ -9,7 +9,7 @@ steps:
         testsEnabled: false
         truncateBefore: true
       database: ""
-      deployEnabled: true
+      deployEnabled: false
       description: ""
       isMultisource: false
       locationName: STAGE
