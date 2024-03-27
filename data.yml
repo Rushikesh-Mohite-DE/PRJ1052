@@ -24,7 +24,7 @@ locations:
         schema: ML
       "51":
         database: QA
-        schema: ML
+        schema: ML_QA
   TARGET:
     mappingDefinitions:
       "135":
@@ -32,7 +32,7 @@ locations:
         schema: ML
       "51":
         database: QA
-        schema: ML
+        schema: ML_QA
 macros:
   Macro-1:
     id: "1"
