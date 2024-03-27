@@ -1,13 +1,6 @@
 defaultStorageMapping: SOURCE
 installedPackages: {}
-jobs:
-  Job-25:
-    excludeSelector: ""
-    id: 25
-    includeSelector: "{ location: SOURCE name: ML_FCSTS_SALES_DATA } OR { location: SOURCE name: SALES_DATA }"
-    name: SALES_DATA
-    steps: []
-    subgraphs: []
+jobs: {}
 locations:
   SOURCE:
     mappingDefinitions:
