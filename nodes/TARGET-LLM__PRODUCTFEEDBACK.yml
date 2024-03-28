@@ -2,14 +2,14 @@ steps:
   LLM__PRODUCTFEEDBACK-84f1feb3-db13-48e9-9b78-06180d33bb90:
     operation:
       config:
-        cfunctions: true
+        cfunctions: false
         exby:
           items:
             - askque: capital ?
               epartColName:
                 columnCounter: 5014d7a3-eec9-4faa-aca7-57fea6b444ef
                 stepCounter: 84f1feb3-db13-48e9-9b78-06180d33bb90
-        extractfunction: true
+        extractfunction: false
         insertStrategy: INSERT
         pby:
           items:
@@ -23,8 +23,8 @@ steps:
             - spartColName:
                 columnCounter: a2072b65-3685-4707-9151-f81e81e53e59
                 stepCounter: 84f1feb3-db13-48e9-9b78-06180d33bb90
-        sentimentfunction: true
-        summarizefunction: true
+        sentimentfunction: false
+        summarizefunction: false
         tby:
           items:
             - lanorder: "'ja', 'en'"
@@ -32,7 +32,7 @@ steps:
                 columnCounter: 412b2fc2-e9f1-420b-86bb-82c737042ace
                 stepCounter: 84f1feb3-db13-48e9-9b78-06180d33bb90
         testsEnabled: false
-        translatefunction: true
+        translatefunction: false
         truncateBefore: true
       database: ""
       deployEnabled: false
