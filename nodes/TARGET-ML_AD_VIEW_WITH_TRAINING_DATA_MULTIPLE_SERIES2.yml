@@ -21,7 +21,7 @@ steps:
           stepCounter: 4f26afbe-2a17-49dd-86a9-b2df7b548e98
         uspdata: true
       database: ""
-      deployEnabled: false
+      deployEnabled: true
       description: ""
       isMultisource: true
       locationName: TARGET

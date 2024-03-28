@@ -36,7 +36,7 @@ steps:
         truncateBefore: true
         whatsque: "'Paris is capital of ?'"
       database: ""
-      deployEnabled: false
+      deployEnabled: true
       description: ""
       isMultisource: false
       locationName: TARGET

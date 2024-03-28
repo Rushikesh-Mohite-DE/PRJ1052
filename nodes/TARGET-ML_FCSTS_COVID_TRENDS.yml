@@ -19,7 +19,7 @@ steps:
           columnCounter: 108593dd-8410-48e8-ba11-263371ed6aef
           stepCounter: 9b222e7f-a897-4a2d-be92-b45bd1ce0f4d
       database: ""
-      deployEnabled: false
+      deployEnabled: true
       description: ""
       isMultisource: true
       locationName: TARGET
